@@ -8,22 +8,36 @@
 
 /* Begin PBXBuildFile section */
 		72F3C12D2251A0AB00191AB7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F3C12C2251A0AB00191AB7 /* AppDelegate.swift */; };
-		72F3C12F2251A0AB00191AB7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F3C12E2251A0AB00191AB7 /* ViewController.swift */; };
 		72F3C1322251A0AB00191AB7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72F3C1302251A0AB00191AB7 /* Main.storyboard */; };
 		72F3C1352251A0AB00191AB7 /* My_Shift_Calculator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 72F3C1332251A0AB00191AB7 /* My_Shift_Calculator.xcdatamodeld */; };
 		72F3C1372251A0AD00191AB7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72F3C1362251A0AD00191AB7 /* Assets.xcassets */; };
 		72F3C13A2251A0AD00191AB7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72F3C1382251A0AD00191AB7 /* LaunchScreen.storyboard */; };
+		72F3C1452253114C00191AB7 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F3C1442253114C00191AB7 /* Home.swift */; };
+		72F3C14822532D8F00191AB7 /* CustomizeBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F3C14722532D8F00191AB7 /* CustomizeBtn.swift */; };
+		72F3C14A225412A900191AB7 /* SuccessModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F3C149225412A900191AB7 /* SuccessModal.swift */; };
+		72F3C14C22543DFB00191AB7 /* ChooseWorkPlaceModVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F3C14B22543DFB00191AB7 /* ChooseWorkPlaceModVC.swift */; };
+		72F3C14E2254402C00191AB7 /* CustomBtnSmallerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F3C14D2254402C00191AB7 /* CustomBtnSmallerModel.swift */; };
+		72F3C1502254500A00191AB7 /* CreateWorkplaceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F3C14F2254500A00191AB7 /* CreateWorkplaceVC.swift */; };
+		72F3C152225454CE00191AB7 /* CustomTxtField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F3C151225454CE00191AB7 /* CustomTxtField.swift */; };
+		72F3C154225638AC00191AB7 /* BottomModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F3C153225638AB00191AB7 /* BottomModal.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		72F3C1292251A0AB00191AB7 /* My Shift Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Shift Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		72F3C12C2251A0AB00191AB7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		72F3C12E2251A0AB00191AB7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		72F3C1312251A0AB00191AB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		72F3C1342251A0AB00191AB7 /* My_Shift_Calculator.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = My_Shift_Calculator.xcdatamodel; sourceTree = "<group>"; };
 		72F3C1362251A0AD00191AB7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		72F3C1392251A0AD00191AB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		72F3C13B2251A0AD00191AB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		72F3C1442253114C00191AB7 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		72F3C14722532D8F00191AB7 /* CustomizeBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizeBtn.swift; sourceTree = "<group>"; };
+		72F3C149225412A900191AB7 /* SuccessModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessModal.swift; sourceTree = "<group>"; };
+		72F3C14B22543DFB00191AB7 /* ChooseWorkPlaceModVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseWorkPlaceModVC.swift; sourceTree = "<group>"; };
+		72F3C14D2254402C00191AB7 /* CustomBtnSmallerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBtnSmallerModel.swift; sourceTree = "<group>"; };
+		72F3C14F2254500A00191AB7 /* CreateWorkplaceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWorkplaceVC.swift; sourceTree = "<group>"; };
+		72F3C151225454CE00191AB7 /* CustomTxtField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTxtField.swift; sourceTree = "<group>"; };
+		72F3C153225638AB00191AB7 /* BottomModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomModal.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +70,54 @@
 		72F3C12B2251A0AB00191AB7 /* My Shift Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				72F3C14622532D2500191AB7 /* Utilities */,
+				72F3C1432251A0F200191AB7 /* Model */,
+				72F3C1422251A0EB00191AB7 /* View */,
+				72F3C1412251A0E300191AB7 /* Controller */,
 				72F3C12C2251A0AB00191AB7 /* AppDelegate.swift */,
-				72F3C12E2251A0AB00191AB7 /* ViewController.swift */,
-				72F3C1302251A0AB00191AB7 /* Main.storyboard */,
 				72F3C1362251A0AD00191AB7 /* Assets.xcassets */,
 				72F3C1382251A0AD00191AB7 /* LaunchScreen.storyboard */,
 				72F3C13B2251A0AD00191AB7 /* Info.plist */,
 				72F3C1332251A0AB00191AB7 /* My_Shift_Calculator.xcdatamodeld */,
 			);
 			path = "My Shift Calculator";
+			sourceTree = "<group>";
+		};
+		72F3C1412251A0E300191AB7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				72F3C1442253114C00191AB7 /* Home.swift */,
+				72F3C149225412A900191AB7 /* SuccessModal.swift */,
+				72F3C14B22543DFB00191AB7 /* ChooseWorkPlaceModVC.swift */,
+				72F3C14F2254500A00191AB7 /* CreateWorkplaceVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		72F3C1422251A0EB00191AB7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				72F3C1302251A0AB00191AB7 /* Main.storyboard */,
+				72F3C14722532D8F00191AB7 /* CustomizeBtn.swift */,
+				72F3C14D2254402C00191AB7 /* CustomBtnSmallerModel.swift */,
+				72F3C151225454CE00191AB7 /* CustomTxtField.swift */,
+				72F3C153225638AB00191AB7 /* BottomModal.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		72F3C1432251A0F200191AB7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		72F3C14622532D2500191AB7 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +191,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				72F3C12F2251A0AB00191AB7 /* ViewController.swift in Sources */,
+				72F3C154225638AC00191AB7 /* BottomModal.swift in Sources */,
+				72F3C14822532D8F00191AB7 /* CustomizeBtn.swift in Sources */,
+				72F3C14A225412A900191AB7 /* SuccessModal.swift in Sources */,
+				72F3C14C22543DFB00191AB7 /* ChooseWorkPlaceModVC.swift in Sources */,
 				72F3C1352251A0AB00191AB7 /* My_Shift_Calculator.xcdatamodeld in Sources */,
+				72F3C1452253114C00191AB7 /* Home.swift in Sources */,
+				72F3C152225454CE00191AB7 /* CustomTxtField.swift in Sources */,
+				72F3C14E2254402C00191AB7 /* CustomBtnSmallerModel.swift in Sources */,
 				72F3C12D2251A0AB00191AB7 /* AppDelegate.swift in Sources */,
+				72F3C1502254500A00191AB7 /* CreateWorkplaceVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
