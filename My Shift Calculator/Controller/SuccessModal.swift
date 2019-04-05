@@ -10,6 +10,9 @@ import UIKit
 
 class SuccessModal: UIViewController {
 
+    //Variables
+    
+    var modalMessage: String?
     
     //Outlets
     @IBOutlet weak var successMsgLbl: UILabel!
@@ -27,7 +30,7 @@ class SuccessModal: UIViewController {
         super.viewDidLoad()
         modalView.layer.cornerRadius = 13
         doneLbl.layer.cornerRadius = 5
-        
+        successMsgLbl.text = modalMessage
         // Do any additional setup after loading the view.
     }
 

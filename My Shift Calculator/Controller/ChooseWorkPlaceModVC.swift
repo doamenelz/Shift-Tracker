@@ -16,6 +16,7 @@ class ChooseWorkPlaceModVC: UIViewController {
     @IBOutlet weak var manageView: UIView!
     @IBOutlet weak var newView: UIView!
     @IBOutlet weak var modalImg: UIImageView!
+    @IBOutlet weak var backGroundView: UIView!
     
     //Actions
     @IBAction func newWorkPlaceBtnPressed(_ sender: Any) {
@@ -24,10 +25,6 @@ class ChooseWorkPlaceModVC: UIViewController {
     @IBAction func manageWorkPlacePressed(_ sender: Any) {
         
     }
-    
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,17 +34,14 @@ class ChooseWorkPlaceModVC: UIViewController {
         manageView.layer.borderWidth = 0.2
         manageView.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         newView.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-       
         
-        modalImg.layer.cornerRadius = 15
-        modalView.layer.cornerRadius = 15
-        modalImg.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-
-        modalImg.layer.masksToBounds = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ChooseWorkPlaceModVC.handleTap(_:)))
+        backGroundView.addGestureRecognizer(tapGesture)
+        
     }
-
-    func setupView() {
-        
+    @objc func handleTap(_ sender: UITapGestureRecognizer) {
+        resignFirstResponder()
+        dismiss(animated: false, completion: nil)
     }
     
 }

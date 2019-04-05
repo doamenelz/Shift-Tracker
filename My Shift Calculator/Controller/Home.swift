@@ -39,6 +39,10 @@ class Home: UIViewController {
     }
     
     @IBAction func viewAllPressed(_ sender: Any) {
+        //Nav to Shifts StoryBoard
+        let VC = UIStoryboard(name: "Shifts", bundle: nil).instantiateViewController(withIdentifier: "ViewShiftsVC") as! ViewShiftsVC
+        self.present(VC, animated: true, completion: nil)
+
     }
     
     @IBAction func addShiftPressed(_ sender: Any) {
@@ -71,6 +75,8 @@ class Home: UIViewController {
         topBorderView.layer.cornerRadius = 13
         topBorderView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
+
+
 }
 
 
