@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_5" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,14 +15,14 @@
             <objects>
                 <viewController storyboardIdentifier="HomeVC" id="BYZ-38-t0r" customClass="Home" customModule="My_Shift_Calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Wallpaper" translatesAutoresizingMaskIntoConstraints="NO" id="ybY-cv-iWD">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MJq-dP-1nS">
-                                <rect key="frame" x="349" y="87" width="40" height="40"/>
+                                <rect key="frame" x="349" y="63" width="40" height="40"/>
                                 <state key="normal" image="Settings-1"/>
                                 <connections>
                                     <action selector="settings:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kwq-Xz-Shf"/>
@@ -30,7 +30,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="keG-SR-Ku1">
-                                <rect key="frame" x="23" y="137" width="368" height="290"/>
+                                <rect key="frame" x="23" y="113" width="368" height="290"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cards" translatesAutoresizingMaskIntoConstraints="NO" id="WyF-8f-yPM">
                                         <rect key="frame" x="0.0" y="0.0" width="368" height="290"/>
@@ -148,7 +148,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qiI-3m-3fp">
-                                <rect key="frame" x="23" y="447" width="368" height="135"/>
+                                <rect key="frame" x="23" y="423" width="368" height="135"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vj9-mo-axC">
                                         <rect key="frame" x="0.0" y="0.0" width="368" height="45"/>
@@ -282,7 +282,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6mI-QP-cpt" customClass="CustomizeBtn" customModule="My_Shift_Calculator" customModuleProvider="target">
-                                <rect key="frame" x="66" y="626" width="282" height="48"/>
+                                <rect key="frame" x="66" y="602" width="282" height="48"/>
                                 <color key="backgroundColor" red="0.42745098040000001" green="0.47450980390000003" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="89c-W7-fMG"/>
@@ -353,22 +353,22 @@
             <objects>
                 <viewController storyboardIdentifier="SuccessModal" id="1pG-HB-Wff" customClass="SuccessModal" customModule="My_Shift_Calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hIH-ZX-fhF">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QTF-je-dOj">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s10-eY-AWq">
-                                <rect key="frame" x="25" y="325.66666666666669" width="364" height="245.00000000000006"/>
+                                <rect key="frame" x="25" y="245.66666666666663" width="364" height="245"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Modal" translatesAutoresizingMaskIntoConstraints="NO" id="1bO-1n-ZP0">
                                         <rect key="frame" x="0.0" y="0.0" width="364" height="245"/>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="gKu-9B-J7u">
-                                        <rect key="frame" x="25" y="25" width="314" height="198.33333333333334"/>
+                                        <rect key="frame" x="25" y="25.000000000000028" width="314" height="198.33333333333334"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shift Created" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Waf-Fu-zjU">
                                                 <rect key="frame" x="108.33333333333334" y="0.0" width="97.666666666666657" height="20.333333333333332"/>
@@ -445,16 +445,16 @@
             <objects>
                 <viewController id="FBp-EC-nC8" customClass="ChooseWorkPlaceModVC" customModule="My_Shift_Calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WtE-Ig-4pR">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yih-b6-6Sv">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VMx-sc-6vt" customClass="BottomModal" customModule="My_Shift_Calculator" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="636" width="414" height="260"/>
+                                <rect key="frame" x="0.0" y="476" width="414" height="260"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Workplace" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xUQ-RF-aiz">
                                         <rect key="frame" x="158" y="18" width="98" height="24"/>
@@ -577,40 +577,24 @@
             <objects>
                 <viewController id="hm7-bY-4ba" customClass="CreateShiftVC" customModule="My_Shift_Calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rw1-2B-QAH">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bp1-75-QZ3">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="820"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="694"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uBE-3q-FJH" customClass="BottomModal" customModule="My_Shift_Calculator" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="596" width="414" height="300"/>
+                                <rect key="frame" x="0.0" y="26" width="414" height="710"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" alpha="0.27000000000000002" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Modal" translatesAutoresizingMaskIntoConstraints="NO" id="X63-0Q-l6t">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Shift" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="olf-hG-wZp">
-                                        <rect key="frame" x="162.33333333333334" y="18" width="89.333333333333343" height="24"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" text="New Shift" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="olf-hG-wZp">
+                                        <rect key="frame" x="162.33333333333334" y="15" width="89.333333333333343" height="24"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                         <color key="textColor" red="0.42745098040000001" green="0.47450980390000003" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ken-bM-7Uo" customClass="CustomBtnSmallerModel" customModule="My_Shift_Calculator" customModuleProvider="target">
-                                        <rect key="frame" x="25" y="220" width="364" height="48"/>
-                                        <color key="backgroundColor" red="0.42745098040000001" green="0.47450980390000003" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="48" id="8NL-Nf-ALi"/>
-                                        </constraints>
-                                        <state key="normal" title="Add Shift">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="addShiftPressed:" destination="hm7-bY-4ba" eventType="touchUpInside" id="1l5-sc-FWZ"/>
-                                        </connections>
-                                    </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="TsR-ZL-tlz">
-                                        <rect key="frame" x="25" y="57" width="364" height="153"/>
+                                        <rect key="frame" x="25" y="54" width="364" height="631"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="MoB-hl-bVd">
                                                 <rect key="frame" x="0.0" y="0.0" width="364" height="98"/>
@@ -624,6 +608,9 @@
                                                         <state key="normal" title="Select Workplace">
                                                             <color key="titleColor" red="0.42745098040000001" green="0.47450980390000003" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="selectWorkPlacePressed:" destination="hm7-bY-4ba" eventType="touchUpInside" id="ge5-z7-Z7X"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hLG-al-5GZ" customClass="CustomBtnSmallerModel" customModule="My_Shift_Calculator" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="53" width="364" height="45"/>
@@ -634,6 +621,9 @@
                                                         <state key="normal" title="Select Date">
                                                             <color key="titleColor" red="0.42745098040000001" green="0.47450980390000003" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="selectDatePressed:" destination="hm7-bY-4ba" eventType="touchUpInside" id="Qht-hZ-VHQ"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -649,6 +639,9 @@
                                                         <state key="normal" title="Start Time">
                                                             <color key="titleColor" red="0.42745098040000001" green="0.47450980390000003" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="startTimeSelected:" destination="hm7-bY-4ba" eventType="touchUpInside" id="bwb-Om-ido"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="43q-Yy-Fs8" customClass="CustomBtnSmallerModel" customModule="My_Shift_Calculator" customModuleProvider="target">
                                                         <rect key="frame" x="186.66666666666663" y="0.0" width="177.33333333333337" height="45"/>
@@ -659,34 +652,66 @@
                                                         <state key="normal" title="End Time">
                                                             <color key="titleColor" red="0.42745098040000001" green="0.47450980390000003" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="stopTimeSelected:" destination="hm7-bY-4ba" eventType="touchUpInside" id="KXl-iB-8DS"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
+                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jSu-x7-63u">
+                                                <rect key="frame" x="0.0" y="163" width="364" height="200"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="180" id="XoT-La-1Z6"/>
+                                                    <constraint firstAttribute="height" constant="200" id="rLr-SO-T1G"/>
+                                                </constraints>
+                                            </pickerView>
+                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="uRn-2B-mBG">
+                                                <rect key="frame" x="0.0" y="373" width="364" height="200"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="200" id="tJ8-HG-fmo"/>
+                                                </constraints>
+                                                <date key="date" timeIntervalSinceReferenceDate="576444978.89816201">
+                                                    <!--2019-04-08 19:36:18 +0000-->
+                                                </date>
+                                            </datePicker>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ken-bM-7Uo" customClass="CustomBtnSmallerModel" customModule="My_Shift_Calculator" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="583" width="364" height="48"/>
+                                                <color key="backgroundColor" red="0.42745098040000001" green="0.47450980390000003" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="48" id="8NL-Nf-ALi"/>
+                                                </constraints>
+                                                <state key="normal" title="Add Shift">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="addShiftPressed:" destination="hm7-bY-4ba" eventType="touchUpInside" id="1l5-sc-FWZ"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                     </stackView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-calendar-480" translatesAutoresizingMaskIntoConstraints="NO" id="8vB-ai-W0y">
-                                        <rect key="frame" x="359" y="122.66666666666663" width="20" height="20"/>
+                                        <rect key="frame" x="359" y="119.66666666666666" width="20" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="3aM-wB-a2D"/>
                                             <constraint firstAttribute="width" constant="20" id="vgk-bf-aLw"/>
                                         </constraints>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DrpDwn Copy" translatesAutoresizingMaskIntoConstraints="NO" id="NW9-94-zRP">
-                                        <rect key="frame" x="359" y="69.666666666666629" width="20" height="20"/>
+                                        <rect key="frame" x="359" y="66.666666666666671" width="20" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="20" id="DQW-IN-icT"/>
                                             <constraint firstAttribute="height" constant="20" id="I9z-6v-39G"/>
                                         </constraints>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-time-96" translatesAutoresizingMaskIntoConstraints="NO" id="s29-De-c99">
-                                        <rect key="frame" x="359" y="177.66666666666663" width="20" height="20"/>
+                                        <rect key="frame" x="359" y="174.66666666666666" width="20" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="F4P-Ng-bBX"/>
                                             <constraint firstAttribute="width" constant="20" id="Jfs-Yb-hEi"/>
                                         </constraints>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-time-96" translatesAutoresizingMaskIntoConstraints="NO" id="Gng-Ut-euq">
-                                        <rect key="frame" x="172.66666666666666" y="177.66666666666663" width="20" height="20"/>
+                                        <rect key="frame" x="172.66666666666666" y="174.66666666666666" width="20" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="20" id="mah-Td-Gzg"/>
                                             <constraint firstAttribute="height" constant="20" id="tcS-7v-x2E"/>
@@ -696,26 +721,19 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="Gng-Ut-euq" firstAttribute="trailing" secondItem="rI5-3d-ioM" secondAttribute="trailing" constant="-10" id="1rE-3h-JF8"/>
-                                    <constraint firstAttribute="trailing" secondItem="ken-bM-7Uo" secondAttribute="trailing" constant="25" id="1wE-cd-k09"/>
                                     <constraint firstItem="TsR-ZL-tlz" firstAttribute="leading" secondItem="uBE-3q-FJH" secondAttribute="leading" constant="25" id="260-jR-gTw"/>
                                     <constraint firstItem="8vB-ai-W0y" firstAttribute="trailing" secondItem="hLG-al-5GZ" secondAttribute="trailing" constant="-10" id="5XO-yz-ohw"/>
+                                    <constraint firstAttribute="bottom" secondItem="TsR-ZL-tlz" secondAttribute="bottom" constant="25" id="6vv-U4-30D"/>
                                     <constraint firstItem="s29-De-c99" firstAttribute="trailing" secondItem="43q-Yy-Fs8" secondAttribute="trailing" constant="-10" id="Fj3-f3-NzO"/>
-                                    <constraint firstItem="X63-0Q-l6t" firstAttribute="top" secondItem="uBE-3q-FJH" secondAttribute="top" id="HIn-hV-c7k"/>
-                                    <constraint firstItem="TsR-ZL-tlz" firstAttribute="top" secondItem="olf-hG-wZp" secondAttribute="bottom" constant="15" id="I0l-ea-eQi"/>
                                     <constraint firstItem="NW9-94-zRP" firstAttribute="centerY" secondItem="7zB-Hd-quq" secondAttribute="centerY" id="Ib2-Io-47h"/>
-                                    <constraint firstItem="olf-hG-wZp" firstAttribute="top" secondItem="uBE-3q-FJH" secondAttribute="top" constant="18" id="Iyv-fm-obD"/>
                                     <constraint firstItem="olf-hG-wZp" firstAttribute="centerX" secondItem="uBE-3q-FJH" secondAttribute="centerX" id="JQR-cK-jP9"/>
-                                    <constraint firstAttribute="bottom" secondItem="X63-0Q-l6t" secondAttribute="bottom" id="Lbl-mC-eqG"/>
                                     <constraint firstItem="8vB-ai-W0y" firstAttribute="centerY" secondItem="hLG-al-5GZ" secondAttribute="centerY" id="Pe0-NF-toX"/>
+                                    <constraint firstItem="olf-hG-wZp" firstAttribute="top" secondItem="uBE-3q-FJH" secondAttribute="top" constant="15" id="Qmd-7v-RQJ"/>
                                     <constraint firstItem="s29-De-c99" firstAttribute="centerY" secondItem="43q-Yy-Fs8" secondAttribute="centerY" id="aCp-2F-XDx"/>
                                     <constraint firstAttribute="trailing" secondItem="TsR-ZL-tlz" secondAttribute="trailing" constant="25" id="aIx-oA-KZx"/>
-                                    <constraint firstAttribute="trailing" secondItem="X63-0Q-l6t" secondAttribute="trailing" id="arS-QW-1I5"/>
-                                    <constraint firstItem="X63-0Q-l6t" firstAttribute="leading" secondItem="uBE-3q-FJH" secondAttribute="leading" id="fg3-pH-N2b"/>
-                                    <constraint firstItem="ken-bM-7Uo" firstAttribute="leading" secondItem="uBE-3q-FJH" secondAttribute="leading" constant="25" id="jAK-Iq-ub5"/>
-                                    <constraint firstAttribute="height" constant="300" id="jJB-W4-W24"/>
                                     <constraint firstItem="Gng-Ut-euq" firstAttribute="centerY" secondItem="rI5-3d-ioM" secondAttribute="centerY" id="mWX-0f-aRO"/>
                                     <constraint firstItem="NW9-94-zRP" firstAttribute="trailing" secondItem="7zB-Hd-quq" secondAttribute="trailing" constant="-10" id="nnj-Ab-t3k"/>
-                                    <constraint firstItem="ken-bM-7Uo" firstAttribute="top" secondItem="TsR-ZL-tlz" secondAttribute="bottom" constant="10" id="t6u-4b-tVN"/>
+                                    <constraint firstItem="TsR-ZL-tlz" firstAttribute="top" secondItem="olf-hG-wZp" secondAttribute="bottom" constant="15" id="trL-VX-Qu2"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -725,7 +743,7 @@
                             <constraint firstItem="uBE-3q-FJH" firstAttribute="trailing" secondItem="WcL-6P-AI6" secondAttribute="trailing" id="Pye-9y-oFB"/>
                             <constraint firstItem="WcL-6P-AI6" firstAttribute="bottom" secondItem="Bp1-75-QZ3" secondAttribute="bottom" constant="42" id="ftt-KA-WLG"/>
                             <constraint firstItem="uBE-3q-FJH" firstAttribute="bottom" secondItem="rw1-2B-QAH" secondAttribute="bottom" id="gHM-hS-ql4"/>
-                            <constraint firstItem="uBE-3q-FJH" firstAttribute="leading" secondItem="rw1-2B-QAH" secondAttribute="leading" id="oor-6s-DwV"/>
+                            <constraint firstItem="uBE-3q-FJH" firstAttribute="leading" secondItem="WcL-6P-AI6" secondAttribute="leading" id="q0K-MD-b9y"/>
                             <constraint firstItem="Bp1-75-QZ3" firstAttribute="top" secondItem="rw1-2B-QAH" secondAttribute="top" id="vQO-vl-g89"/>
                             <constraint firstItem="Bp1-75-QZ3" firstAttribute="trailing" secondItem="WcL-6P-AI6" secondAttribute="trailing" id="zav-6h-UYC"/>
                         </constraints>
@@ -734,7 +752,9 @@
                     <connections>
                         <outlet property="backGroundView" destination="Bp1-75-QZ3" id="stw-LW-uJf"/>
                         <outlet property="backgroundView" destination="Bp1-75-QZ3" id="DqH-5l-0fx"/>
+                        <outlet property="bottomModal" destination="uBE-3q-FJH" id="x7y-g9-x6H"/>
                         <outlet property="endTime" destination="43q-Yy-Fs8" id="dzW-72-y5B"/>
+                        <outlet property="picker" destination="jSu-x7-63u" id="1JA-Yv-Ptq"/>
                         <outlet property="selectDate" destination="hLG-al-5GZ" id="Y2D-no-DRZ"/>
                         <outlet property="selectWorkPlace" destination="7zB-Hd-quq" id="Rg6-qw-gn8"/>
                         <outlet property="startTime" destination="rI5-3d-ioM" id="Nva-Bj-Hbj"/>
@@ -742,23 +762,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1GP-t5-dkl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1533.3333333333335" y="850.44642857142856"/>
+            <point key="canvasLocation" x="1533.3333333333335" y="850.27173913043487"/>
         </scene>
         <!--Create WorkplaceVC-->
         <scene sceneID="3Yl-bi-2yN">
             <objects>
                 <viewController id="bJb-i7-3VH" customClass="CreateWorkplaceVC" customModule="My_Shift_Calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Kdu-y0-3LC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CwF-LD-pF6">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ru-m3-uWY" customClass="BottomModal" customModule="My_Shift_Calculator" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="636" width="414" height="260"/>
+                                <rect key="frame" x="0.0" y="476" width="414" height="260"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Workplace" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ml-nH-1Bt">
                                         <rect key="frame" x="135" y="18" width="144" height="24"/>
