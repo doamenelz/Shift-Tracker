@@ -32,6 +32,7 @@ class CreateWorkplaceVC: UIViewController {
             newWorkplace.workPlaceName = workplaceTxtFld.text!
             newWorkplace.rates = Double(ratesTxtFld.text!)!
             saveWorkplace()
+           
             print("Create Btn Pressed")
             
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "SuccessModal") as! SuccessModal
