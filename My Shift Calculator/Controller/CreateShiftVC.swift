@@ -11,6 +11,9 @@ import CoreData
 
 class CreateShiftVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
+    
+     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     //Outlets
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var selectWorkPlace: CustomBtnSmallerModel!
@@ -27,12 +30,13 @@ class CreateShiftVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
     //Variables
     var pickerData = [Any]()
     var workPlaceArray = [Workplace]()
-
+    
+    
     var borderWidth = 0.5
     var borderColor = #colorLiteral(red: 0.4274509804, green: 0.4745098039, blue: 0.5764705882, alpha: 1)
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+   
     var selectedWorkplace = ""
-    var startShiftDate = Date()
+    var startShiftDate: Date!
     var endShiftDate = Date()
     
     //PickerDataVariables
@@ -62,11 +66,13 @@ class CreateShiftVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
         picker.isHidden = true
         datePicker.isHidden = true
         
-        if (startShiftDate < endShiftDate) || (selectedWorkplace != "") {
+        if (startShiftDate < endShiftDate) && (selectedWorkplace != "") {
             
             print("All conditions passed")
-            //compare dates, validate workspace, and date fields
+            
             //Persist Data()
+           
+            
         } else {
             print("Conditions failed")
         }
@@ -80,16 +86,32 @@ class CreateShiftVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
         picker.isHidden = true
         datePicker.isHidden = true
         doneView.isHidden = true
+        let formatedDate = dateFormatter.string(from: datePicker.date)
+        if tag == 3 {
+            selectDate.setTitle(formatedDate, for: .normal)
+            startShiftDate = datePicker.date
+        }
         
+//        if tag == 1 {
+//            if selectWorkPlace.titleLabel?.text == "" {
+//                print("No value found")
+//            } else {
+//                selectWorkPlace.setTitle(selectedWorkplace, for: .normal)
+//                print("too bsddd")
+//                print(selectedWorkplace.description)
+//                print(selectWorkPlace.titleLabel?.text)
+//            }
+//
+//        }
        
 
     }
     @IBAction func selectWorkPlacePressed(_ sender: Any) {
-        //tag = 1
+        tag = 1
         //numberOfComponents = 1
         loadWorkplace()
 
-        var workplacePickerData = [String]()
+        var workplacePickerData = ["-- Select a Workplace --"]
         for items in workPlaceArray {
                 workplacePickerData.append(items.workPlaceName ?? "nil")
             }
@@ -131,6 +153,7 @@ class CreateShiftVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
         dateFormatter.dateFormat = "EEEE, MMM d, h:mm a"
         doneView.isHidden = true
         setupView()
+        
     }
     
     //MARK: - AddPicker Stubs
@@ -143,12 +166,12 @@ class CreateShiftVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-           pickerRow = pickerData[row] as? String ?? "nil"
+           pickerRow = pickerData[row] as? String ?? ""
         return pickerData[row] as? String
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-            selectedWorkplace = pickerData[row] as? String ?? "nil"
+            selectedWorkplace = pickerData[row] as? String ?? "Select Workplace"
             selectWorkPlace.setTitle(selectedWorkplace, for: .normal)
        
     }
@@ -188,7 +211,16 @@ class CreateShiftVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
         
     }
 
-
+    func saveShift() {
+        do {
+            try context.save()
+            print("Context Saved! \(context)")
+            //modalDisplay = "Workplace was added successfully!"
+        } catch {
+            print("Error saving context \(error)")
+        }
+        
+    }
     //Persist the date and time
     // Enforce Minimum stuff
     

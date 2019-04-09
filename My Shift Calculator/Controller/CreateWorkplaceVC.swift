@@ -14,7 +14,7 @@ class CreateWorkplaceVC: UIViewController {
 
     //Create Context
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-
+    
     //Variables
     var modalDisplay = ""
    

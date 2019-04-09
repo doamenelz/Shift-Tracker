@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18C54" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Shifts" representedClassName="Shifts" syncable="YES" codeGenerationType="class">
-        <attribute name="endShiftDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="startShiftDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+    <entity name="Shift" representedClassName=".Shift" syncable="YES" codeGenerationType="class">
+        <attribute name="endShiftDate" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="startShiftDate" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="parentCategory" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Workplace" inverseName="shifts" inverseEntity="Workplace" syncable="YES"/>
     </entity>
     <entity name="Workplace" representedClassName=".Workplace" syncable="YES" codeGenerationType="class">
         <attribute name="rates" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="workPlaceName" attributeType="String" syncable="YES"/>
+        <relationship name="shifts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Shift" inverseName="parentCategory" inverseEntity="Shift" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Workplace" positionX="-63" positionY="-18" width="128" height="75"/>
-        <element name="Shifts" positionX="-63" positionY="0" width="128" height="75"/>
+        <element name="Shift" positionX="-427.58984375" positionY="-18.23046875" width="128" height="88"/>
+        <element name="Workplace" positionX="-725.7421875" positionY="-18.30859375" width="128" height="88"/>
     </elements>
 </model>
