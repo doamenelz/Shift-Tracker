@@ -14,12 +14,13 @@ class CreateShiftVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
     
      let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
+ 
+    
     //Outlets
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var selectWorkPlace: CustomBtnSmallerModel!
     @IBOutlet weak var selectDate: CustomBtnSmallerModel!
     @IBOutlet weak var startTime: CustomBtnSmallerModel!
-   // @IBOutlet weak var endTime: CustomBtnSmallerModel!
     @IBOutlet weak var backGroundView: UIView!
     @IBOutlet weak var picker: UIPickerView!
     @IBOutlet weak var bottomModal: BottomModal!
@@ -28,23 +29,29 @@ class CreateShiftVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
     
     
     //Variables
-    var pickerData = [Any]()
+    var pickerData = [String]()
     var workPlaceArray = [Workplace]()
+    var modalDisplay = ""
     
-    
-    var borderWidth = 0.5
-    var borderColor = #colorLiteral(red: 0.4274509804, green: 0.4745098039, blue: 0.5764705882, alpha: 1)
+//    var borderWidth = 0.5
+//    var borderColor = #colorLiteral(red: 0.4274509804, green: 0.4745098039, blue: 0.5764705882, alpha: 1)
    
     var selectedWorkplace = ""
     var startShiftDate: Date!
     var endShiftDate = Date()
+    var rateToSave: Double!
     
     //PickerDataVariables
     var pickerRow = ""
     var tag: Int = 0
     var numberOfComponents: Int = 0
     var dateFormatter = DateFormatter()
+    var toSaveWorkplace: Workplace?
+    
 
+    var rates: [Double]?
+    
+    
     
     //Actions
     @IBAction func valueChanged(_ sender: Any) {
@@ -55,7 +62,7 @@ class CreateShiftVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
             print(startShiftDate)
         } else if tag == 4 {
              startTime.setTitle(formatedDate, for: .normal)
-            datePicker.minimumDate = startShiftDate
+            datePicker.minimumDate = startShiftDate.addingTimeInterval(5)
             endShiftDate = datePicker.date
             print(endShiftDate)
         }
@@ -67,12 +74,22 @@ class CreateShiftVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
         datePicker.isHidden = true
         
         if (startShiftDate < endShiftDate) && (selectedWorkplace != "") {
-            
             print("All conditions passed")
-            
-            //Persist Data()
            
+            //Persist Data()
+           let newShift = Shift(context: self.context)
+          
+            newShift.startShiftDate = startShiftDate
+            newShift.endShiftDate = endShiftDate
+           newShift.workPlaceName = selectedWorkplace
+            newShift.rates = rateToSave
             
+            saveShift()
+            
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "SuccessModal") as! SuccessModal
+            vc.modalMessage = self.modalDisplay
+            self.present(vc, animated: false, completion: nil)
+            print("Values arent empty")
         } else {
             print("Conditions failed")
         }
@@ -91,31 +108,26 @@ class CreateShiftVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
             selectDate.setTitle(formatedDate, for: .normal)
             startShiftDate = datePicker.date
         }
-        
-//        if tag == 1 {
-//            if selectWorkPlace.titleLabel?.text == "" {
-//                print("No value found")
-//            } else {
-//                selectWorkPlace.setTitle(selectedWorkplace, for: .normal)
-//                print("too bsddd")
-//                print(selectedWorkplace.description)
-//                print(selectWorkPlace.titleLabel?.text)
-//            }
-//
-//        }
-       
 
     }
     @IBAction func selectWorkPlacePressed(_ sender: Any) {
         tag = 1
         //numberOfComponents = 1
         loadWorkplace()
-
+     
         var workplacePickerData = ["-- Select a Workplace --"]
-        for items in workPlaceArray {
-                workplacePickerData.append(items.workPlaceName ?? "nil")
-            }
+        var wPR : [Double] = [0]
         
+        for item in workPlaceArray {
+            workplacePickerData.append(item.workPlaceName ?? "nil")
+            //wPR = item.rates
+        }
+        
+        for rates in workPlaceArray {
+        wPR.append(rates.rates)
+        }
+        
+        rates = wPR
         pickerData = workplacePickerData
         datePicker.isHidden = true
         doneView.isHidden = false
@@ -166,14 +178,28 @@ class CreateShiftVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-           pickerRow = pickerData[row] as? String ?? ""
-        return pickerData[row] as? String
+        
+        
+        pickerRow = pickerData[row] //as? String ?? ""
+        //print(pickerRow)
+        return pickerData[row]// as? String
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-            selectedWorkplace = pickerData[row] as? String ?? "Select Workplace"
+            selectedWorkplace = pickerData[row]// as? String ?? "Select Workplace"
+        
             selectWorkPlace.setTitle(selectedWorkplace, for: .normal)
-       
+        
+        let wkPIndex = pickerData.firstIndex(of: selectedWorkplace)//{$0 == selectedWorkplace}
+        print(pickerData)
+        print(rates!)
+        rateToSave = rates![wkPIndex!]
+        
+      
+        print("Index of Selected workplace is - \(wkPIndex)")
+          print(rateToSave)
+        
+        //print(rates)
     }
     
 @objc func handleTap(_ sender: UITapGestureRecognizer) {
@@ -184,15 +210,17 @@ class CreateShiftVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
     //MARK:- CoreData Functions
     func loadWorkplace () {
         let request : NSFetchRequest<Workplace> = Workplace.fetchRequest()
+        
         do {
             //ParseWorkplace to Array
             workPlaceArray =  try context.fetch(request)
-            print(workPlaceArray)
+            //print(workPlaceArray)
         } catch  {
             print("Error fetching Workplace from context \(error)")
         }
         
     }
+    
     
     func selectDatePicker () {
         picker.isHidden = true
@@ -215,7 +243,7 @@ class CreateShiftVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
         do {
             try context.save()
             print("Context Saved! \(context)")
-            //modalDisplay = "Workplace was added successfully!"
+            modalDisplay = "Shift was created successfully!"
         } catch {
             print("Error saving context \(error)")
         }

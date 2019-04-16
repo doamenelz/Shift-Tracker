@@ -13,14 +13,18 @@ class ShiftCell: UITableViewCell {
     
     //Outlets
     @IBOutlet weak var dateLbl: UILabel!
+    @IBOutlet weak var hrLblView: UIView!
+    @IBOutlet weak var hrLbl: UILabel!
+     var dateFormatter = DateFormatter()
     
-    
+    @IBOutlet weak var bgView: UIView!
     //Actions
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        hrLblView.layer.cornerRadius = 10
+    
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -29,7 +33,12 @@ class ShiftCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    func configureCell () {
-        
+    func configureCell (shift: Shift) {
+        hrLblView.layer.cornerRadius = 10
+        dateFormatter.dateFormat = "E, d MMM"
+        //dateLbl.text = shift.startShiftDate
+        dateLbl.text = dateFormatter.string(from: shift.startShiftDate!)
+        bgView.layer.cornerRadius = 5
+        //hrLbl.text =
     }
 }
