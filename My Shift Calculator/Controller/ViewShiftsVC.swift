@@ -11,11 +11,12 @@ import CoreData
 
 class ViewShiftsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-
-  
-     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     private var shiftsArray = [Shift]()
+    
+    
 
     //Outlets
     @IBOutlet weak var tableView: UITableView!
@@ -30,11 +31,12 @@ class ViewShiftsVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         
     }
     
+    //Variables
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadItems()
-        print(shiftsArray)
+        //print(shiftsArray)
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = 75
@@ -51,6 +53,7 @@ class ViewShiftsVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         performSegue(withIdentifier: "goToShiftsSeg", sender: self)
     }
     
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "ShiftCell", for: indexPath) as? ShiftCell {
            cell.configureCell(shift: shiftsArray[indexPath.row])

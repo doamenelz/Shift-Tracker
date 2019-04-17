@@ -186,20 +186,13 @@ class CreateShiftVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-            selectedWorkplace = pickerData[row]// as? String ?? "Select Workplace"
-        
-            selectWorkPlace.setTitle(selectedWorkplace, for: .normal)
+        selectedWorkplace = pickerData[row]// as? String ?? "Select Workplace"
+        selectWorkPlace.setTitle(selectedWorkplace, for: .normal)
         
         let wkPIndex = pickerData.firstIndex(of: selectedWorkplace)//{$0 == selectedWorkplace}
         print(pickerData)
         print(rates!)
         rateToSave = rates![wkPIndex!]
-        
-      
-        print("Index of Selected workplace is - \(wkPIndex)")
-          print(rateToSave)
-        
-        //print(rates)
     }
     
 @objc func handleTap(_ sender: UITapGestureRecognizer) {

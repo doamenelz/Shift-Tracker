@@ -40,7 +40,7 @@ class Home: UIViewController {
     
     @IBAction func viewAllPressed(_ sender: Any) {
         //Nav to Shifts StoryBoard
-        let VC = UIStoryboard(name: "Shifts", bundle: nil).instantiateViewController(withIdentifier: "ViewShiftsVC") as! ViewShiftsVC
+        let VC = UIStoryboard(name: "Shifts", bundle: nil).instantiateViewController(withIdentifier: "ShiftExpandedVC") as! ShiftExpandedVC
         self.present(VC, animated: true, completion: nil)
 
     }

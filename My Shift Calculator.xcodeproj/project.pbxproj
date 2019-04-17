@@ -137,8 +137,8 @@
 				72F3C149225412A900191AB7 /* SuccessModal.swift */,
 				72F3C14B22543DFB00191AB7 /* ChooseWorkPlaceModVC.swift */,
 				72F3C14F2254500A00191AB7 /* CreateWorkplaceVC.swift */,
-				7290A8A72256A41C001ECE48 /* ViewShiftsVC.swift */,
 				7290A8AE2256D4DB001ECE48 /* CreateShiftVC.swift */,
+				7290A8A72256A41C001ECE48 /* ViewShiftsVC.swift */,
 				728BC77E2265765600A0E50D /* ShiftExpandedVC.swift */,
 			);
 			path = Controller;

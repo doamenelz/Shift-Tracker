@@ -21,10 +21,12 @@ class ShiftExpandedCell: UITableViewCell {
     @IBOutlet weak var statusOval: UIImageView!
     @IBOutlet weak var statusLbl: UILabel!
     @IBOutlet weak var statusView: UIView!
+    @IBOutlet weak var shiftDay: UILabel!
     
     
     //Variables
      var dateFormatter = DateFormatter()
+    var headerFormatter = DateFormatter()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -44,6 +46,7 @@ class ShiftExpandedCell: UITableViewCell {
     
     func configureCell (shift: Shift) {
         dateFormatter.dateFormat = "MMM d, h:mm a"
+        headerFormatter.dateFormat = "E, MMM d"
         let dateComponentsFormatter = DateComponentsFormatter()
         dateComponentsFormatter.allowedUnits = [.day,.hour, .minute]
         dateComponentsFormatter.maximumUnitCount = 2
@@ -55,6 +58,7 @@ class ShiftExpandedCell: UITableViewCell {
         locationLabel.text = shift.workPlaceName
         ratesLabel.text = "$\(shift.rates) / hr"
         shiftDurationLbl.text = dateComponentsFormatter.string(from: shift.startShiftDate!, to: shift.endShiftDate!)
+        shiftDay.text = headerFormatter.string(from: shift.startShiftDate!)
         //print(shiftDateDifference)
 
     }
