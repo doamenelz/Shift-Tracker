@@ -15,8 +15,12 @@ class ShiftExpandedVC: UIViewController, UITableViewDelegate, UITableViewDataSou
 //Outlets
     var shiftsLoaded = [Shift]()
     var parsedShifts = [Shift]()
-    @IBOutlet weak var weekStartingLabel: UILabel!
+    var shiftCell = ShiftExpandedCell()
     
+    @IBOutlet weak var weekStartingLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
+    
+
 //Actions
     @IBAction func backPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -26,13 +30,16 @@ class ShiftExpandedVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         super.viewDidLoad()
         loadItems()
         parseShift()
-        
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 190
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        // return shiftsLoaded.count
         return parsedShifts.count
     }
+    
+  
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "expandedShiftCell", for: indexPath) as? ShiftExpandedCell {
