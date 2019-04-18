@@ -4,6 +4,7 @@
         <attribute name="endShiftDate" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="rates" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="startShiftDate" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="workPlaceName" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="parentCategory" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Workplace" inverseName="shifts" inverseEntity="Workplace" syncable="YES"/>
     </entity>
@@ -13,7 +14,7 @@
         <relationship name="shifts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Shift" inverseName="parentCategory" inverseEntity="Shift" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Shift" positionX="-427.58984375" positionY="-18.23046875" width="128" height="118"/>
+        <element name="Shift" positionX="-427.58984375" positionY="-18.23046875" width="128" height="133"/>
         <element name="Workplace" positionX="-725.7421875" positionY="-18.30859375" width="128" height="88"/>
     </elements>
 </model>

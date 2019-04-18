@@ -15,12 +15,9 @@ class ViewShiftsVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     
     private var shiftsArray = [Shift]()
-    
-    
 
     //Outlets
     @IBOutlet weak var tableView: UITableView!
-
     
     //Actions
     @IBAction func backBtnPressed(_ sender: Any) {

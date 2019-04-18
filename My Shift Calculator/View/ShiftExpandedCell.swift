@@ -22,24 +22,18 @@ class ShiftExpandedCell: UITableViewCell {
     @IBOutlet weak var statusLbl: UILabel!
     @IBOutlet weak var statusView: UIView!
     @IBOutlet weak var shiftDay: UILabel!
-    @IBOutlet weak var controlsView: UIView!
-    @IBOutlet weak var showControlsImg: UIButton!
     
+    @IBOutlet weak var showControlsImg: UIButton!
     
     //Variables
      var dateFormatter = DateFormatter()
     var headerFormatter = DateFormatter()
-   // var hiddenStatus = 1
     
     override func awakeFromNib() {
         super.awakeFromNib()
         statusView.layer.cornerRadius = 10
         cellView.layer.cornerRadius = 10
         cellView.layer.shadowColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
-        controlsView.isHidden = true
-        
-        
-        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -47,28 +41,6 @@ class ShiftExpandedCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
-    @IBAction func showControls(_ sender: Any) {
-        if controlsView.isHidden {
-            controlsView.isHidden = false
-            showControlsImg.setImage(UIImage(named: "collapse-1"), for: .normal)
-        } else {
-            controlsView.isHidden = true
-            showControlsImg.setImage(UIImage(named: "expand"), for: .normal)
-        }
-        
-    }
-    @IBAction func mrkShiftCompleted(_ sender: Any) {
-    }
-    @IBAction func cancelShift(_ sender: Any) {
-    }
-    @IBAction func dltShiftPressed(_ sender: Any) {
-    }
-    
-    
-    
-    
-    
     
     func configureCell (shift: Shift) {
         dateFormatter.dateFormat = "MMM d, h:mm a"
@@ -89,14 +61,7 @@ class ShiftExpandedCell: UITableViewCell {
       
     }
 
-    
-    func manageControlView () {
-        if controlsView.isHidden {
-            controlsView.isHidden = false
-        } else {
-            controlsView.isHidden = true
-        }
-    }
+
 }
 
 
