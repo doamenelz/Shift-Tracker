@@ -13,9 +13,7 @@ class CreateShiftVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
 
     
      let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
  
-    
     //Outlets
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var selectWorkPlace: CustomBtnSmallerModel!
@@ -27,11 +25,13 @@ class CreateShiftVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var doneView: UIButton!
     
-    
+
+ 
     //Variables
     var pickerData = [String]()
     var workPlaceArray = [Workplace]()
     var modalDisplay = ""
+    //var shiftDefaultStatus = ShiftStatus(rawValue: "Completed")
     
 //    var borderWidth = 0.5
 //    var borderColor = #colorLiteral(red: 0.4274509804, green: 0.4745098039, blue: 0.5764705882, alpha: 1)
@@ -78,12 +78,11 @@ class CreateShiftVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
            
             //Persist Data()
            let newShift = Shift(context: self.context)
-          
             newShift.startShiftDate = startShiftDate
             newShift.endShiftDate = endShiftDate
            newShift.workPlaceName = selectedWorkplace
             newShift.rates = rateToSave
-            
+            newShift.status = ShiftStatus(rawValue: "Completed").map { $0.rawValue }
             saveShift()
             
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "SuccessModal") as! SuccessModal
@@ -111,24 +110,27 @@ class CreateShiftVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
 
     }
     @IBAction func selectWorkPlacePressed(_ sender: Any) {
-        tag = 1
+        //tag = 1
         //numberOfComponents = 1
-        loadWorkplace()
+        //loadWorkplace()
      
+        
         var workplacePickerData = ["-- Select a Workplace --"]
         var wPR : [Double] = [0]
         
         for item in workPlaceArray {
             workplacePickerData.append(item.workPlaceName ?? "nil")
+            
             //wPR = item.rates
         }
+        pickerData = workplacePickerData
         
         for rates in workPlaceArray {
         wPR.append(rates.rates)
         }
         
         rates = wPR
-        pickerData = workplacePickerData
+       
         datePicker.isHidden = true
         doneView.isHidden = false
         picker.isHidden = false
@@ -165,7 +167,7 @@ class CreateShiftVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
         dateFormatter.dateFormat = "EEEE, MMM d, h:mm a"
         doneView.isHidden = true
         setupView()
-        
+        loadWorkplace()
     }
     
     //MARK: - AddPicker Stubs
@@ -181,8 +183,7 @@ class CreateShiftVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
         
         
         pickerRow = pickerData[row] //as? String ?? ""
-        //print(pickerRow)
-        return pickerData[row]// as? String
+       return pickerData[row] // as? String
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
@@ -203,11 +204,10 @@ class CreateShiftVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
     //MARK:- CoreData Functions
     func loadWorkplace () {
         let request : NSFetchRequest<Workplace> = Workplace.fetchRequest()
-        
         do {
             //ParseWorkplace to Array
             workPlaceArray =  try context.fetch(request)
-            //print(workPlaceArray)
+            print("Workplace Array is \(workPlaceArray)")
         } catch  {
             print("Error fetching Workplace from context \(error)")
         }

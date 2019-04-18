@@ -50,7 +50,7 @@ class CreateWorkplaceVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         failedMessage.isHidden = true
-       
+       bindToKeyboard()
     }
 
     func saveWorkplace() {

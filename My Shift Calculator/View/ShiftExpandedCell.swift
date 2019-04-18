@@ -57,10 +57,31 @@ class ShiftExpandedCell: UITableViewCell {
         ratesLabel.text = "$\(shift.rates) / hr"
         shiftDurationLbl.text = dateComponentsFormatter.string(from: shift.startShiftDate!, to: shift.endShiftDate!)
         shiftDay.text = headerFormatter.string(from: shift.startShiftDate!)
-        //print(shiftDateDifference)
-      
+        statusLbl.text = shift.status
+        
+        
+        switch shift.status {
+        case "Completed":
+            statusView.backgroundColor = UIColorFromHex(rgbValue: 0x6DB871, alpha: 1)
+            statusOval.image = UIImage(named: "Active Oval")
+
+            print("Status is completed")
+        case "Cancelled":
+            statusView.backgroundColor = UIColorFromHex(rgbValue: 0xC51E2E, alpha: 1)
+            statusOval.image = UIImage(named: "cancelledOval")
+            print("Cancelled")
+        default:
+            print("Color is something else")
+        }
     }
 
+    func UIColorFromHex(rgbValue:UInt32, alpha:Double=1.0)->UIColor {
+        let red = CGFloat((rgbValue & 0xFF0000) >> 16)/256.0
+        let green = CGFloat((rgbValue & 0xFF00) >> 8)/256.0
+        let blue = CGFloat(rgbValue & 0xFF)/256.0
+        
+        return UIColor(red:red, green:green, blue:blue, alpha:CGFloat(alpha))
+    }
 
 }
 

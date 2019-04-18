@@ -8,13 +8,6 @@
 
 import UIKit
 import CoreData
-
-enum ShiftStatus {
-    case completed
-    case cancelled
-    case scheduled
-}
-
 class ShiftExpandedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
   
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -24,6 +17,13 @@ class ShiftExpandedVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     var parsedShifts = [Shift]()
     var selectedCell: Shift?
     var changingCell = ShiftExpandedCell()
+    var alertConfirm: String = ""
+    var alertCancel: String = ""
+    var alertTitle: String = ""
+    var alertMessage: String = ""
+    
+    var askToDeleteShift: Bool = false
+    var statusToSave: Shift?
     
     @IBOutlet weak var weekStartingLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
@@ -98,21 +98,51 @@ class ShiftExpandedVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
 
-         let statusToSave = self.parsedShifts[indexPath.row]
+         statusToSave = self.parsedShifts[indexPath.row]
+       
         let deleteShift = UIContextualAction(style: .normal, title: "Delete Shift") { (action, view, completionHandler) in
-//            statusToSave.status = "Completed"
-//            self.saveShift()
+          //  self.askToDeleteShift = true
+            let alertController = UIAlertController(
+                title: "Delete Shift?",
+                message: "This cannot be undone",
+                preferredStyle: UIAlertController.Style.alert
+            )
+
+            let cancelAction = UIAlertAction(
+                title: "CANCEL",
+                style: UIAlertAction.Style.destructive) { (action) in
+                    // ...
+            }
+
+            let confirmAction = UIAlertAction(
+            title: "YES", style: UIAlertAction.Style.default) { (action) in
+                self.context.delete(self.statusToSave!)
+                self.parsedShifts.remove(at: indexPath.row)
+               self.saveShift()
+                print("Yes pressed")
+            }
+
+            alertController.addAction(confirmAction)
+            alertController.addAction(cancelAction)
+            self.present(alertController, animated: true, completion: nil)
+            
+            print("delete pressed")
             completionHandler(true)
         }
         
-        let cancelShift =  UIContextualAction(style: .normal, title: "CancelShift", handler: { (action,view,completionHandler ) in
-            statusToSave.status = "Cancelled"
-            self.saveShift()
+        let cancelShift =  UIContextualAction(style: .normal, title: "\n Cancel Shift", handler: { (action,view,completionHandler ) in
+            self.alertTitle = "Shift has been cancelled!"
+            self.alertCancel = "Cancel Shift?"
+            self.statusToSave!.status = "Cancelled"
+            self.confirmAction()
+            //self.saveShift()
             completionHandler(true)
         })
-        
-        //deleteShift.image = UIImage(named: "icons8-delete-bin-96")
-        cancelShift.backgroundColor = #colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1)
+
+        deleteShift.image = UIImage(named: "icons8-trash-can-60")
+        cancelShift.image = UIImage(named: "icons8-cancel-60")
+        deleteShift.backgroundColor = UIColorFromHex(rgbValue: 0xC51E2E, alpha: 0.8)
+        cancelShift.backgroundColor = UIColorFromHex(rgbValue: 0xCD5C5C, alpha: 0.8)
         
         let configuration = UISwipeActionsConfiguration(actions: [deleteShift,cancelShift])
         return configuration
@@ -120,18 +150,21 @@ class ShiftExpandedVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let statusToSave = self.parsedShifts[indexPath.row]
+        alertTitle = "Shift Completed!"
+        askToDeleteShift = false
         let markCompleted = UIContextualAction(style: .normal, title: "Mark as Complete") { (action, view, completionHandler) in
             statusToSave.status = "Completed"
-            self.saveShift()
+            self.confirmAction()
             completionHandler(true)
         }
-        //deleteShift.image = UIImage(named: "icons8-delete-bin-96")
         markCompleted.backgroundColor = #colorLiteral(red: 0.363037467, green: 0.7854679227, blue: 0.330747813, alpha: 1)
+        markCompleted.image = UIImage(named: "icons8-checked-60")
         
         let configuration = UISwipeActionsConfiguration(actions: [markCompleted])
         return configuration
         
     }
+    
     func saveShift () {
         do {
             try context.save()
@@ -141,7 +174,38 @@ class ShiftExpandedVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         }
         tableView.reloadData()
     }
-    
+    func UIColorFromHex(rgbValue:UInt32, alpha:Double=1.0)->UIColor {
+        let red = CGFloat((rgbValue & 0xFF0000) >> 16)/256.0
+        let green = CGFloat((rgbValue & 0xFF00) >> 8)/256.0
+        let blue = CGFloat(rgbValue & 0xFF)/256.0
+        
+        return UIColor(red:red, green:green, blue:blue, alpha:CGFloat(alpha))
+    }
+
+    func confirmAction () {
+        let alertController = UIAlertController(
+            title: alertTitle,
+            message: alertMessage,
+            preferredStyle: UIAlertController.Style.alert
+        )
+        
+        _ = UIAlertAction(
+            title: "CANCEL",
+            style: UIAlertAction.Style.destructive) { (action) in
+                // ...
+        }
+        
+        let confirmAction = UIAlertAction(
+        title: "OK", style: UIAlertAction.Style.default) { (action) in
+            self.saveShift()
+        }
+           // self.saveShift()
+        
+
+        alertController.addAction(confirmAction)
+        //alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
+    }
 }
 
 extension Date {

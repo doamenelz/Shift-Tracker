@@ -19,6 +19,8 @@
 		7290A8A82256A41C001ECE48 /* ViewShiftsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7290A8A72256A41C001ECE48 /* ViewShiftsVC.swift */; };
 		7290A8AA2256C313001ECE48 /* ShiftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7290A8A92256C313001ECE48 /* ShiftCell.swift */; };
 		7290A8AF2256D4DB001ECE48 /* CreateShiftVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7290A8AE2256D4DB001ECE48 /* CreateShiftVC.swift */; };
+		72A8FA632268D00100404460 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A8FA622268D00100404460 /* UIViewExtension.swift */; };
+		72A8FA662268E3B700404460 /* ShiftStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A8FA652268E3B700404460 /* ShiftStatus.swift */; };
 		72F3C12D2251A0AB00191AB7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F3C12C2251A0AB00191AB7 /* AppDelegate.swift */; };
 		72F3C1322251A0AB00191AB7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72F3C1302251A0AB00191AB7 /* Main.storyboard */; };
 		72F3C1352251A0AB00191AB7 /* My_Shift_Calculator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 72F3C1332251A0AB00191AB7 /* My_Shift_Calculator.xcdatamodeld */; };
@@ -47,6 +49,8 @@
 		7290A8A72256A41C001ECE48 /* ViewShiftsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewShiftsVC.swift; sourceTree = "<group>"; };
 		7290A8A92256C313001ECE48 /* ShiftCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftCell.swift; sourceTree = "<group>"; };
 		7290A8AE2256D4DB001ECE48 /* CreateShiftVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateShiftVC.swift; sourceTree = "<group>"; };
+		72A8FA622268D00100404460 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		72A8FA652268E3B700404460 /* ShiftStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftStatus.swift; sourceTree = "<group>"; };
 		72F3C1292251A0AB00191AB7 /* My Shift Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Shift Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		72F3C12C2251A0AB00191AB7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		72F3C1312251A0AB00191AB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -97,6 +101,22 @@
 			path = StoryBoards;
 			sourceTree = "<group>";
 		};
+		72A8FA612268CFCB00404460 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				72A8FA622268D00100404460 /* UIViewExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		72A8FA642268E39700404460 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				72A8FA652268E3B700404460 /* ShiftStatus.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
 		72F3C1202251A0AB00191AB7 = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +136,8 @@
 		72F3C12B2251A0AB00191AB7 /* My Shift Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				72A8FA642268E39700404460 /* Enums */,
+				72A8FA612268CFCB00404460 /* Extensions */,
 				7290A8AB2256C5FD001ECE48 /* StoryBoards */,
 				72F3C14622532D2500191AB7 /* Utilities */,
 				72F3C1432251A0F200191AB7 /* Model */,
@@ -256,11 +278,13 @@
 				72F3C154225638AC00191AB7 /* BottomModal.swift in Sources */,
 				72F3C14822532D8F00191AB7 /* CustomizeBtn.swift in Sources */,
 				72F3C14A225412A900191AB7 /* SuccessModal.swift in Sources */,
+				72A8FA632268D00100404460 /* UIViewExtension.swift in Sources */,
 				72F3C14C22543DFB00191AB7 /* ChooseWorkPlaceModVC.swift in Sources */,
 				72F3C1352251A0AB00191AB7 /* My_Shift_Calculator.xcdatamodeld in Sources */,
 				72F3C1452253114C00191AB7 /* Home.swift in Sources */,
 				72F3C152225454CE00191AB7 /* CustomTxtField.swift in Sources */,
 				7290A8A82256A41C001ECE48 /* ViewShiftsVC.swift in Sources */,
+				72A8FA662268E3B700404460 /* ShiftStatus.swift in Sources */,
 				72F3C14E2254402C00191AB7 /* CustomBtnSmallerModel.swift in Sources */,
 				72F3C12D2251A0AB00191AB7 /* AppDelegate.swift in Sources */,
 				728BC77F2265765600A0E50D /* ShiftExpandedVC.swift in Sources */,
