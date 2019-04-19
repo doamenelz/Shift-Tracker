@@ -8,11 +8,12 @@
 
 import UIKit
 import CoreData
+
 class ShiftExpandedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
   
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    //Outlets
+    //MARK: - Variables
     var shiftsLoaded = [Shift]()
     var parsedShifts = [Shift]()
     var selectedCell: Shift?
@@ -25,14 +26,17 @@ class ShiftExpandedVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     var askToDeleteShift: Bool = false
     var statusToSave: Shift?
     
+    //MARK: - Outlets and Actions
+    //Outlets
     @IBOutlet weak var weekStartingLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
-
-//Actions
+    //Actions
     @IBAction func backPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,48 +48,25 @@ class ShiftExpandedVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         //print(stackStatus)
 }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       // return shiftsLoaded.count
-        return parsedShifts.count
-    }
+    //MARK: - TableView Methods
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       selectedCell = parsedShifts[indexPath.row]
+    //Delegates
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return parsedShifts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "expandedShiftCell", for: indexPath) as? ShiftExpandedCell {
             cell.configureCell(shift: parsedShifts[indexPath.row])
+            shiftStatusFormatting(shiftStatus: parsedShifts[indexPath.row], view: cell.statusView, oval: cell.statusOval)
             return cell
     }
-
         return UITableViewCell()
-
 }
     
-    
-    func loadItems () {
-        //Create a new Constant
-        let request : NSFetchRequest<Shift> = Shift.fetchRequest()
-        do {
-            shiftsLoaded = try context.fetch(request)
-            print("Shift data successfully fetched \(request)")
-        } catch {
-            print("Error fetching request \(error)")
-        }
-    }
-    
-    func parseShift () {
-       let previousMonday = Date.today().previous(.monday)
-        let nextSunday = Date.today().next(.sunday)
-       
-        let range = previousMonday...nextSunday
-        
-        for item in shiftsLoaded {
-            if range.contains(item.startShiftDate!) {
-                parsedShifts.append(item)
-            }
-        }
+    //Datasource
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedCell = parsedShifts[indexPath.row]
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -101,7 +82,6 @@ class ShiftExpandedVC: UIViewController, UITableViewDelegate, UITableViewDataSou
          statusToSave = self.parsedShifts[indexPath.row]
        
         let deleteShift = UIContextualAction(style: .normal, title: "Delete Shift") { (action, view, completionHandler) in
-          //  self.askToDeleteShift = true
             let alertController = UIAlertController(
                 title: "Delete Shift?",
                 message: "This cannot be undone",
@@ -119,23 +99,20 @@ class ShiftExpandedVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                 self.context.delete(self.statusToSave!)
                 self.parsedShifts.remove(at: indexPath.row)
                self.saveShift()
-                print("Yes pressed")
             }
 
             alertController.addAction(confirmAction)
             alertController.addAction(cancelAction)
             self.present(alertController, animated: true, completion: nil)
-            
-            print("delete pressed")
+
             completionHandler(true)
         }
         
-        let cancelShift =  UIContextualAction(style: .normal, title: "\n Cancel Shift", handler: { (action,view,completionHandler ) in
+        let cancelShift =  UIContextualAction(style: .normal, title: "Cancel Shift", handler: { (action,view,completionHandler ) in
             self.alertTitle = "Shift has been cancelled!"
             self.alertCancel = "Cancel Shift?"
             self.statusToSave!.status = "Cancelled"
             self.confirmAction()
-            //self.saveShift()
             completionHandler(true)
         })
 
@@ -165,6 +142,30 @@ class ShiftExpandedVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         
     }
     
+    //MARK: - Data Manipulation Methods
+    func loadItems () {
+        let request : NSFetchRequest<Shift> = Shift.fetchRequest()
+        do {
+            shiftsLoaded = try context.fetch(request)
+            print("Shift data successfully fetched \(request)")
+        } catch {
+            print("Error fetching request \(error)")
+        }
+    }
+    
+    func parseShift () {
+        let previousMonday = Date.today().previous(.monday)
+        let nextSunday = Date.today().next(.sunday)
+        
+        let range = previousMonday...nextSunday
+        
+        for item in shiftsLoaded {
+            if range.contains(item.startShiftDate!) {
+                parsedShifts.append(item)
+            }
+        }
+    }
+    
     func saveShift () {
         do {
             try context.save()
@@ -174,14 +175,7 @@ class ShiftExpandedVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         }
         tableView.reloadData()
     }
-    func UIColorFromHex(rgbValue:UInt32, alpha:Double=1.0)->UIColor {
-        let red = CGFloat((rgbValue & 0xFF0000) >> 16)/256.0
-        let green = CGFloat((rgbValue & 0xFF00) >> 8)/256.0
-        let blue = CGFloat(rgbValue & 0xFF)/256.0
-        
-        return UIColor(red:red, green:green, blue:blue, alpha:CGFloat(alpha))
-    }
-
+    
     func confirmAction () {
         let alertController = UIAlertController(
             title: alertTitle,
@@ -205,82 +199,5 @@ class ShiftExpandedVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         alertController.addAction(confirmAction)
         //alertController.addAction(cancelAction)
         present(alertController, animated: true, completion: nil)
-    }
-}
-
-extension Date {
-    
-    static func today() -> Date {
-        return Date()
-    }
-    
-    func next(_ weekday: Weekday, considerToday: Bool = false) -> Date {
-        return get(.Next,
-                   weekday,
-                   considerToday: considerToday)
-    }
-    
-    func previous(_ weekday: Weekday, considerToday: Bool = false) -> Date {
-        return get(.Previous,
-                   weekday,
-                   considerToday: considerToday)
-    }
-    
-    func get(_ direction: SearchDirection,
-             _ weekDay: Weekday,
-             considerToday consider: Bool = false) -> Date {
-        
-        let dayName = weekDay.rawValue
-        
-        let weekdaysName = getWeekDaysInEnglish().map { $0.lowercased() }
-        
-        assert(weekdaysName.contains(dayName), "weekday symbol should be in form \(weekdaysName)")
-        
-        let searchWeekdayIndex = weekdaysName.index(of: dayName)! + 1
-        
-        let calendar = Calendar(identifier: .gregorian)
-        
-        if consider && calendar.component(.weekday, from: self) == searchWeekdayIndex {
-            return self
-        }
-        
-        var nextDateComponent = DateComponents()
-        nextDateComponent.weekday = searchWeekdayIndex
-        
-        
-        let date = calendar.nextDate(after: self,
-                                     matching: nextDateComponent,
-                                     matchingPolicy: .nextTime,
-                                     direction: direction.calendarSearchDirection)
-        
-        return date!
-    }
-    
-}
-
-// MARK: Helper methods
-extension Date {
-    func getWeekDaysInEnglish() -> [String] {
-        var calendar = Calendar(identifier: .gregorian)
-        calendar.locale = Locale(identifier: "en_US_POSIX")
-        return calendar.weekdaySymbols
-    }
-    
-    enum Weekday: String {
-        case monday, tuesday, wednesday, thursday, friday, saturday, sunday
-    }
-    
-    enum SearchDirection {
-        case Next
-        case Previous
-        
-        var calendarSearchDirection: Calendar.SearchDirection {
-            switch self {
-            case .Next:
-                return .forward
-            case .Previous:
-                return .backward
-            }
-        }
     }
 }

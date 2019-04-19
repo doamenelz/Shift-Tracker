@@ -82,7 +82,7 @@ class CreateShiftVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
             newShift.endShiftDate = endShiftDate
            newShift.workPlaceName = selectedWorkplace
             newShift.rates = rateToSave
-            newShift.status = ShiftStatus(rawValue: "Completed").map { $0.rawValue }
+            newShift.status = ShiftStatus(rawValue: "Scheduled").map { $0.rawValue }
             saveShift()
             
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "SuccessModal") as! SuccessModal

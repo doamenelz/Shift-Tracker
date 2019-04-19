@@ -21,6 +21,7 @@
 		7290A8AF2256D4DB001ECE48 /* CreateShiftVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7290A8AE2256D4DB001ECE48 /* CreateShiftVC.swift */; };
 		72A8FA632268D00100404460 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A8FA622268D00100404460 /* UIViewExtension.swift */; };
 		72A8FA662268E3B700404460 /* ShiftStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A8FA652268E3B700404460 /* ShiftStatus.swift */; };
+		72A8FA6A22693A8A00404460 /* DateExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A8FA6922693A8A00404460 /* DateExt.swift */; };
 		72F3C12D2251A0AB00191AB7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F3C12C2251A0AB00191AB7 /* AppDelegate.swift */; };
 		72F3C1322251A0AB00191AB7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72F3C1302251A0AB00191AB7 /* Main.storyboard */; };
 		72F3C1352251A0AB00191AB7 /* My_Shift_Calculator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 72F3C1332251A0AB00191AB7 /* My_Shift_Calculator.xcdatamodeld */; };
@@ -51,6 +52,7 @@
 		7290A8AE2256D4DB001ECE48 /* CreateShiftVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateShiftVC.swift; sourceTree = "<group>"; };
 		72A8FA622268D00100404460 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		72A8FA652268E3B700404460 /* ShiftStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftStatus.swift; sourceTree = "<group>"; };
+		72A8FA6922693A8A00404460 /* DateExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExt.swift; sourceTree = "<group>"; };
 		72F3C1292251A0AB00191AB7 /* My Shift Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Shift Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		72F3C12C2251A0AB00191AB7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		72F3C1312251A0AB00191AB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				72A8FA622268D00100404460 /* UIViewExtension.swift */,
+				72A8FA6922693A8A00404460 /* DateExt.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				72F3C12D2251A0AB00191AB7 /* AppDelegate.swift in Sources */,
 				728BC77F2265765600A0E50D /* ShiftExpandedVC.swift in Sources */,
 				72F3C1502254500A00191AB7 /* CreateWorkplaceVC.swift in Sources */,
+				72A8FA6A22693A8A00404460 /* DateExt.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
