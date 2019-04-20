@@ -74,7 +74,7 @@ class CreateShiftVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
         datePicker.isHidden = true
         
         if (startShiftDate < endShiftDate) && (selectedWorkplace != "") {
-            print("All conditions passed")
+         //   print("All conditions passed")
            
             //Persist Data()
            let newShift = Shift(context: self.context)
@@ -88,9 +88,9 @@ class CreateShiftVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "SuccessModal") as! SuccessModal
             vc.modalMessage = self.modalDisplay
             self.present(vc, animated: false, completion: nil)
-            print("Values arent empty")
+            //print("Values arent empty")
         } else {
-            print("Conditions failed")
+           // print("Conditions failed")
         }
         //check if value are entered
         

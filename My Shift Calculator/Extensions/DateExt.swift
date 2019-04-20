@@ -78,6 +78,9 @@ extension Date {
         return date!
     }
     
+    func hours(from date: Date) -> Int {
+        return Calendar.current.dateComponents([.hour,.minute], from: date, to: self).hour ?? 0
+    }
 }
 
 extension DateFormatter {
@@ -85,4 +88,15 @@ extension DateFormatter {
         dateFormatter.dateFormat = "MMM d, h:mm a"
         
     }
+}
+
+extension DateComponentsFormatter {
+    
+    func dateComponentsFormatter (dateComponentsFormatter: DateComponentsFormatter) {
+        dateComponentsFormatter.allowedUnits = [.day,.hour, .minute]
+        dateComponentsFormatter.maximumUnitCount = 2
+        dateComponentsFormatter.unitsStyle = .brief
+        dateComponentsFormatter.string(from: Date(), to: Date(timeIntervalSinceNow: 4000000))
+    }
+  
 }

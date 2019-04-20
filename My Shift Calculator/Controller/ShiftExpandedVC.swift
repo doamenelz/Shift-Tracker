@@ -25,6 +25,7 @@ class ShiftExpandedVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     var askToDeleteShift: Bool = false
     var statusToSave: Shift?
+    var weekStarting = ""
     
     //MARK: - Outlets and Actions
     //Outlets
@@ -35,17 +36,13 @@ class ShiftExpandedVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     @IBAction func backPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadItems()
+        loadShiftsFromContext()
         parseShift()
-
         tableView.dataSource = self
         tableView.delegate = self
-        //print(stackStatus)
+        weekStartingLabel.text = weekStarting
 }
     
     //MARK: - TableView Methods
@@ -143,11 +140,13 @@ class ShiftExpandedVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     //MARK: - Data Manipulation Methods
-    func loadItems () {
+     func loadShiftsFromContext () {
         let request : NSFetchRequest<Shift> = Shift.fetchRequest()
+        let sort = NSSortDescriptor(key: "startShiftDate", ascending: true)
+        request.sortDescriptors = [sort]
         do {
             shiftsLoaded = try context.fetch(request)
-            print("Shift data successfully fetched \(request)")
+            print("----------------ShiftExpandedLoadedWithContext-----------------")
         } catch {
             print("Error fetching request \(error)")
         }

@@ -28,6 +28,7 @@ class ShiftExpandedCell: UITableViewCell {
     //Variables
     var dateFormatter = DateFormatter()
     var headerFormatter = DateFormatter()
+    let dateCmpntsFormatter = DateComponentsFormatter()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -38,45 +39,22 @@ class ShiftExpandedCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     func configureCell (shift: Shift) {
         dateFormatter.dateFormat = "MMM d, h:mm a"
         headerFormatter.dateFormat = "E, MMM d"
-        let dateComponentsFormatter = DateComponentsFormatter()
-        dateComponentsFormatter.allowedUnits = [.day,.hour, .minute]
-        dateComponentsFormatter.maximumUnitCount = 2
-        dateComponentsFormatter.unitsStyle = .brief
-        dateComponentsFormatter.string(from: Date(), to: Date(timeIntervalSinceNow: 4000000))
-        
+        dateCmpntsFormatter.dateComponentsFormatter(dateComponentsFormatter: dateCmpntsFormatter)
+       
+        //Parsing Shift to Labels
         shiftStartLbl.text = dateFormatter.string(from: shift.startShiftDate!)
         shiftEndLabel.text = dateFormatter.string(from: shift.endShiftDate!)
         locationLabel.text = shift.workPlaceName
         ratesLabel.text = "$\(shift.rates) / hr"
-        shiftDurationLbl.text = dateComponentsFormatter.string(from: shift.startShiftDate!, to: shift.endShiftDate!)
+        shiftDurationLbl.text = dateCmpntsFormatter.string(from: shift.startShiftDate!, to: shift.endShiftDate!)
         shiftDay.text = headerFormatter.string(from: shift.startShiftDate!)
         statusLbl.text = shift.status
-        
-        //shiftStatusFormatting(shiftStatus: shift, view: statusView, oval: statusOval)
-
-        //shiftStatusFormatting(shiftStatus: shift, view: statusView, oval: statusOval)
-        //        switch shift.status {
-//        case "Completed":
-//            statusView.backgroundColor = UIColorFromHex(rgbValue: 0x6DB871, alpha: 1)
-//            statusOval.image = UIImage(named: "Active Oval")
-//            print("Status is completed")
-//        case "Cancelled":
-//            statusView.backgroundColor = UIColorFromHex(rgbValue: 0xC51E2E, alpha: 1)
-//            statusOval.image = UIImage(named: "cancelledOval")
-//            print("Cancelled")
-//        case "Scheduled":
-//            statusView.backgroundColor = UIColorFromHex(rgbValue: 0x00DEFF, alpha: 1)
-//            statusOval.image = UIImage(named: "scheduledOval")
-//        default:
-//            print("Color is something else")
-//        }
+    
     }
 
     func UIColorFromHex(rgbValue:UInt32, alpha:Double=1.0)->UIColor {
@@ -87,30 +65,5 @@ class ShiftExpandedCell: UITableViewCell {
         return UIColor(red:red, green:green, blue:blue, alpha:CGFloat(alpha))
     }
     
-//    open func shiftStatusFormatting (shiftStatus: Shift, view: UIView, oval: UIImageView) {
-//        switch shiftStatus.status {
-//        case "Completed":
-//            view.backgroundColor = UIColorFromHex(rgbValue: 0x6DB871, alpha: 1)
-//            //statusView.backgroundColor = UIColorFromHex(rgbValue: 0x6DB871, alpha: 1)
-//            oval.image = UIImage(named: "Active Oval")
-//            print("Status is completed")
-//        case "Cancelled":
-//            view.backgroundColor = UIColorFromHex(rgbValue: 0xC51E2E, alpha: 1)
-//            oval.image = UIImage(named: "cancelledOval")
-//            print("Cancelled")
-//        case "Scheduled":
-//            view.backgroundColor = UIColorFromHex(rgbValue: 0x00DEFF, alpha: 1)
-//            oval.image = UIImage(named: "scheduledOval")
-//        default:
-//            print("Color is something else")
-//        }
-//    }
-
 }
 
-
-extension Date {
-    func hours(from date: Date) -> Int {
-        return Calendar.current.dateComponents([.hour,.minute], from: date, to: self).hour ?? 0
-    }
-}
