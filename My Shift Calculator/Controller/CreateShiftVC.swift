@@ -11,10 +11,10 @@ import CoreData
 
 class CreateShiftVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
-    
+    //MARK: - CoreData Context
      let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
  
-    //Outlets
+    //MARK: - Outlets
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var selectWorkPlace: CustomBtnSmallerModel!
     @IBOutlet weak var selectDate: CustomBtnSmallerModel!
@@ -25,58 +25,47 @@ class CreateShiftVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var doneView: UIButton!
     
-
- 
-    //Variables
+    //MARK: - Variables
     var pickerData = [String]()
     var workPlaceArray = [Workplace]()
     var modalDisplay = ""
-    //var shiftDefaultStatus = ShiftStatus(rawValue: "Completed")
-    
-//    var borderWidth = 0.5
-//    var borderColor = #colorLiteral(red: 0.4274509804, green: 0.4745098039, blue: 0.5764705882, alpha: 1)
-   
     var selectedWorkplace = ""
     var startShiftDate: Date!
     var endShiftDate = Date()
     var rateToSave: Double!
-    
-    //PickerDataVariables
     var pickerRow = ""
     var tag: Int = 0
-    var numberOfComponents: Int = 0
+    //var numberOfComponents: Int = 0
     var dateFormatter = DateFormatter()
-    var toSaveWorkplace: Workplace?
-    
-
+    //var toSaveWorkplace: Workplace?
     var rates: [Double]?
-    
-    
-    
-    //Actions
+ 
+    //MARK: - Actions
     @IBAction func valueChanged(_ sender: Any) {
-           let formatedDate = dateFormatter.string(from: datePicker.date)
+       
+        let tempDate = Date(timeIntervalSinceReferenceDate: (datePicker.date.timeIntervalSinceReferenceDate / 300.0).rounded(.down) * 300.0)
+        let formatedDate = dateFormatter.string(from: tempDate)
+        
         if tag == 3 {
-             selectDate.setTitle(formatedDate, for: .normal)
-            startShiftDate = datePicker.date
+            selectDate.setTitle(formatedDate, for: .normal)
             print(startShiftDate)
+            
         } else if tag == 4 {
              startTime.setTitle(formatedDate, for: .normal)
-            datePicker.minimumDate = startShiftDate.addingTimeInterval(5)
+            datePicker.minimumDate = startShiftDate.addingTimeInterval(10)
             endShiftDate = datePicker.date
             print(endShiftDate)
         }
-     
-       
+
     }
+    
     @IBAction func addShiftPressed(_ sender: Any) {
         picker.isHidden = true
         datePicker.isHidden = true
         
         if (startShiftDate < endShiftDate) && (selectedWorkplace != "") {
-         //   print("All conditions passed")
            
-            //Persist Data()
+            //Parse  to Context
            let newShift = Shift(context: self.context)
             newShift.startShiftDate = startShiftDate
             newShift.endShiftDate = endShiftDate
@@ -85,50 +74,45 @@ class CreateShiftVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
             newShift.status = ShiftStatus(rawValue: "Scheduled").map { $0.rawValue }
             saveShift()
             
+            //Instantiate & segue VC
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "SuccessModal") as! SuccessModal
             vc.modalMessage = self.modalDisplay
             self.present(vc, animated: false, completion: nil)
-            //print("Values arent empty")
+            
         } else {
            // print("Conditions failed")
         }
-        //check if value are entered
-        
-        //check if minimum is <= max then drop else persist to coredata
-        
-    
     }
     @IBAction func donePressed(_ sender: Any) {
+        
         picker.isHidden = true
         datePicker.isHidden = true
         doneView.isHidden = true
+        
         let formatedDate = dateFormatter.string(from: datePicker.date)
         if tag == 3 {
             selectDate.setTitle(formatedDate, for: .normal)
-            startShiftDate = datePicker.date
+            let rounded = Date(timeIntervalSinceReferenceDate: (datePicker.date.timeIntervalSinceReferenceDate / 300.0).rounded(.down) * 300.0)
+            startShiftDate = rounded
+            print("Rounded date is \(rounded)")
         }
 
     }
+    
     @IBAction func selectWorkPlacePressed(_ sender: Any) {
-        //tag = 1
-        //numberOfComponents = 1
-        //loadWorkplace()
-     
-        
         var workplacePickerData = ["-- Select a Workplace --"]
         var wPR : [Double] = [0]
         
+        //Parse Workplaces to Picker
         for item in workPlaceArray {
             workplacePickerData.append(item.workPlaceName ?? "nil")
-            
-            //wPR = item.rates
         }
         pickerData = workplacePickerData
         
+        //Pull Rates from Context
         for rates in workPlaceArray {
         wPR.append(rates.rates)
         }
-        
         rates = wPR
        
         datePicker.isHidden = true
@@ -141,9 +125,6 @@ class CreateShiftVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
       doneView.isHidden = false
         selectDatePicker()
         tag = 3
-        
-        
-        //print(startShiftDate)
     }
     
     @IBAction func startTimeSelected(_ sender: Any) {
@@ -151,9 +132,9 @@ class CreateShiftVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
         datePicker.reloadInputViews()
         selectDatePicker()
         tag = 4
-  
-       // print(endShiftDate)
     }
+    
+    
      override func viewDidLoad() {
         super.viewDidLoad()
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(CreateShiftVC.handleTap(_:)))
@@ -170,7 +151,9 @@ class CreateShiftVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
         loadWorkplace()
     }
     
-    //MARK: - AddPicker Stubs
+    //MARK: - PickerView Methods
+    
+    //Delegates
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -186,22 +169,24 @@ class CreateShiftVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
        return pickerData[row] // as? String
     }
     
+    //Datasource
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        selectedWorkplace = pickerData[row]// as? String ?? "Select Workplace"
+        selectedWorkplace = pickerData[row]
         selectWorkPlace.setTitle(selectedWorkplace, for: .normal)
         
-        let wkPIndex = pickerData.firstIndex(of: selectedWorkplace)//{$0 == selectedWorkplace}
+        let wkPIndex = pickerData.firstIndex(of: selectedWorkplace)
         print(pickerData)
         print(rates!)
         rateToSave = rates![wkPIndex!]
     }
     
-@objc func handleTap(_ sender: UITapGestureRecognizer) {
+    //TapGesture
+    @objc func handleTap(_ sender: UITapGestureRecognizer) {
     resignFirstResponder()
     dismiss(animated: false, completion: nil)
 }
 
-    //MARK:- CoreData Functions
+    //MARK:- Data Manipulation Methods
     func loadWorkplace () {
         let request : NSFetchRequest<Workplace> = Workplace.fetchRequest()
         do {
@@ -213,7 +198,6 @@ class CreateShiftVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
         }
         
     }
-    
     
     func selectDatePicker () {
         picker.isHidden = true
@@ -242,10 +226,5 @@ class CreateShiftVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
         }
         
     }
-    //Persist the date and time
-    // Enforce Minimum stuff
-    
-
-
 
 }

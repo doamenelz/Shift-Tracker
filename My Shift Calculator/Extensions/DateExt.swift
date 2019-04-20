@@ -81,6 +81,10 @@ extension Date {
     func hours(from date: Date) -> Int {
         return Calendar.current.dateComponents([.hour,.minute], from: date, to: self).hour ?? 0
     }
+    
+    func hoursForDouble(from date: Date) -> Int {
+          return Calendar.current.dateComponents([.hour,.minute], from: date, to: self).minute ?? 0
+    }
 }
 
 extension DateFormatter {

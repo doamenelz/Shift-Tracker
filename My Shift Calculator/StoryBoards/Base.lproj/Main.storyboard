@@ -377,11 +377,14 @@
                         <outlet property="dashBoardView" destination="WyF-8f-yPM" id="1z7-ub-IAy"/>
                         <outlet property="dashboardView" destination="keG-SR-Ku1" id="MJx-Mv-y2P"/>
                         <outlet property="dividerView" destination="Doh-8u-4QW" id="0R6-ac-T5n"/>
+                        <outlet property="earnedLbl" destination="iH9-TA-3Z0" id="34O-Ce-aSR"/>
                         <outlet property="endTimeLbl" destination="HlH-Se-TqU" id="Sxi-UX-w1h"/>
                         <outlet property="locationIcon" destination="asO-jo-k2k" id="Hnb-gh-EHq"/>
                         <outlet property="officeLocationLbl" destination="HLF-RO-Isg" id="bxr-uM-5wi"/>
                         <outlet property="oval1" destination="lmE-Yx-ZgN" id="ovf-BZ-0pM"/>
                         <outlet property="oval2" destination="28f-p0-Ajf" id="p3A-aM-8tn"/>
+                        <outlet property="projectHoursLbl" destination="3aa-Vx-4yq" id="hjz-Pb-Xz5"/>
+                        <outlet property="projectedEarningsLbl" destination="78O-I3-ppb" id="AwE-kX-Xcs"/>
                         <outlet property="shiftDateLbl" destination="B0l-QW-z6T" id="r0j-c6-5Ou"/>
                         <outlet property="shiftDurationLbl" destination="FqD-xp-G2E" id="VaW-ll-YpA"/>
                         <outlet property="shiftPeriodLbl" destination="y3s-wS-Sj4" id="BqB-qI-rIE"/>
@@ -393,6 +396,7 @@
                         <outlet property="topBorderView" destination="vj9-mo-axC" id="fng-0t-q9a"/>
                         <outlet property="viewAllBtn" destination="h4W-to-XVR" id="zWT-Kh-AUS"/>
                         <outlet property="weekStartingLbl" destination="aIv-uE-duN" id="NoS-fd-QiK"/>
+                        <outlet property="workedHrsLble" destination="swH-zG-wWf" id="IRH-aY-BaG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

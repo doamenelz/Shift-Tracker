@@ -25,6 +25,9 @@ class Home: UIViewController {
     var headerFormatter = DateFormatter()
     var dateCmpntsFormatter = DateComponentsFormatter()
     var weekStarting = ""
+    var projectedEarningsArray = [Double]()
+    var projectEarnings: Double?
+    
     
     //MARK: - Outlets
     //Outlets
@@ -46,6 +49,17 @@ class Home: UIViewController {
     
     @IBOutlet weak var shiftView: UIView!
     @IBOutlet weak var topBorderView: UIView!
+    
+    
+    //Dashboard Outlets
+    @IBOutlet weak var projectHoursLbl: UILabel!
+    @IBOutlet weak var workedHrsLble: UILabel!
+    @IBOutlet weak var projectedEarningsLbl: UILabel!
+    @IBOutlet weak var earnedLbl: UILabel!
+    
+    
+    
+    
     
     //Static Outlets
     @IBOutlet weak var locationIcon: UIImageView!
@@ -90,6 +104,10 @@ class Home: UIViewController {
         getWeekShifts()
              print("----------------parsenextshift------------")
         parseNextShift()
+        
+        projectEarnings = projectedEarningsArray.reduce(0, +)
+        projectedEarningsLbl.text = "$ \(projectEarnings!)"
+        print("Project Earnings for this week is \(projectEarnings!)")
         
     }
     
@@ -144,11 +162,28 @@ class Home: UIViewController {
         } else {
             print("There was an error decoding the string")
         }
-
+        
+        projectedEarningsArray = []
         //Get weekly shifts
         for item in shiftsLoaded {
+            
             if range.contains(item.startShiftDate!) {
                 weekShift.append(item)
+                let tempRate = item.rates
+                let hourDifferential = Double((item.endShiftDate?.hours(from: item.startShiftDate!))!)
+                     print("Hour differential is \(hourDifferential)")
+                let minuteDifferential = item.endShiftDate?.timeIntervalSince(item.startShiftDate!)
+                print(minuteDifferential)
+                
+                let secondsToMins = (round(100 * (minuteDifferential! / 3600)) / 100)
+               print(secondsToMins)
+
+                //multiplication value
+                let earnedAmountPerDay = tempRate * Double(secondsToMins)
+                print("Earned Amount per day = \(earnedAmountPerDay)")
+              
+                //appendToArray
+                projectedEarningsArray.append(earnedAmountPerDay)
             }
         }
         print("My parsed shifts are \(weekShift.count)")
@@ -211,11 +246,7 @@ class Home: UIViewController {
     }
     
     
-    func calculateProjectedHours () {
-        for shift in shiftsLoaded {
-            
-        }
-    }
+  
     
     
 }
