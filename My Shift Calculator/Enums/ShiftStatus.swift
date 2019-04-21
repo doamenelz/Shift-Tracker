@@ -12,4 +12,8 @@ enum ShiftStatus : String {
     case completed = "Completed"
     case cancelled = "Cancelled"
     case scheduled = "Scheduled"
+    
+    func status () -> String {
+        return self.rawValue
+    }
 }

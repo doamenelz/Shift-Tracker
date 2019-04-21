@@ -25,8 +25,18 @@ class Home: UIViewController {
     var headerFormatter = DateFormatter()
     var dateCmpntsFormatter = DateComponentsFormatter()
     var weekStarting = ""
+    
+    //EarningVariables
     var projectedEarningsArray = [Double]()
     var projectEarnings: Double?
+    var actualEarningsArray = [Double]()
+    var actualEarnings: Double?
+    
+    //Working Hours Variables
+    var projectedHoursArray = [Double]()
+    var projectedHours: Double?
+    var actualWorkedHoursArray = [Double]()
+    var actualWorkedHours: Double?
     
     
     //MARK: - Outlets
@@ -52,10 +62,10 @@ class Home: UIViewController {
     
     
     //Dashboard Outlets
-    @IBOutlet weak var projectHoursLbl: UILabel!
-    @IBOutlet weak var workedHrsLble: UILabel!
+    @IBOutlet weak var projectedHoursLbl: UILabel!
+    @IBOutlet weak var actualWorkedHoursLbl: UILabel!
     @IBOutlet weak var projectedEarningsLbl: UILabel!
-    @IBOutlet weak var earnedLbl: UILabel!
+    @IBOutlet weak var actualEarningsLbl: UILabel!
     
     
     
@@ -94,7 +104,8 @@ class Home: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         print("reloadingShift")
-        weekShift = []
+//        weekShift = []
+//        actualEarningsArray = []
         print("Conextloading = \(weekShift.count)")
         print("----------------setUpViewNext------------")
         setUpView()
@@ -105,9 +116,22 @@ class Home: UIViewController {
              print("----------------parsenextshift------------")
         parseNextShift()
         
+        
+        //Earnings
         projectEarnings = projectedEarningsArray.reduce(0, +)
+        actualEarnings = actualEarningsArray.reduce(0, +)
+        actualEarningsLbl.text = "Earned: $ \(actualEarnings!)"
         projectedEarningsLbl.text = "$ \(projectEarnings!)"
+       
+        //Work Hours
+        projectedHours = projectedHoursArray.reduce(0, +)
+         projectedHoursLbl.text = "\(projectedHours!) Hrs"
+        actualWorkedHours = actualWorkedHoursArray.reduce(0, +)
+        actualWorkedHoursLbl.text = "Worked: \(actualWorkedHours!) Hrs"
+        
+        print("Projected Hours for this week is \(projectedHours!)")
         print("Project Earnings for this week is \(projectEarnings!)")
+        print("Earned Income for the week is \(String(describing: actualEarnings))")
         
     }
     
@@ -164,26 +188,47 @@ class Home: UIViewController {
         }
         
         projectedEarningsArray = []
+        weekShift = []
+        actualEarningsArray = []
+        projectedHoursArray = []
+        actualWorkedHoursArray = []
+        
+        
         //Get weekly shifts
         for item in shiftsLoaded {
             
             if range.contains(item.startShiftDate!) {
-                weekShift.append(item)
-                let tempRate = item.rates
-                let hourDifferential = Double((item.endShiftDate?.hours(from: item.startShiftDate!))!)
-                     print("Hour differential is \(hourDifferential)")
-                let minuteDifferential = item.endShiftDate?.timeIntervalSince(item.startShiftDate!)
-                print(minuteDifferential)
                 
+                let tempRate = item.rates
+              
+                //Get TimeInterval
+                let minuteDifferential = item.endShiftDate?.timeIntervalSince(item.startShiftDate!)
+                print(minuteDifferential!)
+                
+                //Round Timeinterval (seconds) to Mins
                 let secondsToMins = (round(100 * (minuteDifferential! / 3600)) / 100)
                print(secondsToMins)
 
                 //multiplication value
                 let earnedAmountPerDay = tempRate * Double(secondsToMins)
                 print("Earned Amount per day = \(earnedAmountPerDay)")
-              
+                
+                //Parse Status
+                let tempStatus = ShiftStatus.completed.status()
+                
+                if item.status == tempStatus {
+                 actualEarningsArray.append(earnedAmountPerDay)
+                    actualWorkedHoursArray.append(Double(secondsToMins))
+                }
+                
+                
+                
+
+                
                 //appendToArray
+              projectedHoursArray.append(secondsToMins)
                 projectedEarningsArray.append(earnedAmountPerDay)
+                weekShift.append(item)
             }
         }
         print("My parsed shifts are \(weekShift.count)")

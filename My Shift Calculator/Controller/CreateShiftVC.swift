@@ -35,9 +35,7 @@ class CreateShiftVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
     var rateToSave: Double!
     var pickerRow = ""
     var tag: Int = 0
-    //var numberOfComponents: Int = 0
     var dateFormatter = DateFormatter()
-    //var toSaveWorkplace: Workplace?
     var rates: [Double]?
  
     //MARK: - Actions
@@ -83,6 +81,7 @@ class CreateShiftVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
            // print("Conditions failed")
         }
     }
+    
     @IBAction func donePressed(_ sender: Any) {
         
         picker.isHidden = true
@@ -134,7 +133,6 @@ class CreateShiftVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
         tag = 4
     }
     
-    
      override func viewDidLoad() {
         super.viewDidLoad()
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(CreateShiftVC.handleTap(_:)))
@@ -142,11 +140,6 @@ class CreateShiftVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
 
         self.picker.delegate = self
         self.picker.dataSource = self
-        bottomModal.translatesAutoresizingMaskIntoConstraints = false
-        picker.isHidden = true
-        datePicker.isHidden = true
-        dateFormatter.dateFormat = "EEEE, MMM d, h:mm a"
-        doneView.isHidden = true
         setupView()
         loadWorkplace()
     }
@@ -213,6 +206,12 @@ class CreateShiftVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
         picker.layer.cornerRadius = 5
         picker.layer.borderWidth = 0.3
         picker.layer.borderColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+        
+        bottomModal.translatesAutoresizingMaskIntoConstraints = false
+        picker.isHidden = true
+        datePicker.isHidden = true
+        dateFormatter.dateFormat = "EEEE, MMM d, h:mm a"
+        doneView.isHidden = true
         
     }
 

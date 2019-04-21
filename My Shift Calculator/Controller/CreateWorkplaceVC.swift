@@ -15,16 +15,16 @@ class CreateWorkplaceVC: UIViewController {
     //Create Context
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    //Variables
+    //MARK: - Variables
     var modalDisplay = ""
    
-    //Outlets
+    //MARK: - Outlets
     @IBOutlet weak var workplaceTxtFld: CustomTxtField!
     @IBOutlet weak var ratesTxtFld: CustomTxtField!
     @IBOutlet weak var createBtn: CustomBtnSmallerModel!
     @IBOutlet weak var failedMessage: UILabel!
     
-    //Actions
+    //MARK: - Actions
     @IBAction func createWrkPlacePressed(_ sender: Any) {
         
         if (workplaceTxtFld.text != "") && (ratesTxtFld.text != "") {
@@ -46,7 +46,6 @@ class CreateWorkplaceVC: UIViewController {
         
     }
     
-  
     override func viewDidLoad() {
         super.viewDidLoad()
         failedMessage.isHidden = true
@@ -63,9 +62,5 @@ class CreateWorkplaceVC: UIViewController {
         }
         
     }
-
-    //Bind Keyboard
-    
-    //Change back btn to unwind VC
 
 }
