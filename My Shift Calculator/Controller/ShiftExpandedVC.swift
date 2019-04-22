@@ -39,7 +39,7 @@ class ShiftExpandedVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     override func viewDidLoad() {
         super.viewDidLoad()
        // loadShiftsFromContext()
-        parseShift()
+       // parseShift()
         tableView.dataSource = self
         tableView.delegate = self
         weekStartingLabel.text = weekStarting
@@ -76,7 +76,8 @@ class ShiftExpandedVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
 
-         statusToSave = self.parsedShifts[indexPath.row]
+        tableView.beginUpdates()
+        statusToSave = self.parsedShifts[indexPath.row]
        
         let deleteShift = UIContextualAction(style: .normal, title: "Delete Shift") { (action, view, completionHandler) in
             let alertController = UIAlertController(
@@ -119,11 +120,16 @@ class ShiftExpandedVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         cancelShift.backgroundColor = UIColorFromHex(rgbValue: 0xCD5C5C, alpha: 0.8)
         
         let configuration = UISwipeActionsConfiguration(actions: [deleteShift,cancelShift])
+        tableView.endUpdates()
         return configuration
     }
     
+
+    
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let statusToSave = self.parsedShifts[indexPath.row]
+         //tableView.beginUpdates()
+        
         alertTitle = "Shift Completed!"
         askToDeleteShift = false
         let markCompleted = UIContextualAction(style: .normal, title: "Mark as Complete") { (action, view, completionHandler) in
@@ -131,28 +137,28 @@ class ShiftExpandedVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             self.confirmAction()
             completionHandler(true)
         }
+        
         markCompleted.backgroundColor = #colorLiteral(red: 0.363037467, green: 0.7854679227, blue: 0.330747813, alpha: 1)
         markCompleted.image = UIImage(named: "icons8-checked-60")
-        
+        //tableView.endUpdates()
         saveShift()
         let configuration = UISwipeActionsConfiguration(actions: [markCompleted])
-        return configuration
         
-       
+        return configuration
     }
     
     //MARK: - Data Manipulation Methods
-//     func loadShiftsFromContext () {
-//        let request : NSFetchRequest<Shift> = Shift.fetchRequest()
-//        let sort = NSSortDescriptor(key: "startShiftDate", ascending: true)
-//        request.sortDescriptors = [sort]
-//        do {
-//            shiftsLoaded = try context.fetch(request)
-//            print("----------------ShiftExpandedLoadedWithContext-----------------")
-//        } catch {
-//            print("Error fetching request \(error)")
-//        }
-//    }
+     func loadShiftsFromContext () {
+        let request : NSFetchRequest<Shift> = Shift.fetchRequest()
+        let sort = NSSortDescriptor(key: "startShiftDate", ascending: true)
+        request.sortDescriptors = [sort]
+        do {
+            shiftsLoaded = try context.fetch(request)
+            print("----------------ShiftExpandedLoadedWithContext-----------------")
+        } catch {
+            print("Error fetching request \(error)")
+        }
+    }
     
     func parseShift () {
         let previousMonday = Date.today().previous(.monday)

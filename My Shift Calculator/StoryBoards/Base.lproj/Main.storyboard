@@ -725,9 +725,6 @@
                                                 <date key="date" timeIntervalSinceReferenceDate="576444978.89816201">
                                                     <!--2019-04-08 19:36:18 +0000-->
                                                 </date>
-                                                <connections>
-                                                    <action selector="valueChanged:" destination="hm7-bY-4ba" eventType="valueChanged" id="sOS-qn-SjM"/>
-                                                </connections>
                                             </datePicker>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ken-bM-7Uo" customClass="CustomBtnSmallerModel" customModule="My_Shift_Calculator" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="623" width="325" height="48"/>

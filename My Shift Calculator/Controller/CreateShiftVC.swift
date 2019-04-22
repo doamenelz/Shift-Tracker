@@ -39,23 +39,23 @@ class CreateShiftVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
     var rates: [Double]?
  
     //MARK: - Actions
-    @IBAction func valueChanged(_ sender: Any) {
-       
-        let tempDate = Date(timeIntervalSinceReferenceDate: (datePicker.date.timeIntervalSinceReferenceDate / 300.0).rounded(.down) * 300.0)
-        let formatedDate = dateFormatter.string(from: tempDate)
-        
-        if tag == 3 {
-            selectDate.setTitle(formatedDate, for: .normal)
-            //print(startShiftDate)
-            
-        } else if tag == 4 {
-            startTime.setTitle(formatedDate, for: .normal)
-            datePicker.minimumDate = startShiftDate//.addingTimeInterval(10)
-            
-
-        }
-
-    }
+//    @IBAction func valueChanged(_ sender: Any) {
+//
+//        let tempDate = Date(timeIntervalSinceReferenceDate: (datePicker.date.timeIntervalSinceReferenceDate / 300.0).rounded(.down) * 300.0)
+//        let formatedDate = dateFormatter.string(from: tempDate)
+//
+//        if tag == 3 {
+//            selectDate.setTitle(formatedDate, for: .normal)
+//            //print(startShiftDate)
+//
+//        } else if tag == 4 {
+//            startTime.setTitle(formatedDate, for: .normal)
+//            datePicker.minimumDate = startShiftDate//.addingTimeInterval(10)
+//
+//
+//        }
+//
+//    }
     
     @IBAction func addShiftPressed(_ sender: Any) {
         picker.isHidden = true
@@ -94,17 +94,17 @@ class CreateShiftVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
             selectDate.setTitle(formatedDate, for: .normal)
             let roundedDate = Date(timeIntervalSinceReferenceDate: (datePicker.date.timeIntervalSinceReferenceDate / 300.0).rounded(.down) * 300.0)
             startShiftDate = roundedDate
-            print("Start date is \(roundedDate)")
-        }
-        
-        if tag == 4 {
-            selectDate.setTitle(formatedDate, for: .normal)
+            print("Start date is \(startShiftDate)")
+            print("Start date is \(tag)")
+
+        } else if tag == 4 {
+            startTime.setTitle(formatedDate, for: .normal)
             let roundedDate = Date(timeIntervalSinceReferenceDate: (datePicker.date.timeIntervalSinceReferenceDate / 300.0).rounded(.down) * 300.0)
             endShiftDate = roundedDate
-            print("End date is \(roundedDate)")
+            print("End date is \(endShiftDate)")
+            print("Start date is \(tag)")
+
         }
-        
-        
 
     }
     

@@ -86,7 +86,7 @@ class Home: UIViewController {
         //Nav to Shifts StoryBoard
         let destinationVC = UIStoryboard(name: "Shifts", bundle: nil).instantiateViewController(withIdentifier: "ShiftExpandedVC") as! ShiftExpandedVC
        destinationVC.weekStarting = weekStarting
-        destinationVC.shiftsLoaded = weekShift
+        destinationVC.parsedShifts = weekShift
         self.present(destinationVC, animated: true, completion: nil)
 
     }
