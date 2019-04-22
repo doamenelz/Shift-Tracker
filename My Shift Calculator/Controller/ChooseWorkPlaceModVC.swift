@@ -30,8 +30,8 @@ class ChooseWorkPlaceModVC: UIViewController {
         
         newView.layer.cornerRadius = 5
         manageView.layer.cornerRadius = 5
-        newView.layer.borderWidth = 0.2
-        manageView.layer.borderWidth = 0.2
+        newView.layer.borderWidth = 0.5
+        manageView.layer.borderWidth = 0.5
         manageView.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         newView.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         

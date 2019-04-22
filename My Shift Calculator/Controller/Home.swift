@@ -86,6 +86,7 @@ class Home: UIViewController {
         //Nav to Shifts StoryBoard
         let destinationVC = UIStoryboard(name: "Shifts", bundle: nil).instantiateViewController(withIdentifier: "ShiftExpandedVC") as! ShiftExpandedVC
        destinationVC.weekStarting = weekStarting
+        destinationVC.shiftsLoaded = weekShift
         self.present(destinationVC, animated: true, completion: nil)
 
     }
@@ -106,6 +107,11 @@ class Home: UIViewController {
         print("reloadingShift")
 //        weekShift = []
 //        actualEarningsArray = []
+        weekShift = []
+        projectedEarningsArray = []
+        actualEarningsArray = []
+        projectedHoursArray = []
+        actualWorkedHoursArray = []
         print("Conextloading = \(weekShift.count)")
         print("----------------setUpViewNext------------")
         setUpView()
@@ -115,6 +121,7 @@ class Home: UIViewController {
         getWeekShifts()
              print("----------------parsenextshift------------")
         parseNextShift()
+        print(" Today's date is \(Date.today())")
         
         
         //Earnings
@@ -161,16 +168,18 @@ class Home: UIViewController {
         request.sortDescriptors = [sort]
         do {
             shiftsLoaded = try context.fetch(request)
-           // print("Shift data successfully fetched \(request)")
+           print("Shift data successfully fetched \(shiftsLoaded.count)")
         } catch {
             print("Error fetching request \(error)")
         }
     }
     func getWeekShifts () {
         //Determine date in WeekRange
-        let previousMonday = Date.today().previous(.monday)
-        let nextSunday = Date.today().next(.sunday)
+//        let previousMonday = Date.today().previous(.monday, considerToday: true)
+        let previousMonday = Date().previous(.monday, considerToday: true)
+        let nextSunday = Date.today().next(.sunday, considerToday: false)
         let range = previousMonday...nextSunday
+        print("Previous Monday is \(previousMonday), whilst next Sunday is \(nextSunday)")
        
         //Parse Date to Formatted String
       let tempDate = " \(previousMonday)"
@@ -186,13 +195,6 @@ class Home: UIViewController {
         } else {
             print("There was an error decoding the string")
         }
-        
-        projectedEarningsArray = []
-        weekShift = []
-        actualEarningsArray = []
-        projectedHoursArray = []
-        actualWorkedHoursArray = []
-        
         
         //Get weekly shifts
         for item in shiftsLoaded {
@@ -210,8 +212,9 @@ class Home: UIViewController {
                print(secondsToMins)
 
                 //multiplication value
-                let earnedAmountPerDay = tempRate * Double(secondsToMins)
-                print("Earned Amount per day = \(earnedAmountPerDay)")
+                let earnedAmountPerDay = tempRate * secondsToMins
+                print(tempRate)
+                //print("Earned Amount per day = \(earnedAmountPerDay)")
                 
                 //Parse Status
                 let tempStatus = ShiftStatus.completed.status()
@@ -221,17 +224,15 @@ class Home: UIViewController {
                     actualWorkedHoursArray.append(Double(secondsToMins))
                 }
                 
-                
-                
-
-                
                 //appendToArray
               projectedHoursArray.append(secondsToMins)
                 projectedEarningsArray.append(earnedAmountPerDay)
                 weekShift.append(item)
+                print("My parsed shifts are \(weekShift.count)")
             }
+         
         }
-        print("My parsed shifts are \(weekShift.count)")
+       
     }
     func parseNextShift () {
         

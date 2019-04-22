@@ -46,13 +46,13 @@ class CreateShiftVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
         
         if tag == 3 {
             selectDate.setTitle(formatedDate, for: .normal)
-            print(startShiftDate)
+            //print(startShiftDate)
             
         } else if tag == 4 {
-             startTime.setTitle(formatedDate, for: .normal)
-            datePicker.minimumDate = startShiftDate.addingTimeInterval(10)
-            endShiftDate = datePicker.date
-            print(endShiftDate)
+            startTime.setTitle(formatedDate, for: .normal)
+            datePicker.minimumDate = startShiftDate//.addingTimeInterval(10)
+            
+
         }
 
     }
@@ -88,13 +88,23 @@ class CreateShiftVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
         datePicker.isHidden = true
         doneView.isHidden = true
         
-        let formatedDate = dateFormatter.string(from: datePicker.date)
+         let tempDate = Date(timeIntervalSinceReferenceDate: (datePicker.date.timeIntervalSinceReferenceDate / 300.0).rounded(.down) * 300.0)
+        let formatedDate = dateFormatter.string(from: tempDate)
         if tag == 3 {
             selectDate.setTitle(formatedDate, for: .normal)
-            let rounded = Date(timeIntervalSinceReferenceDate: (datePicker.date.timeIntervalSinceReferenceDate / 300.0).rounded(.down) * 300.0)
-            startShiftDate = rounded
-            print("Rounded date is \(rounded)")
+            let roundedDate = Date(timeIntervalSinceReferenceDate: (datePicker.date.timeIntervalSinceReferenceDate / 300.0).rounded(.down) * 300.0)
+            startShiftDate = roundedDate
+            print("Start date is \(roundedDate)")
         }
+        
+        if tag == 4 {
+            selectDate.setTitle(formatedDate, for: .normal)
+            let roundedDate = Date(timeIntervalSinceReferenceDate: (datePicker.date.timeIntervalSinceReferenceDate / 300.0).rounded(.down) * 300.0)
+            endShiftDate = roundedDate
+            print("End date is \(roundedDate)")
+        }
+        
+        
 
     }
     
@@ -120,13 +130,13 @@ class CreateShiftVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
 
     }
     
-    @IBAction func selectDatePressed(_ sender: Any) {
+    @IBAction func startDateSelected(_ sender: Any) {
       doneView.isHidden = false
         selectDatePicker()
         tag = 3
     }
     
-    @IBAction func startTimeSelected(_ sender: Any) {
+    @IBAction func endTimeSelected(_ sender: Any) {
        doneView.isHidden = false
         datePicker.reloadInputViews()
         selectDatePicker()

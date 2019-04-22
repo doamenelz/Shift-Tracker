@@ -38,7 +38,7 @@ class ShiftExpandedVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadShiftsFromContext()
+       // loadShiftsFromContext()
         parseShift()
         tableView.dataSource = self
         tableView.delegate = self
@@ -134,23 +134,25 @@ class ShiftExpandedVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         markCompleted.backgroundColor = #colorLiteral(red: 0.363037467, green: 0.7854679227, blue: 0.330747813, alpha: 1)
         markCompleted.image = UIImage(named: "icons8-checked-60")
         
+        saveShift()
         let configuration = UISwipeActionsConfiguration(actions: [markCompleted])
         return configuration
         
+       
     }
     
     //MARK: - Data Manipulation Methods
-     func loadShiftsFromContext () {
-        let request : NSFetchRequest<Shift> = Shift.fetchRequest()
-        let sort = NSSortDescriptor(key: "startShiftDate", ascending: true)
-        request.sortDescriptors = [sort]
-        do {
-            shiftsLoaded = try context.fetch(request)
-            print("----------------ShiftExpandedLoadedWithContext-----------------")
-        } catch {
-            print("Error fetching request \(error)")
-        }
-    }
+//     func loadShiftsFromContext () {
+//        let request : NSFetchRequest<Shift> = Shift.fetchRequest()
+//        let sort = NSSortDescriptor(key: "startShiftDate", ascending: true)
+//        request.sortDescriptors = [sort]
+//        do {
+//            shiftsLoaded = try context.fetch(request)
+//            print("----------------ShiftExpandedLoadedWithContext-----------------")
+//        } catch {
+//            print("Error fetching request \(error)")
+//        }
+//    }
     
     func parseShift () {
         let previousMonday = Date.today().previous(.monday)
