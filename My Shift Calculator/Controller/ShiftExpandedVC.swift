@@ -38,8 +38,8 @@ class ShiftExpandedVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-       // loadShiftsFromContext()
-       // parseShift()
+        loadShiftsFromContext()
+        parseShift()
         tableView.dataSource = self
         tableView.delegate = self
         weekStartingLabel.text = weekStarting
@@ -76,7 +76,6 @@ class ShiftExpandedVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
 
-        tableView.beginUpdates()
         statusToSave = self.parsedShifts[indexPath.row]
        
         let deleteShift = UIContextualAction(style: .normal, title: "Delete Shift") { (action, view, completionHandler) in
@@ -120,7 +119,7 @@ class ShiftExpandedVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         cancelShift.backgroundColor = UIColorFromHex(rgbValue: 0xCD5C5C, alpha: 0.8)
         
         let configuration = UISwipeActionsConfiguration(actions: [deleteShift,cancelShift])
-        tableView.endUpdates()
+       // tableView.endUpdates()
         return configuration
     }
     
@@ -128,7 +127,6 @@ class ShiftExpandedVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let statusToSave = self.parsedShifts[indexPath.row]
-         //tableView.beginUpdates()
         
         alertTitle = "Shift Completed!"
         askToDeleteShift = false
@@ -140,8 +138,7 @@ class ShiftExpandedVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         
         markCompleted.backgroundColor = #colorLiteral(red: 0.363037467, green: 0.7854679227, blue: 0.330747813, alpha: 1)
         markCompleted.image = UIImage(named: "icons8-checked-60")
-        //tableView.endUpdates()
-        saveShift()
+        //saveShift()
         let configuration = UISwipeActionsConfiguration(actions: [markCompleted])
         
         return configuration
@@ -161,9 +158,11 @@ class ShiftExpandedVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     func parseShift () {
-        let previousMonday = Date.today().previous(.monday)
-        let nextSunday = Date.today().next(.sunday)
+//        let previousMonday = Date.today().previous(.monday)
+//        let nextSunday = Date.today().next(.sunday)
         
+        let previousMonday = Date().previous(.monday, considerToday: true)
+        let nextSunday = Date.today().next(.sunday, considerToday: false)
         let range = previousMonday...nextSunday
         
         for item in shiftsLoaded {
