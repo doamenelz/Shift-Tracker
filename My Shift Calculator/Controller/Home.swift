@@ -20,6 +20,7 @@ class Home: UIViewController {
     var shiftsLoaded = [Shift]()
     var weekShift = [Shift]()
     var nextShift : Shift?
+    var weekShiftsArray = [Shift]()
     var nextShiftsArray = [Shift]()
     var dateFormatter = DateFormatter()
     var headerFormatter = DateFormatter()
@@ -41,7 +42,7 @@ class Home: UIViewController {
     
     //MARK: - Outlets
     //Outlets
-    @IBOutlet weak var dashBoardView: UIImageView!
+    @IBOutlet weak var dashBoardImg: UIImageView!
     @IBOutlet weak var statusView: UIView!
     @IBOutlet weak var dashboardView: UIView!
     @IBOutlet weak var viewAllBtn: UIButton!
@@ -105,13 +106,12 @@ class Home: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         print("reloadingShift")
-//        weekShift = []
-//        actualEarningsArray = []
         weekShift = []
         projectedEarningsArray = []
         actualEarningsArray = []
         projectedHoursArray = []
         actualWorkedHoursArray = []
+        nextShiftsArray = []
         print("Conextloading = \(weekShift.count)")
         print("----------------setUpViewNext------------")
         setUpView()
@@ -147,12 +147,12 @@ class Home: UIViewController {
        
         //DashBoard Adjustments
         dashboardView.layer.cornerRadius = 13
-        dashBoardView.layer.cornerRadius = 13
+        dashBoardImg.layer.cornerRadius = 13
         self.dashboardView.layer.shadowColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         self.dashboardView.layer.shadowOpacity = 0.6
         self.dashboardView.layer.shadowOffset = CGSize(width: 1, height: 1)
         self.dashboardView.layer.shadowRadius = 2
-        self.dashBoardView.layer.masksToBounds = true
+        self.dashBoardImg.layer.masksToBounds = true
         statusView.layer.cornerRadius = 10
  
         //ShiftView Adjustments
@@ -174,10 +174,10 @@ class Home: UIViewController {
         }
     }
     func getWeekShifts () {
+
         //Determine date in WeekRange
-//        let previousMonday = Date.today().previous(.monday, considerToday: true)
         let previousMonday = Date().previous(.monday, considerToday: true)
-        let nextSunday = Date.today().next(.sunday, considerToday: false)
+        let nextSunday = Date.today().next(.sunday, considerToday: true)
         let range = previousMonday...nextSunday
         print("Previous Monday is \(previousMonday), whilst next Sunday is \(nextSunday)")
        
@@ -189,6 +189,7 @@ class Home: UIViewController {
         let dateFormatterPrint = DateFormatter()
         dateFormatterPrint.dateFormat = "MMM dd,yyyy"
         
+        
         if let date = dateFormatterGet.date(from: tempDate) {
             weekStarting = "Week Starting \(dateFormatterPrint.string(from: date))"
             weekStartingLbl.text = weekStarting
@@ -198,23 +199,22 @@ class Home: UIViewController {
         
         //Get weekly shifts
         for item in shiftsLoaded {
-            
+            //Week Shift
             if range.contains(item.startShiftDate!) {
                 
                 let tempRate = item.rates
               
                 //Get TimeInterval
                 let minuteDifferential = item.endShiftDate?.timeIntervalSince(item.startShiftDate!)
-                print(minuteDifferential!)
+                //print(minuteDifferential!)
                 
                 //Round Timeinterval (seconds) to Mins
                 let secondsToMins = (round(100 * (minuteDifferential! / 3600)) / 100)
-               print(secondsToMins)
+               //print(secondsToMins)
 
                 //multiplication value
                 let earnedAmountPerDay = tempRate * secondsToMins
-                print(tempRate)
-                //print("Earned Amount per day = \(earnedAmountPerDay)")
+                //print(tempRate)
                 
                 //Parse Status
                 let tempStatus = ShiftStatus.completed.status()
@@ -231,23 +231,16 @@ class Home: UIViewController {
                 print("My parsed shifts are \(weekShift.count)")
             }
          
+            //Next Shift
+            if item.startShiftDate! > Date.today(){//.next(.sunday, considerToday: false) {
+                print("I fount something")
+                nextShiftsArray.append(item)
+            }
         }
        
     }
     func parseNextShift () {
-        
-        if weekShift.isEmpty {
-            print("Nothing to parse today")
-        } else {
-            nextShiftsArray = []
-            
-            //Parse shifts into >= today
-            for shift in weekShift {
-                if shift.startShiftDate! >= Date() {
-                    nextShiftsArray.append(shift)
-                }
-            }
-        }
+        print("There are \(nextShiftsArray.count) in the next shift array")
         dateFormatter.dateFormat = "h:mm a"
         headerFormatter.dateFormat = "E, MMM d" // "MMM d, h:mm a"
 
@@ -280,7 +273,6 @@ class Home: UIViewController {
             print("No Shift")
         } else {
             nextShift = nextShiftsArray.first
-            print("Shift Array count \(nextShiftsArray.count)")
             officeLocationLbl.text = nextShift?.workPlaceName
             statusLbl.text = nextShift?.status
             shiftDateLbl.text = headerFormatter.string(from: nextShift!.startShiftDate!)

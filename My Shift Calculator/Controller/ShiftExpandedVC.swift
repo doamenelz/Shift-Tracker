@@ -158,11 +158,8 @@ class ShiftExpandedVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     func parseShift () {
-//        let previousMonday = Date.today().previous(.monday)
-//        let nextSunday = Date.today().next(.sunday)
-        
         let previousMonday = Date().previous(.monday, considerToday: true)
-        let nextSunday = Date.today().next(.sunday, considerToday: false)
+        let nextSunday = Date.today().next(.sunday, considerToday: true)
         let range = previousMonday...nextSunday
         
         for item in shiftsLoaded {

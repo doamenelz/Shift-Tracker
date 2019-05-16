@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		721CAB33228BAF1100B7A91C /* ManageWorkspaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721CAB32228BAF1100B7A91C /* ManageWorkspaceCell.swift */; };
+		721CAB35228CE20F00B7A91C /* ManageWorkspace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721CAB34228CE20F00B7A91C /* ManageWorkspace.swift */; };
 		728BC77622652F1900A0E50D /* SF-Pro-Display-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 728BC77022652F1900A0E50D /* SF-Pro-Display-Light.otf */; };
 		728BC77722652F1900A0E50D /* SF-Pro-Display-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 728BC77122652F1900A0E50D /* SF-Pro-Display-Thin.otf */; };
 		728BC77822652F1900A0E50D /* SF-Pro-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 728BC77222652F1900A0E50D /* SF-Pro-Display-Regular.otf */; };
@@ -38,6 +40,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		721CAB32228BAF1100B7A91C /* ManageWorkspaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageWorkspaceCell.swift; sourceTree = "<group>"; };
+		721CAB34228CE20F00B7A91C /* ManageWorkspace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageWorkspace.swift; sourceTree = "<group>"; };
 		728BC77022652F1900A0E50D /* SF-Pro-Display-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Light.otf"; sourceTree = "<group>"; };
 		728BC77122652F1900A0E50D /* SF-Pro-Display-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Thin.otf"; sourceTree = "<group>"; };
 		728BC77222652F1900A0E50D /* SF-Pro-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Regular.otf"; sourceTree = "<group>"; };
@@ -165,6 +169,7 @@
 				7290A8AE2256D4DB001ECE48 /* CreateShiftVC.swift */,
 				7290A8A72256A41C001ECE48 /* ViewShiftsVC.swift */,
 				728BC77E2265765600A0E50D /* ShiftExpandedVC.swift */,
+				721CAB34228CE20F00B7A91C /* ManageWorkspace.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -178,6 +183,7 @@
 				72F3C153225638AB00191AB7 /* BottomModal.swift */,
 				7290A8A92256C313001ECE48 /* ShiftCell.swift */,
 				728BC7802265767200A0E50D /* ShiftExpandedCell.swift */,
+				721CAB32228BAF1100B7A91C /* ManageWorkspaceCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -275,6 +281,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				721CAB35228CE20F00B7A91C /* ManageWorkspace.swift in Sources */,
 				7290A8AA2256C313001ECE48 /* ShiftCell.swift in Sources */,
 				7290A8AF2256D4DB001ECE48 /* CreateShiftVC.swift in Sources */,
 				728BC7812265767200A0E50D /* ShiftExpandedCell.swift in Sources */,
@@ -289,6 +296,7 @@
 				7290A8A82256A41C001ECE48 /* ViewShiftsVC.swift in Sources */,
 				72A8FA662268E3B700404460 /* ShiftStatus.swift in Sources */,
 				72F3C14E2254402C00191AB7 /* CustomBtnSmallerModel.swift in Sources */,
+				721CAB33228BAF1100B7A91C /* ManageWorkspaceCell.swift in Sources */,
 				72F3C12D2251A0AB00191AB7 /* AppDelegate.swift in Sources */,
 				728BC77F2265765600A0E50D /* ShiftExpandedVC.swift in Sources */,
 				72F3C1502254500A00191AB7 /* CreateWorkplaceVC.swift in Sources */,
