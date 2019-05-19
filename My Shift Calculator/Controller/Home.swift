@@ -191,7 +191,7 @@ class Home: UIViewController {
         
         
         if let date = dateFormatterGet.date(from: tempDate) {
-            weekStarting = "Week Starting \(dateFormatterPrint.string(from: date))"
+            weekStarting = "Wk Start: \(dateFormatterPrint.string(from: date))"
             weekStartingLbl.text = weekStarting
         } else {
             print("There was an error decoding the string")

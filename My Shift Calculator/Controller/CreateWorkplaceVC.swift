@@ -17,12 +17,14 @@ class CreateWorkplaceVC: UIViewController {
     
     //MARK: - Variables
     var modalDisplay = ""
+    var segueTag = 2
    
     //MARK: - Outlets
     @IBOutlet weak var workplaceTxtFld: CustomTxtField!
     @IBOutlet weak var ratesTxtFld: CustomTxtField!
     @IBOutlet weak var createBtn: CustomBtnSmallerModel!
     @IBOutlet weak var failedMessage: UILabel!
+    @IBOutlet weak var backGroundView: UIView!
     
     //MARK: - Actions
     @IBAction func createWrkPlacePressed(_ sender: Any) {
@@ -31,12 +33,15 @@ class CreateWorkplaceVC: UIViewController {
             let newWorkplace = Workplace(context: self.context)
             newWorkplace.workPlaceName = workplaceTxtFld.text!
             newWorkplace.rates = Double(ratesTxtFld.text!)!
+            //newWorkplace.dateCreated =
+            newWorkplace.dateCreated = Date()
             saveWorkplace()
            
             print("Create Btn Pressed")
             
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "SuccessModal") as! SuccessModal
             vc.modalMessage = self.modalDisplay
+            vc.segueTag = self.segueTag
             self.present(vc, animated: false, completion: nil)
             print("Values arent empty")
         } else {
@@ -49,6 +54,10 @@ class CreateWorkplaceVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         failedMessage.isHidden = true
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(CreateWorkplaceVC.handleTap(_:)))
+        backGroundView.addGestureRecognizer(tapGesture)
+        
        bindToKeyboard()
     }
 
@@ -63,4 +72,8 @@ class CreateWorkplaceVC: UIViewController {
         
     }
 
+    @objc func handleTap(_ sender: UITapGestureRecognizer) {
+        resignFirstResponder()
+        dismiss(animated: false, completion: nil)
+    }
 }

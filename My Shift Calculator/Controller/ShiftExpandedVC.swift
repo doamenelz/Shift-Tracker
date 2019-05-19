@@ -42,7 +42,8 @@ class ShiftExpandedVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         parseShift()
         tableView.dataSource = self
         tableView.delegate = self
-        weekStartingLabel.text = weekStarting
+       // weekStartingLabel.text = weekStarting
+        weekStartingLabel.text = "This Week"
 }
     
     //MARK: - TableView Methods

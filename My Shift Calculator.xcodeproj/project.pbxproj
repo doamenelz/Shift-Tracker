@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		721CAB33228BAF1100B7A91C /* ManageWorkspaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721CAB32228BAF1100B7A91C /* ManageWorkspaceCell.swift */; };
 		721CAB35228CE20F00B7A91C /* ManageWorkspace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721CAB34228CE20F00B7A91C /* ManageWorkspace.swift */; };
+		722337D3228FC80500E71642 /* iOSDropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 722337D2228FC80500E71642 /* iOSDropDown.framework */; };
+		722337D5228FC86600E71642 /* ShiftExpandedMonthViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722337D4228FC86600E71642 /* ShiftExpandedMonthViewVC.swift */; };
+		722337D7228FC91100E71642 /* MonthlyViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722337D6228FC91100E71642 /* MonthlyViewCell.swift */; };
 		728BC77622652F1900A0E50D /* SF-Pro-Display-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 728BC77022652F1900A0E50D /* SF-Pro-Display-Light.otf */; };
 		728BC77722652F1900A0E50D /* SF-Pro-Display-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 728BC77122652F1900A0E50D /* SF-Pro-Display-Thin.otf */; };
 		728BC77822652F1900A0E50D /* SF-Pro-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 728BC77222652F1900A0E50D /* SF-Pro-Display-Regular.otf */; };
@@ -24,6 +27,8 @@
 		72A8FA632268D00100404460 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A8FA622268D00100404460 /* UIViewExtension.swift */; };
 		72A8FA662268E3B700404460 /* ShiftStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A8FA652268E3B700404460 /* ShiftStatus.swift */; };
 		72A8FA6A22693A8A00404460 /* DateExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A8FA6922693A8A00404460 /* DateExt.swift */; };
+		72F0FBF122908A770053E2BC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F0FBF022908A770053E2BC /* Constants.swift */; };
+		72F0FBF32290D2A90053E2BC /* CalendarMonths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F0FBF22290D2A90053E2BC /* CalendarMonths.swift */; };
 		72F3C12D2251A0AB00191AB7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F3C12C2251A0AB00191AB7 /* AppDelegate.swift */; };
 		72F3C1322251A0AB00191AB7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72F3C1302251A0AB00191AB7 /* Main.storyboard */; };
 		72F3C1352251A0AB00191AB7 /* My_Shift_Calculator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 72F3C1332251A0AB00191AB7 /* My_Shift_Calculator.xcdatamodeld */; };
@@ -37,11 +42,16 @@
 		72F3C1502254500A00191AB7 /* CreateWorkplaceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F3C14F2254500A00191AB7 /* CreateWorkplaceVC.swift */; };
 		72F3C152225454CE00191AB7 /* CustomTxtField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F3C151225454CE00191AB7 /* CustomTxtField.swift */; };
 		72F3C154225638AC00191AB7 /* BottomModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F3C153225638AB00191AB7 /* BottomModal.swift */; };
+		A3A0F2E47F384CEF6FD7FCDB /* Pods_My_Shift_Calculator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BEB5F887ED56F304F4743C6 /* Pods_My_Shift_Calculator.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6BEB5F887ED56F304F4743C6 /* Pods_My_Shift_Calculator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_My_Shift_Calculator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		721CAB32228BAF1100B7A91C /* ManageWorkspaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageWorkspaceCell.swift; sourceTree = "<group>"; };
 		721CAB34228CE20F00B7A91C /* ManageWorkspace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageWorkspace.swift; sourceTree = "<group>"; };
+		722337D2228FC80500E71642 /* iOSDropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = iOSDropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		722337D4228FC86600E71642 /* ShiftExpandedMonthViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftExpandedMonthViewVC.swift; sourceTree = "<group>"; };
+		722337D6228FC91100E71642 /* MonthlyViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyViewCell.swift; sourceTree = "<group>"; };
 		728BC77022652F1900A0E50D /* SF-Pro-Display-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Light.otf"; sourceTree = "<group>"; };
 		728BC77122652F1900A0E50D /* SF-Pro-Display-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Thin.otf"; sourceTree = "<group>"; };
 		728BC77222652F1900A0E50D /* SF-Pro-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Regular.otf"; sourceTree = "<group>"; };
@@ -57,6 +67,8 @@
 		72A8FA622268D00100404460 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		72A8FA652268E3B700404460 /* ShiftStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftStatus.swift; sourceTree = "<group>"; };
 		72A8FA6922693A8A00404460 /* DateExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExt.swift; sourceTree = "<group>"; };
+		72F0FBF022908A770053E2BC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		72F0FBF22290D2A90053E2BC /* CalendarMonths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarMonths.swift; sourceTree = "<group>"; };
 		72F3C1292251A0AB00191AB7 /* My Shift Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Shift Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		72F3C12C2251A0AB00191AB7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		72F3C1312251A0AB00191AB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -72,6 +84,8 @@
 		72F3C14F2254500A00191AB7 /* CreateWorkplaceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWorkplaceVC.swift; sourceTree = "<group>"; };
 		72F3C151225454CE00191AB7 /* CustomTxtField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTxtField.swift; sourceTree = "<group>"; };
 		72F3C153225638AB00191AB7 /* BottomModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomModal.swift; sourceTree = "<group>"; };
+		B393E082315F4F71C8A43D16 /* Pods-My Shift Calculator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My Shift Calculator.release.xcconfig"; path = "Pods/Target Support Files/Pods-My Shift Calculator/Pods-My Shift Calculator.release.xcconfig"; sourceTree = "<group>"; };
+		D3FF9E322A493591B5DA0E7C /* Pods-My Shift Calculator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My Shift Calculator.debug.xcconfig"; path = "Pods/Target Support Files/Pods-My Shift Calculator/Pods-My Shift Calculator.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,12 +93,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				722337D3228FC80500E71642 /* iOSDropDown.framework in Frameworks */,
+				A3A0F2E47F384CEF6FD7FCDB /* Pods_My_Shift_Calculator.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		512E6F6E387D7A5CEEA04718 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D3FF9E322A493591B5DA0E7C /* Pods-My Shift Calculator.debug.xcconfig */,
+				B393E082315F4F71C8A43D16 /* Pods-My Shift Calculator.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		728BC76F22652E7B00A0E50D /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				72A8FA652268E3B700404460 /* ShiftStatus.swift */,
+				72F0FBF22290D2A90053E2BC /* CalendarMonths.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -129,6 +155,8 @@
 			children = (
 				72F3C12B2251A0AB00191AB7 /* My Shift Calculator */,
 				72F3C12A2251A0AB00191AB7 /* Products */,
+				512E6F6E387D7A5CEEA04718 /* Pods */,
+				841BEB1690830C487F2917A0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -170,6 +198,7 @@
 				7290A8A72256A41C001ECE48 /* ViewShiftsVC.swift */,
 				728BC77E2265765600A0E50D /* ShiftExpandedVC.swift */,
 				721CAB34228CE20F00B7A91C /* ManageWorkspace.swift */,
+				722337D4228FC86600E71642 /* ShiftExpandedMonthViewVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -184,6 +213,7 @@
 				7290A8A92256C313001ECE48 /* ShiftCell.swift */,
 				728BC7802265767200A0E50D /* ShiftExpandedCell.swift */,
 				721CAB32228BAF1100B7A91C /* ManageWorkspaceCell.swift */,
+				722337D6228FC91100E71642 /* MonthlyViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -199,8 +229,18 @@
 		72F3C14622532D2500191AB7 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				72F0FBF022908A770053E2BC /* Constants.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		841BEB1690830C487F2917A0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				722337D2228FC80500E71642 /* iOSDropDown.framework */,
+				6BEB5F887ED56F304F4743C6 /* Pods_My_Shift_Calculator.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,9 +250,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 72F3C13E2251A0AD00191AB7 /* Build configuration list for PBXNativeTarget "My Shift Calculator" */;
 			buildPhases = (
+				6F6908B7E4768B66B0D4743A /* [CP] Check Pods Manifest.lock */,
 				72F3C1252251A0AB00191AB7 /* Sources */,
 				72F3C1262251A0AB00191AB7 /* Frameworks */,
 				72F3C1272251A0AB00191AB7 /* Resources */,
+				9A3DF3046919943802617ADE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -276,6 +318,53 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6F6908B7E4768B66B0D4743A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-My Shift Calculator-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9A3DF3046919943802617ADE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-My Shift Calculator/Pods-My Shift Calculator-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/iOSDropDown/iOSDropDown.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iOSDropDown.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-My Shift Calculator/Pods-My Shift Calculator-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		72F3C1252251A0AB00191AB7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -283,13 +372,17 @@
 			files = (
 				721CAB35228CE20F00B7A91C /* ManageWorkspace.swift in Sources */,
 				7290A8AA2256C313001ECE48 /* ShiftCell.swift in Sources */,
+				72F0FBF32290D2A90053E2BC /* CalendarMonths.swift in Sources */,
 				7290A8AF2256D4DB001ECE48 /* CreateShiftVC.swift in Sources */,
 				728BC7812265767200A0E50D /* ShiftExpandedCell.swift in Sources */,
 				72F3C154225638AC00191AB7 /* BottomModal.swift in Sources */,
 				72F3C14822532D8F00191AB7 /* CustomizeBtn.swift in Sources */,
+				72F0FBF122908A770053E2BC /* Constants.swift in Sources */,
+				722337D7228FC91100E71642 /* MonthlyViewCell.swift in Sources */,
 				72F3C14A225412A900191AB7 /* SuccessModal.swift in Sources */,
 				72A8FA632268D00100404460 /* UIViewExtension.swift in Sources */,
 				72F3C14C22543DFB00191AB7 /* ChooseWorkPlaceModVC.swift in Sources */,
+				722337D5228FC86600E71642 /* ShiftExpandedMonthViewVC.swift in Sources */,
 				72F3C1352251A0AB00191AB7 /* My_Shift_Calculator.xcdatamodeld in Sources */,
 				72F3C1452253114C00191AB7 /* Home.swift in Sources */,
 				72F3C152225454CE00191AB7 /* CustomTxtField.swift in Sources */,
@@ -444,6 +537,7 @@
 		};
 		72F3C13F2251A0AD00191AB7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D3FF9E322A493591B5DA0E7C /* Pods-My Shift Calculator.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -462,6 +556,7 @@
 		};
 		72F3C1402251A0AD00191AB7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B393E082315F4F71C8A43D16 /* Pods-My Shift Calculator.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

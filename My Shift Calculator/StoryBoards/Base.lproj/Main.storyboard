@@ -40,7 +40,7 @@
                                 <state key="normal" image="Settings-1"/>
                                 <connections>
                                     <action selector="settings:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kwq-Xz-Shf"/>
-                                    <segue destination="FBp-EC-nC8" kind="presentation" animates="NO" modalPresentationStyle="overCurrentContext" modalTransitionStyle="coverVertical" id="ade-Zv-2j5"/>
+                                    <segue destination="cXt-OR-cxf" kind="showDetail" animates="NO" id="I5o-ls-IVe"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="keG-SR-Ku1">
@@ -407,7 +407,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="131.78410794602701"/>
+            <point key="canvasLocation" x="1318" y="466"/>
         </scene>
         <!--Success Modal-->
         <scene sceneID="X6X-2t-681">
@@ -456,7 +456,6 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="donePressed:" destination="1pG-HB-Wff" eventType="touchUpInside" id="Sgn-gZ-MOg"/>
-                                                    <segue destination="BYZ-38-t0r" kind="show" id="XOh-ns-HUR"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -499,7 +498,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tsu-Hp-OVx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="845.60000000000002" y="135.38230884557723"/>
+            <point key="canvasLocation" x="1337" y="-262"/>
         </scene>
         <!--Choose Work Place ModVC-->
         <scene sceneID="JAb-gQ-Qls">
@@ -517,8 +516,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VMx-sc-6vt" customClass="BottomModal" customModule="My_Shift_Calculator" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="407" width="375" height="260"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Workplace" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xUQ-RF-aiz">
-                                        <rect key="frame" x="142.5" y="19" width="90" height="23"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Manage Workplace" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xUQ-RF-aiz">
+                                        <rect key="frame" x="107" y="19" width="161.5" height="23"/>
                                         <fontDescription key="fontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="19"/>
                                         <color key="textColor" red="0.42745098040000001" green="0.47450980390000003" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -538,12 +537,11 @@
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1dm-nu-Mgn">
                                                 <rect key="frame" x="68" y="0.0" width="268" height="80"/>
-                                                <state key="normal" title="New Workplace">
+                                                <state key="normal" title="Create Workplace">
                                                     <color key="titleColor" red="0.42745098040000001" green="0.47450980390000003" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="newWorkPlaceBtnPressed:" destination="FBp-EC-nC8" eventType="touchUpInside" id="ng2-Fl-Vpc"/>
-                                                    <segue destination="bJb-i7-3VH" kind="show" id="6cd-6m-PaK"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -570,12 +568,11 @@
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tf3-Te-PCM">
                                                 <rect key="frame" x="68" y="0.0" width="268" height="80"/>
-                                                <state key="normal" title="Manage Workplace">
+                                                <state key="normal" title="Delete Workplace">
                                                     <color key="titleColor" red="0.42745098040000001" green="0.47450980390000003" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="manageWorkPlacePressed:" destination="FBp-EC-nC8" eventType="touchUpInside" id="Fo4-mH-RcJ"/>
-                                                    <segue destination="cXt-OR-cxf" kind="show" id="kyc-y8-P6f"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -632,12 +629,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9LV-V3-9XV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1533.5999999999999" y="134.48275862068968"/>
+            <point key="canvasLocation" x="2062" y="-262"/>
         </scene>
-        <!--Manage Workspace-->
+        <!--Workplace-->
         <scene sceneID="Hvl-T7-us4">
             <objects>
-                <viewController id="cXt-OR-cxf" customClass="ManageWorkspace" customModule="My_Shift_Calculator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ManageWorkspace" id="cXt-OR-cxf" customClass="ManageWorkspace" customModule="My_Shift_Calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uLI-Mi-sTO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -646,7 +643,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1sE-Pn-W5r">
-                                <rect key="frame" x="0.0" y="91" width="375" height="576"/>
+                                <rect key="frame" x="0.0" y="110.5" width="375" height="556.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="workplaceCell" rowHeight="115" id="ufM-Rh-FyO" customClass="ManageWorkspaceCell" customModule="My_Shift_Calculator" customModuleProvider="target">
@@ -778,26 +775,47 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mnz-tR-8Hy">
-                                <rect key="frame" x="35" y="50" width="26" height="26"/>
+                                <rect key="frame" x="20" y="50" width="26" height="26"/>
                                 <state key="normal" image="Back"/>
+                                <connections>
+                                    <action selector="backPressed:" destination="cXt-OR-cxf" eventType="touchUpInside" id="gQi-Hk-NNe"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" animates="NO" id="gzh-Df-jen"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Manage Workspace" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tDF-v8-lwE">
-                                <rect key="frame" x="111.5" y="53" width="152" height="20"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Workplace" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tDF-v8-lwE">
+                                <rect key="frame" x="138" y="50.5" width="99.5" height="25.5"/>
+                                <fontDescription key="fontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="21"/>
                                 <color key="textColor" red="0.42745098040000001" green="0.47450980390000003" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XWo-mZ-qsC" customClass="CustomizeBtn" customModule="My_Shift_Calculator" customModuleProvider="target">
+                                <rect key="frame" x="280" y="45.5" width="75" height="35"/>
+                                <color key="backgroundColor" red="0.42745098040000001" green="0.47450980390000003" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="Wyc-rY-0H4"/>
+                                    <constraint firstAttribute="width" constant="75" id="vns-rN-rfu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFProDisplay-Light" family="SF Pro Display" pointSize="13"/>
+                                <state key="normal" title="Add New">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="addNewPressed:" destination="cXt-OR-cxf" eventType="touchUpInside" id="Nsl-dM-Ntg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="OYd-FC-X3T" firstAttribute="bottom" secondItem="1sE-Pn-W5r" secondAttribute="bottom" id="3U4-CQ-U8B"/>
-                            <constraint firstItem="4XQ-d0-9cE" firstAttribute="bottom" secondItem="OYd-FC-X3T" secondAttribute="bottom" id="A9u-yV-Il9"/>
+                            <constraint firstItem="OYd-FC-X3T" firstAttribute="trailing" secondItem="XWo-mZ-qsC" secondAttribute="trailing" constant="20" id="9pd-5L-bNl"/>
+                            <constraint firstItem="4XQ-d0-9cE" firstAttribute="bottom" secondItem="uLI-Mi-sTO" secondAttribute="bottom" id="A9u-yV-Il9"/>
                             <constraint firstItem="4XQ-d0-9cE" firstAttribute="leading" secondItem="OYd-FC-X3T" secondAttribute="leading" id="Bz7-nx-McF"/>
                             <constraint firstItem="tDF-v8-lwE" firstAttribute="centerY" secondItem="Mnz-tR-8Hy" secondAttribute="centerY" id="MKf-kR-jmu"/>
+                            <constraint firstItem="XWo-mZ-qsC" firstAttribute="centerY" secondItem="tDF-v8-lwE" secondAttribute="centerY" id="SMY-Ko-wWi"/>
                             <constraint firstItem="4XQ-d0-9cE" firstAttribute="top" secondItem="uLI-Mi-sTO" secondAttribute="top" id="SUG-CY-ecL"/>
-                            <constraint firstItem="1sE-Pn-W5r" firstAttribute="top" secondItem="Mnz-tR-8Hy" secondAttribute="bottom" constant="15" id="cg7-Pd-G9A"/>
                             <constraint firstItem="4XQ-d0-9cE" firstAttribute="trailing" secondItem="OYd-FC-X3T" secondAttribute="trailing" id="ctA-ja-7sR"/>
-                            <constraint firstItem="Mnz-tR-8Hy" firstAttribute="leading" secondItem="OYd-FC-X3T" secondAttribute="leading" constant="35" id="ou2-zv-SIE"/>
+                            <constraint firstItem="1sE-Pn-W5r" firstAttribute="top" secondItem="XWo-mZ-qsC" secondAttribute="bottom" constant="30" id="hmN-WL-RNV"/>
+                            <constraint firstItem="Mnz-tR-8Hy" firstAttribute="leading" secondItem="OYd-FC-X3T" secondAttribute="leading" constant="20" id="ou2-zv-SIE"/>
                             <constraint firstItem="1sE-Pn-W5r" firstAttribute="trailing" secondItem="OYd-FC-X3T" secondAttribute="trailing" id="pSk-jq-Ko6"/>
                             <constraint firstItem="Mnz-tR-8Hy" firstAttribute="top" secondItem="OYd-FC-X3T" secondAttribute="top" constant="30" id="pzj-hZ-8oY"/>
                             <constraint firstItem="tDF-v8-lwE" firstAttribute="centerX" secondItem="uLI-Mi-sTO" secondAttribute="centerX" id="tse-2G-x5H"/>
@@ -806,10 +824,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="OYd-FC-X3T"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Workplace" largeTitleDisplayMode="always" id="qDE-oK-fBF"/>
+                    <connections>
+                        <outlet property="adBtn" destination="XWo-mZ-qsC" id="mqX-ob-ZgL"/>
+                        <outlet property="tableView" destination="1sE-Pn-W5r" id="eut-3n-Pod"/>
+                        <segue destination="bJb-i7-3VH" kind="presentation" identifier="toAddNewWorkplace" animates="NO" modalPresentationStyle="overCurrentContext" id="9w5-2N-j9W"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GUz-nD-cyv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2248.8000000000002" y="465.51724137931041"/>
+            <point key="canvasLocation" x="2063" y="466"/>
         </scene>
         <!--Create ShiftVC-->
         <scene sceneID="dOr-U6-Ihk">
@@ -988,17 +1012,17 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1GP-t5-dkl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1533.3333333333335" y="850.27173913043487"/>
+            <point key="canvasLocation" x="1318" y="1222"/>
         </scene>
         <!--Create WorkplaceVC-->
         <scene sceneID="3Yl-bi-2yN">
             <objects>
                 <viewController id="bJb-i7-3VH" customClass="CreateWorkplaceVC" customModule="My_Shift_Calculator" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Kdu-y0-3LC">
+                    <view key="view" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Kdu-y0-3LC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CwF-LD-pF6">
+                            <view alpha="0.10000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CwF-LD-pF6">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1006,29 +1030,19 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ru-m3-uWY" customClass="BottomModal" customModule="My_Shift_Calculator" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="407" width="375" height="260"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Workplace" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ml-nH-1Bt">
-                                        <rect key="frame" x="128.5" y="18" width="118" height="20"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add New Workplace" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ml-nH-1Bt">
+                                        <rect key="frame" x="111.5" y="18" width="152" height="20"/>
                                         <fontDescription key="fontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="17"/>
                                         <color key="textColor" red="0.42745098040000001" green="0.47450980390000003" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sTG-lt-3Do">
-                                        <rect key="frame" x="25" y="15" width="26" height="26"/>
-                                        <state key="normal" image="icons8-back-to-filled-50"/>
-                                        <connections>
-                                            <segue destination="FBp-EC-nC8" kind="show" id="9IJ-Us-AZd"/>
-                                        </connections>
-                                    </button>
-                                    <imageView userInteractionEnabled="NO" alpha="0.27000001072883606" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Modal" translatesAutoresizingMaskIntoConstraints="NO" id="RBk-H1-wGo">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="260"/>
-                                    </imageView>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Workplace Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cfp-8Q-gFw" customClass="CustomTxtField" customModule="My_Shift_Calculator" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cfp-8Q-gFw" customClass="CustomTxtField" customModule="My_Shift_Calculator" customModuleProvider="target">
                                         <rect key="frame" x="25" y="56" width="325" height="48"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="1hN-eV-R41"/>
                                         </constraints>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Rates" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wZ2-tp-BzQ" customClass="CustomTxtField" customModule="My_Shift_Calculator" customModuleProvider="target">
@@ -1063,8 +1077,6 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="RBk-H1-wGo" firstAttribute="height" secondItem="5ru-m3-uWY" secondAttribute="height" id="5Ea-9F-geI"/>
-                                    <constraint firstItem="RBk-H1-wGo" firstAttribute="centerX" secondItem="9Ml-nH-1Bt" secondAttribute="centerX" id="8KJ-BR-5zA"/>
                                     <constraint firstAttribute="height" constant="260" id="A9U-07-8cY"/>
                                     <constraint firstAttribute="trailing" secondItem="F4I-AA-1oM" secondAttribute="trailing" constant="25" id="D7Z-nL-RKe"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="wZ2-tp-BzQ" secondAttribute="trailing" constant="20" symbolic="YES" id="HA8-tc-4rp"/>
@@ -1074,13 +1086,9 @@
                                     <constraint firstItem="9Ml-nH-1Bt" firstAttribute="centerX" secondItem="5ru-m3-uWY" secondAttribute="centerX" id="NhY-sz-hHw"/>
                                     <constraint firstItem="FgQ-6H-ZF4" firstAttribute="top" secondItem="wZ2-tp-BzQ" secondAttribute="bottom" constant="15" id="PZL-1e-zve"/>
                                     <constraint firstItem="wZ2-tp-BzQ" firstAttribute="width" secondItem="Cfp-8Q-gFw" secondAttribute="width" id="Sbw-CN-aqn"/>
+                                    <constraint firstItem="F4I-AA-1oM" firstAttribute="top" secondItem="9Ml-nH-1Bt" secondAttribute="bottom" constant="2" id="VdR-4m-78h"/>
                                     <constraint firstAttribute="trailing" secondItem="Cfp-8Q-gFw" secondAttribute="trailing" constant="25" id="acn-XV-Trl"/>
-                                    <constraint firstItem="sTG-lt-3Do" firstAttribute="centerY" secondItem="9Ml-nH-1Bt" secondAttribute="centerY" id="edT-ZD-rbb"/>
-                                    <constraint firstItem="RBk-H1-wGo" firstAttribute="top" secondItem="5ru-m3-uWY" secondAttribute="top" id="gOg-Ux-sNw"/>
                                     <constraint firstItem="wZ2-tp-BzQ" firstAttribute="leading" secondItem="5ru-m3-uWY" secondAttribute="leading" constant="25" id="jOu-jh-7i5"/>
-                                    <constraint firstItem="RBk-H1-wGo" firstAttribute="width" secondItem="5ru-m3-uWY" secondAttribute="width" id="kNk-8k-6Ig"/>
-                                    <constraint firstItem="Cfp-8Q-gFw" firstAttribute="top" secondItem="sTG-lt-3Do" secondAttribute="bottom" constant="15" id="m3T-JA-ND0"/>
-                                    <constraint firstItem="sTG-lt-3Do" firstAttribute="leading" secondItem="5ru-m3-uWY" secondAttribute="leading" constant="25" id="qNN-uD-3Zu"/>
                                     <constraint firstItem="Cfp-8Q-gFw" firstAttribute="leading" secondItem="5ru-m3-uWY" secondAttribute="leading" constant="25" id="qQQ-sZ-qd4"/>
                                     <constraint firstAttribute="trailing" secondItem="FgQ-6H-ZF4" secondAttribute="trailing" constant="25" id="rgP-Pw-gBy"/>
                                     <constraint firstItem="FgQ-6H-ZF4" firstAttribute="leading" secondItem="5ru-m3-uWY" secondAttribute="leading" constant="25" id="uvn-Z3-BCJ"/>
@@ -1101,6 +1109,7 @@
                         <viewLayoutGuide key="safeArea" id="Qbf-av-9kH"/>
                     </view>
                     <connections>
+                        <outlet property="backGroundView" destination="CwF-LD-pF6" id="hRH-AJ-jRE"/>
                         <outlet property="createBtn" destination="FgQ-6H-ZF4" id="zZZ-mn-8Fn"/>
                         <outlet property="failedMessage" destination="F4I-AA-1oM" id="wLa-OX-SZd"/>
                         <outlet property="ratesTxtFld" destination="wZ2-tp-BzQ" id="3I5-U9-Un8"/>
@@ -1109,7 +1118,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3MU-Jd-XQF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2249" y="-226"/>
+            <point key="canvasLocation" x="2823" y="466"/>
         </scene>
     </scenes>
     <resources>
@@ -1122,14 +1131,10 @@
         <image name="Oval" width="10" height="10"/>
         <image name="Settings-1" width="40" height="40"/>
         <image name="colors-design-flatlay-983829" width="4608" height="3456"/>
-        <image name="icons8-back-to-filled-50" width="26" height="26"/>
         <image name="icons8-cash-in-hand-64-2" width="56" height="58"/>
         <image name="icons8-clock-512" width="53" height="53"/>
         <image name="icons8-marker-52 copy" width="8" height="12"/>
         <image name="icons8-ok-480" width="76" height="76"/>
         <image name="stil-564525-unsplash" width="3264" height="4928"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="9IJ-Us-AZd"/>
-    </inferredMetricsTieBreakers>
 </document>
