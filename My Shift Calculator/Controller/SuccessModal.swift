@@ -39,7 +39,7 @@ class SuccessModal: UIViewController {
         modalView.layer.cornerRadius = 13
         doneLbl.layer.cornerRadius = 5
         successMsgLbl.text = modalMessage
-        print(segueTag)
+        //print(segueTag)
         // Do any additional setup after loading the view.
     }
 

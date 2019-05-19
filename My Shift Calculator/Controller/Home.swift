@@ -68,10 +68,7 @@ class Home: UIViewController {
     @IBOutlet weak var projectedEarningsLbl: UILabel!
     @IBOutlet weak var actualEarningsLbl: UILabel!
     
-    
-    
-    
-    
+
     //Static Outlets
     @IBOutlet weak var locationIcon: UIImageView!
     @IBOutlet weak var oval1: UIImageView!
@@ -89,7 +86,6 @@ class Home: UIViewController {
        destinationVC.weekStarting = weekStarting
         //destinationVC.parsedShifts = weekShift
         self.present(destinationVC, animated: true, completion: nil)
-
     }
     
     @IBAction func addShiftPressed(_ sender: Any) {
@@ -116,7 +112,8 @@ class Home: UIViewController {
         print("----------------setUpViewNext------------")
         setUpView()
              print("----------------loadshiftcontext------------")
-        loadShiftsFromContext()
+       // loadShiftsFromContext()
+        shiftsLoaded = loadShiftsFromContextGeneric(context: CONTEXT)
              print("----------------getweekshift------------")
         getWeekShifts()
              print("----------------parsenextshift------------")
@@ -161,18 +158,12 @@ class Home: UIViewController {
         shiftView.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         topBorderView.layer.cornerRadius = 13
         topBorderView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        
+        
+        
     }
-    func loadShiftsFromContext() {
-        let request: NSFetchRequest<Shift> = Shift.fetchRequest()
-        let sort = NSSortDescriptor(key: "startShiftDate", ascending: true)
-        request.sortDescriptors = [sort]
-        do {
-            shiftsLoaded = try context.fetch(request)
-           print("Shift data successfully fetched \(shiftsLoaded.count)")
-        } catch {
-            print("Error fetching request \(error)")
-        }
-    }
+    
+
     func getWeekShifts () {
 
         //Determine date in WeekRange

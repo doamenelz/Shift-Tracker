@@ -12,10 +12,9 @@ import CoreData
 
 
 class ShiftExpandedMonthViewVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
- 
     
-
-     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    let context = CONTEXT
     
     //Outlets
     @IBOutlet weak var dropDown: DropDown!
@@ -27,7 +26,6 @@ class ShiftExpandedMonthViewVC: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var switchBtn: CustomizeBtn!
     
-    
     //Variables
     var shiftsLoaded = [Shift]()
     var monthShift = [Shift]()
@@ -36,34 +34,58 @@ class ShiftExpandedMonthViewVC: UIViewController, UITableViewDelegate, UITableVi
     let calendar = Calendar.current
     var monthInText = ""
     var monthInInt = 0
-
-
     var dateComponents = DateComponents()
-    
     var actualEarningsArray = [Double]()
     var actualEarnings: Double?
-    
     var actualWorkedHoursArray = [Double]()
     var actualWorkedHours: Double?
     var workPlaces = [String]()
     
-    //let  dropDown = DropDown(frame: CGRect(x: 110, y: 140, width: 200, height: 30))
+    
+    var alertConfirm: String = ""
+    var alertCancel: String = ""
+    var alertTitle: String = ""
+    var alertMessage: String = ""
+    
+    var askToDeleteShift: Bool = false
+    var statusToSave: Shift?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        shiftsLoaded = loadShiftsFromContextGeneric(context: context)
         setupView()
         tableView.dataSource = self
         tableView.delegate = self
-        loadShiftsFromContext()
-        print(shiftsLoaded.count)
-       getMonthShifts(selectedDate: Date())
-        actualWorkedHours = actualWorkedHoursArray.reduce(0, +)
-        workedAmnt.text = "\(actualWorkedHours!) Hrs"
-        actualEarnings = actualEarningsArray.reduce(0, +)
-        earnedAmtMnth.text = "\(actualEarnings!)"
+        
+        dropDown.listWillAppear {
+            self.summaryView.isHidden = true
+            self.tableView.isHidden = true
+        }
+        dropDown.listDidDisappear {
+            self.summaryView.isHidden = false
+            self.tableView.isHidden = false
+            //self.tableView.reloadData()
+        }
+        dropDown.didSelect { (selectedText, index, id) in
+            self.shiftsLoaded = self.loadShiftsFromContextGeneric(context: self.context)
+            self.parseArrays()
+            self.monthShift = []
+            self.workPlaces = []
+            self.monthInText = selectedText
+            self.monthInInt = index
+            self.getMonthsString(monthInText: selectedText)
+            self.getMonthShifts(selectedDate: self.firstDayOfMonth)
+            self.parseLabels()
+
+            self.workPlaceCount.text = "\(Array(Set(self.workPlaces)).count)"
+            self.tableView.reloadData()
+        }
+        
+        getMonthShifts(selectedDate: Date())
+        parseLabels()
+
         workPlaceCount.text = "\(Array(Set(workPlaces)).count)"
-        actualEarningsArray = []
-        actualWorkedHoursArray = []
+        parseArrays()
         workPlaces = []
 
     }
@@ -81,57 +103,136 @@ class ShiftExpandedMonthViewVC: UIViewController, UITableViewDelegate, UITableVi
         return UITableViewCell()
     }
     
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .none
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        statusToSave = self.monthShift[indexPath.row]
+        
+        let deleteShift = UIContextualAction(style: .normal, title: "Delete Shift") { (action, view, completionHandler) in
+            let alertController = UIAlertController(
+                title: "Delete Shift?",
+                message: "This cannot be undone",
+                preferredStyle: UIAlertController.Style.alert
+            )
+            
+            let cancelAction = UIAlertAction(
+                title: "CANCEL",
+                style: UIAlertAction.Style.destructive) { (action) in
+                    // ...
+            }
+            let confirmAction = UIAlertAction(
+            title: "YES", style: UIAlertAction.Style.default) { (action) in
+                self.context.delete(self.statusToSave!)
+                //self.context.delete(self.statusToSave!)
+                self.monthShift.remove(at: indexPath.row)
+                // self.saveShift()
+                self.saveContext(context: self.context)
+                tableView.reloadData()
+            }
+            
+            alertController.addAction(confirmAction)
+            alertController.addAction(cancelAction)
+            self.present(alertController, animated: true, completion: nil)
+            
+            completionHandler(true)
+        }
+        
+        let cancelShift =  UIContextualAction(style: .normal, title: "Cancel Shift", handler: { (action,view,completionHandler ) in
+            self.alertTitle = "Shift has been cancelled!"
+            self.alertCancel = "Cancel Shift?"
+            self.statusToSave!.status = "Cancelled"
+            self.confirmAction()
+            completionHandler(true)
+        })
+        
+        deleteShift.image = UIImage(named: "icons8-trash-can-60")
+        cancelShift.image = UIImage(named: "icons8-cancel-60")
+        deleteShift.backgroundColor = UIColorFromHex(rgbValue: 0xC51E2E, alpha: 0.8)
+        cancelShift.backgroundColor = UIColorFromHex(rgbValue: 0xCD5C5C, alpha: 0.8)
+        
+        let configuration = UISwipeActionsConfiguration(actions: [deleteShift,cancelShift])
+        return configuration
+    }
+    
+    
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let statusToSave = self.monthShift[indexPath.row]
+        
+        alertTitle = "Shift Completed!"
+        askToDeleteShift = false
+        let markCompleted = UIContextualAction(style: .normal, title: "Mark as Complete") { (action, view, completionHandler) in
+            statusToSave.status = "Completed"
+            self.confirmAction()
+            completionHandler(true)
+        }
+        
+        markCompleted.backgroundColor = #colorLiteral(red: 0.363037467, green: 0.7854679227, blue: 0.330747813, alpha: 1)
+        markCompleted.image = UIImage(named: "icons8-checked-60")
+        //saveShift()
+        let configuration = UISwipeActionsConfiguration(actions: [markCompleted])
+        
+        return configuration
+    }
+    
     func setupView() {
         summaryView.layer.cornerRadius = 10
-     //   summaryView.layer.shadowColor = UIColor.black.cgColor
         summaryView.layer.shadowColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         summaryView.layer.shadowOpacity = 9
         summaryView.layer.shadowOffset = .init(width: 0, height: 2)
         summaryView.layer.shadowRadius = 2
         switchBtn.backgroundColor = #colorLiteral(red: 0.4274509804, green: 0.4745098039, blue: 0.5764705882, alpha: 1)
-        //calendar.
-        
-        
+    
          dropDown.optionArray = calendar.monthSymbols
-        print(dropDown.optionArray)
-        dropDown.listWillAppear {
-            self.summaryView.isHidden = true
-           self.tableView.isHidden = true
-        }
-        dropDown.listDidDisappear {
-            self.summaryView.isHidden = false
-            self.tableView.isHidden = false
-            //self.tableView.reloadData()
-        }
-        dropDown.didSelect { (selectedText, index, id) in
-            print("Selected String: \(selectedText) \n index: \(index)")
-            self.monthShift = []
-            self.actualEarningsArray = []
-            self.actualWorkedHoursArray = []
-            self.workPlaces = []
-            self.monthInText = selectedText
-            self.monthInInt = index
-            self.getMonthsString(monthInText: selectedText)
-            self.getMonthShifts(selectedDate: self.firstDayOfMonth)
-            self.actualEarnings = self.actualEarningsArray.reduce(0, +)
-            self.actualWorkedHours = self.actualWorkedHoursArray.reduce(0, +)
-            self.earnedAmtMnth.text = "\(self.actualEarnings!)"
-            self.workedAmnt.text = "\(self.actualWorkedHours!) Hrs"
-            self.workPlaceCount.text = "\(Array(Set(self.workPlaces)).count)"
-            self.tableView.reloadData()
-            print(self.firstDayOfMonth)
-        }
-        
+
     }
     
-    func loadWorkplace () {
+    func getMonthShifts (selectedDate: Date) {
+        let startDate = selectedDate.startOfMonth()
+        let endDate = selectedDate.endOfMonth()
+        let monthRange = startDate...endDate
+       
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMMM, yyyy"
+        monthLabel.text = dateFormatter.string(from: selectedDate)
         
+        for item in shiftsLoaded {
+             if monthRange.contains(item.startShiftDate!) {
+                monthShift.append(item)
+                    
+                    let tempRate = item.rates
+                    let minuteDifferential = item.endShiftDate?.timeIntervalSince(item.startShiftDate!)
+                    let secondsToMins = (round(100 * (minuteDifferential! / 3600)) / 100)
+                    let earnedAmountPerDay = tempRate * secondsToMins
+                    let tempStatus = ShiftStatus.completed.status()
+                    if item.status == tempStatus {
+                        actualEarningsArray.append(earnedAmountPerDay)
+                        actualWorkedHoursArray.append(Double(secondsToMins))
+                        workPlaces.append(item.workPlaceName!)
+                    }
+            }
+        }
+    }
+    
+    func parseArrays () {
+        actualEarningsArray = []
+        actualWorkedHoursArray = []
+
+    }
+    
+    func parseLabels () {
+        actualWorkedHours = actualWorkedHoursArray.reduce(0, +)
+        actualEarnings = actualEarningsArray.reduce(0, +)
+        earnedAmtMnth.text = "\(actualEarnings!)"
+        workedAmnt.text = "\(actualWorkedHours!) Hrs"
     }
     
     func getMonthsString (monthInText: String) {
         let month: String = monthInText
         var selectedMonth: Int?
-
+        
         dateComponents.year = calendar.component(.year, from: Date())
         //dateComponents.month = selectedMonth
         dateComponents.day = 10
@@ -151,7 +252,7 @@ class ShiftExpandedMonthViewVC: UIViewController, UITableViewDelegate, UITableVi
         case "April":
             selectedMonth = 4
             dateComponents.month = selectedMonth
-              firstDayOfMonth = calendar.date(from: dateComponents)!
+            firstDayOfMonth = calendar.date(from: dateComponents)!
             print("I can see \(firstDayOfMonth) as the month")
         case "May":
             selectedMonth = 5
@@ -168,7 +269,7 @@ class ShiftExpandedMonthViewVC: UIViewController, UITableViewDelegate, UITableVi
             firstDayOfMonth = calendar.date(from: dateComponents)!
         case "August":
             selectedMonth = 8
-             firstDayOfMonth = calendar.date(from: dateComponents)!
+            firstDayOfMonth = calendar.date(from: dateComponents)!
             dateComponents.month = selectedMonth
             print("I can see \(firstDayOfMonth) as the month")
         case "September":
@@ -195,45 +296,34 @@ class ShiftExpandedMonthViewVC: UIViewController, UITableViewDelegate, UITableVi
         
     }
     
-    func getMonthShifts (selectedDate: Date) {
-        let startDate = selectedDate.startOfMonth()
-        let endDate = selectedDate.endOfMonth()
-        let monthRange = startDate...endDate
-       
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMMM, yyyy"
-        monthLabel.text = dateFormatter.string(from: selectedDate)
+    
+    func confirmAction () {
+        let alertController = UIAlertController(
+            title: alertTitle,
+            message: alertMessage,
+            preferredStyle: UIAlertController.Style.alert
+        )
+        
+        _ = UIAlertAction(
+            title: "CANCEL",
+            style: UIAlertAction.Style.destructive) { (action) in
+                // ...
+        }
+        
+        let confirmAction = UIAlertAction(
+        title: "OK", style: UIAlertAction.Style.default) { (action) in
+            self.saveContext(context: self.context)
+//            self.getMonthShifts(selectedDate: self.firstDayOfMonth)
+            self.tableView.reloadData()
+            //self.getMonthsString(monthInText: selectedText)
+            
+        }
+        // self.saveShift()
         
         
-        for item in shiftsLoaded {
-             if monthRange.contains(item.startShiftDate!) {
-                monthShift.append(item)
-                    
-                    let tempRate = item.rates
-                    let minuteDifferential = item.endShiftDate?.timeIntervalSince(item.startShiftDate!)
-                    let secondsToMins = (round(100 * (minuteDifferential! / 3600)) / 100)
-                    let earnedAmountPerDay = tempRate * secondsToMins
-                    let tempStatus = ShiftStatus.completed.status()
-                    if item.status == tempStatus {
-                        actualEarningsArray.append(earnedAmountPerDay)
-                        actualWorkedHoursArray.append(Double(secondsToMins))
-                        workPlaces.append(item.workPlaceName!)
-                    }
-            }
-        }
+        alertController.addAction(confirmAction)
+        //alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
     }
-    
-    func loadShiftsFromContext () {
-        let request : NSFetchRequest<Shift> = Shift.fetchRequest()
-        let sort = NSSortDescriptor(key: "startShiftDate", ascending: true)
-        request.sortDescriptors = [sort]
-        do {
-            shiftsLoaded = try context.fetch(request)
-            print("----------------AllLoadedWithContext-----------------")
-        } catch {
-            print("Error fetching request \(error)")
-        }
-    }
-    
-    
+
 }

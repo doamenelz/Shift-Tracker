@@ -29,6 +29,7 @@
 		72A8FA6A22693A8A00404460 /* DateExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A8FA6922693A8A00404460 /* DateExt.swift */; };
 		72F0FBF122908A770053E2BC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F0FBF022908A770053E2BC /* Constants.swift */; };
 		72F0FBF32290D2A90053E2BC /* CalendarMonths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F0FBF22290D2A90053E2BC /* CalendarMonths.swift */; };
+		72F0FBF5229100550053E2BC /* ViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F0FBF4229100550053E2BC /* ViewControllerExt.swift */; };
 		72F3C12D2251A0AB00191AB7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F3C12C2251A0AB00191AB7 /* AppDelegate.swift */; };
 		72F3C1322251A0AB00191AB7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72F3C1302251A0AB00191AB7 /* Main.storyboard */; };
 		72F3C1352251A0AB00191AB7 /* My_Shift_Calculator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 72F3C1332251A0AB00191AB7 /* My_Shift_Calculator.xcdatamodeld */; };
@@ -69,6 +70,7 @@
 		72A8FA6922693A8A00404460 /* DateExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExt.swift; sourceTree = "<group>"; };
 		72F0FBF022908A770053E2BC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		72F0FBF22290D2A90053E2BC /* CalendarMonths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarMonths.swift; sourceTree = "<group>"; };
+		72F0FBF4229100550053E2BC /* ViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExt.swift; sourceTree = "<group>"; };
 		72F3C1292251A0AB00191AB7 /* My Shift Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Shift Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		72F3C12C2251A0AB00191AB7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		72F3C1312251A0AB00191AB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 			children = (
 				72A8FA622268D00100404460 /* UIViewExtension.swift */,
 				72A8FA6922693A8A00404460 /* DateExt.swift */,
+				72F0FBF4229100550053E2BC /* ViewControllerExt.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -196,8 +199,8 @@
 				72F3C14F2254500A00191AB7 /* CreateWorkplaceVC.swift */,
 				7290A8AE2256D4DB001ECE48 /* CreateShiftVC.swift */,
 				7290A8A72256A41C001ECE48 /* ViewShiftsVC.swift */,
-				728BC77E2265765600A0E50D /* ShiftExpandedVC.swift */,
 				721CAB34228CE20F00B7A91C /* ManageWorkspace.swift */,
+				728BC77E2265765600A0E50D /* ShiftExpandedVC.swift */,
 				722337D4228FC86600E71642 /* ShiftExpandedMonthViewVC.swift */,
 			);
 			path = Controller;
@@ -386,6 +389,7 @@
 				72F3C1352251A0AB00191AB7 /* My_Shift_Calculator.xcdatamodeld in Sources */,
 				72F3C1452253114C00191AB7 /* Home.swift in Sources */,
 				72F3C152225454CE00191AB7 /* CustomTxtField.swift in Sources */,
+				72F0FBF5229100550053E2BC /* ViewControllerExt.swift in Sources */,
 				7290A8A82256A41C001ECE48 /* ViewShiftsVC.swift in Sources */,
 				72A8FA662268E3B700404460 /* ShiftStatus.swift in Sources */,
 				72F3C14E2254402C00191AB7 /* CustomBtnSmallerModel.swift in Sources */,

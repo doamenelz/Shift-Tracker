@@ -11,7 +11,9 @@ import CoreData
 
 class ShiftExpandedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
   
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+      //  let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    let context = CONTEXT
     
     //MARK: - Variables
     var shiftsLoaded = [Shift]()
@@ -38,7 +40,8 @@ class ShiftExpandedVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadShiftsFromContext()
+        //loadShiftsFromContext()
+        shiftsLoaded = loadShiftsFromContextGeneric(context: context)
         parseShift()
         tableView.dataSource = self
         tableView.delegate = self
@@ -91,12 +94,14 @@ class ShiftExpandedVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                 style: UIAlertAction.Style.destructive) { (action) in
                     // ...
             }
-
             let confirmAction = UIAlertAction(
             title: "YES", style: UIAlertAction.Style.default) { (action) in
                 self.context.delete(self.statusToSave!)
+                //self.context.delete(self.statusToSave!)
                 self.parsedShifts.remove(at: indexPath.row)
-               self.saveShift()
+              // self.saveShift()
+                self.saveContext(context: self.context)
+                tableView.reloadData()
             }
 
             alertController.addAction(confirmAction)
@@ -120,12 +125,10 @@ class ShiftExpandedVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         cancelShift.backgroundColor = UIColorFromHex(rgbValue: 0xCD5C5C, alpha: 0.8)
         
         let configuration = UISwipeActionsConfiguration(actions: [deleteShift,cancelShift])
-       // tableView.endUpdates()
         return configuration
     }
     
 
-    
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let statusToSave = self.parsedShifts[indexPath.row]
         
@@ -146,17 +149,6 @@ class ShiftExpandedVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     //MARK: - Data Manipulation Methods
-     func loadShiftsFromContext () {
-        let request : NSFetchRequest<Shift> = Shift.fetchRequest()
-        let sort = NSSortDescriptor(key: "startShiftDate", ascending: true)
-        request.sortDescriptors = [sort]
-        do {
-            shiftsLoaded = try context.fetch(request)
-            print("----------------ShiftExpandedLoadedWithContext-----------------")
-        } catch {
-            print("Error fetching request \(error)")
-        }
-    }
     
     func parseShift () {
         let previousMonday = Date().previous(.monday, considerToday: true)
@@ -170,15 +162,15 @@ class ShiftExpandedVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         }
     }
     
-    func saveShift () {
-        do {
-            try context.save()
-            print("Context Saved")
-        } catch {
-            print("Error saving category \(error)")
-        }
-        tableView.reloadData()
-    }
+//    func saveShift () {
+//        do {
+//            try CONTEXT.save()
+//            print("Context Saved")
+//        } catch {
+//            print("Error saving category \(error)")
+//        }
+//        tableView.reloadData()
+//    }
     
     func confirmAction () {
         let alertController = UIAlertController(
@@ -195,7 +187,8 @@ class ShiftExpandedVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         
         let confirmAction = UIAlertAction(
         title: "OK", style: UIAlertAction.Style.default) { (action) in
-            self.saveShift()
+            self.saveContext(context: self.context)
+            self.tableView.reloadData()
         }
            // self.saveShift()
         
@@ -204,4 +197,6 @@ class ShiftExpandedVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         //alertController.addAction(cancelAction)
         present(alertController, animated: true, completion: nil)
     }
+
+
 }

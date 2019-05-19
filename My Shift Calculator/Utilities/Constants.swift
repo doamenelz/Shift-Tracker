@@ -7,3 +7,7 @@
 //
 
 import Foundation
+import CoreData
+import UIKit
+
+let CONTEXT = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
