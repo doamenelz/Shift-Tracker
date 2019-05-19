@@ -12,10 +12,6 @@ import CoreData
 
 extension UIViewController {
     
-    
-    //let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
-    
     func loadShiftsFromContextGeneric (context: NSManagedObjectContext) -> [Shift]{
         let request : NSFetchRequest<Shift> = Shift.fetchRequest()
         let sort = NSSortDescriptor(key: "startShiftDate", ascending: true)
@@ -40,5 +36,6 @@ extension UIViewController {
         }
     }
     
-
 }
+
+

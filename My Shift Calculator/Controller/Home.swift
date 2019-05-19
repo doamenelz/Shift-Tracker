@@ -15,6 +15,7 @@ class Home: UIViewController {
     
     //Context
      let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let interactor = Interactor()
     
     //MARK: - Variables
     var shiftsLoaded = [Shift]()
@@ -83,12 +84,13 @@ class Home: UIViewController {
     @IBAction func viewAllPressed(_ sender: Any) {
         //Nav to Shifts StoryBoard
         let destinationVC = UIStoryboard(name: "Shifts", bundle: nil).instantiateViewController(withIdentifier: "ShiftExpandedVC") as! ShiftExpandedVC
-       destinationVC.weekStarting = weekStarting
-        //destinationVC.parsedShifts = weekShift
+        destinationVC.transitioningDelegate = self
+        destinationVC.interactor = interactor
         self.present(destinationVC, animated: true, completion: nil)
     }
     
     @IBAction func addShiftPressed(_ sender: Any) {
+        
         
     }
     @IBAction func clockButtonPressed(_ sender: Any) {
@@ -274,10 +276,15 @@ class Home: UIViewController {
         }
     }
     
+}
+extension Home: UIViewControllerTransitioningDelegate {
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return DismissAnimator()
+    }
     
-  
-    
-    
+    func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        return interactor.hasStarted ? interactor : nil
+    }
 }
 
 

@@ -13,6 +13,7 @@ class CreateShiftVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
 
     //MARK: - CoreData Context
      let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        //var interactor:Interactor? = nil
  
     //MARK: - Outlets
     @IBOutlet weak var backgroundView: UIView!
@@ -39,6 +40,7 @@ class CreateShiftVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
     var rates: [Double]?
  
     //MARK: - Actions
+    
     
     @IBAction func addShiftPressed(_ sender: Any) {
         picker.isHidden = true

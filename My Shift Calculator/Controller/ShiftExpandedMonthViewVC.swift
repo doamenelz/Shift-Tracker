@@ -9,9 +9,11 @@
 import UIKit
 import iOSDropDown
 import CoreData
+import PullToDismissTransition
 
 
 class ShiftExpandedMonthViewVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
     
     
     let context = CONTEXT
@@ -25,6 +27,7 @@ class ShiftExpandedMonthViewVC: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var workPlaceCount: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var switchBtn: CustomizeBtn!
+    @IBOutlet weak var shiftsSectionLbl: UILabel!
     
     //Variables
     var shiftsLoaded = [Shift]()
@@ -50,6 +53,16 @@ class ShiftExpandedMonthViewVC: UIViewController, UITableViewDelegate, UITableVi
     var askToDeleteShift: Bool = false
     var statusToSave: Shift?
     
+    
+    
+    //Actions
+    @IBAction func backPressed(_ sender: Any) {
+//        let destinationVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeVC") as! Home
+//        self.present(destinationVC, animated: false, completion: nil)
+        dismiss(animated: false, completion: nil)
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         shiftsLoaded = loadShiftsFromContextGeneric(context: context)
@@ -60,13 +73,16 @@ class ShiftExpandedMonthViewVC: UIViewController, UITableViewDelegate, UITableVi
         dropDown.listWillAppear {
             self.summaryView.isHidden = true
             self.tableView.isHidden = true
+            self.shiftsSectionLbl.isHidden = true
         }
         dropDown.listDidDisappear {
             self.summaryView.isHidden = false
             self.tableView.isHidden = false
+            self.shiftsSectionLbl.isHidden = false
             //self.tableView.reloadData()
         }
         dropDown.didSelect { (selectedText, index, id) in
+           
             self.shiftsLoaded = self.loadShiftsFromContextGeneric(context: self.context)
             self.parseArrays()
             self.monthShift = []
@@ -183,10 +199,10 @@ class ShiftExpandedMonthViewVC: UIViewController, UITableViewDelegate, UITableVi
         summaryView.layer.shadowOpacity = 9
         summaryView.layer.shadowOffset = .init(width: 0, height: 2)
         summaryView.layer.shadowRadius = 2
-        switchBtn.backgroundColor = #colorLiteral(red: 0.4274509804, green: 0.4745098039, blue: 0.5764705882, alpha: 1)
-    
+        
          dropDown.optionArray = calendar.monthSymbols
-
+        dropDown.selectedRowColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+       
     }
     
     func getMonthShifts (selectedDate: Date) {

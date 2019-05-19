@@ -12,6 +12,8 @@
 		722337D3228FC80500E71642 /* iOSDropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 722337D2228FC80500E71642 /* iOSDropDown.framework */; };
 		722337D5228FC86600E71642 /* ShiftExpandedMonthViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722337D4228FC86600E71642 /* ShiftExpandedMonthViewVC.swift */; };
 		722337D7228FC91100E71642 /* MonthlyViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722337D6228FC91100E71642 /* MonthlyViewCell.swift */; };
+		723B3F5D2291B39B00EB51DF /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723B3F5C2291B39B00EB51DF /* Animations.swift */; };
+		723B3F5F2291B9F900EB51DF /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723B3F5E2291B9F900EB51DF /* Interactor.swift */; };
 		728BC77622652F1900A0E50D /* SF-Pro-Display-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 728BC77022652F1900A0E50D /* SF-Pro-Display-Light.otf */; };
 		728BC77722652F1900A0E50D /* SF-Pro-Display-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 728BC77122652F1900A0E50D /* SF-Pro-Display-Thin.otf */; };
 		728BC77822652F1900A0E50D /* SF-Pro-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 728BC77222652F1900A0E50D /* SF-Pro-Display-Regular.otf */; };
@@ -21,7 +23,6 @@
 		728BC77F2265765600A0E50D /* ShiftExpandedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728BC77E2265765600A0E50D /* ShiftExpandedVC.swift */; };
 		728BC7812265767200A0E50D /* ShiftExpandedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728BC7802265767200A0E50D /* ShiftExpandedCell.swift */; };
 		7290A8A622569E07001ECE48 /* Shifts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7290A8A522569E07001ECE48 /* Shifts.storyboard */; };
-		7290A8A82256A41C001ECE48 /* ViewShiftsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7290A8A72256A41C001ECE48 /* ViewShiftsVC.swift */; };
 		7290A8AA2256C313001ECE48 /* ShiftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7290A8A92256C313001ECE48 /* ShiftCell.swift */; };
 		7290A8AF2256D4DB001ECE48 /* CreateShiftVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7290A8AE2256D4DB001ECE48 /* CreateShiftVC.swift */; };
 		72A8FA632268D00100404460 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A8FA622268D00100404460 /* UIViewExtension.swift */; };
@@ -38,7 +39,6 @@
 		72F3C1452253114C00191AB7 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F3C1442253114C00191AB7 /* Home.swift */; };
 		72F3C14822532D8F00191AB7 /* CustomizeBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F3C14722532D8F00191AB7 /* CustomizeBtn.swift */; };
 		72F3C14A225412A900191AB7 /* SuccessModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F3C149225412A900191AB7 /* SuccessModal.swift */; };
-		72F3C14C22543DFB00191AB7 /* ChooseWorkPlaceModVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F3C14B22543DFB00191AB7 /* ChooseWorkPlaceModVC.swift */; };
 		72F3C14E2254402C00191AB7 /* CustomBtnSmallerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F3C14D2254402C00191AB7 /* CustomBtnSmallerModel.swift */; };
 		72F3C1502254500A00191AB7 /* CreateWorkplaceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F3C14F2254500A00191AB7 /* CreateWorkplaceVC.swift */; };
 		72F3C152225454CE00191AB7 /* CustomTxtField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F3C151225454CE00191AB7 /* CustomTxtField.swift */; };
@@ -53,6 +53,8 @@
 		722337D2228FC80500E71642 /* iOSDropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = iOSDropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		722337D4228FC86600E71642 /* ShiftExpandedMonthViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftExpandedMonthViewVC.swift; sourceTree = "<group>"; };
 		722337D6228FC91100E71642 /* MonthlyViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyViewCell.swift; sourceTree = "<group>"; };
+		723B3F5C2291B39B00EB51DF /* Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
+		723B3F5E2291B9F900EB51DF /* Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
 		728BC77022652F1900A0E50D /* SF-Pro-Display-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Light.otf"; sourceTree = "<group>"; };
 		728BC77122652F1900A0E50D /* SF-Pro-Display-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Thin.otf"; sourceTree = "<group>"; };
 		728BC77222652F1900A0E50D /* SF-Pro-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Regular.otf"; sourceTree = "<group>"; };
@@ -62,7 +64,6 @@
 		728BC77E2265765600A0E50D /* ShiftExpandedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftExpandedVC.swift; sourceTree = "<group>"; };
 		728BC7802265767200A0E50D /* ShiftExpandedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftExpandedCell.swift; sourceTree = "<group>"; };
 		7290A8A522569E07001ECE48 /* Shifts.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Shifts.storyboard; sourceTree = "<group>"; };
-		7290A8A72256A41C001ECE48 /* ViewShiftsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewShiftsVC.swift; sourceTree = "<group>"; };
 		7290A8A92256C313001ECE48 /* ShiftCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftCell.swift; sourceTree = "<group>"; };
 		7290A8AE2256D4DB001ECE48 /* CreateShiftVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateShiftVC.swift; sourceTree = "<group>"; };
 		72A8FA622268D00100404460 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
@@ -81,7 +82,6 @@
 		72F3C1442253114C00191AB7 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		72F3C14722532D8F00191AB7 /* CustomizeBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizeBtn.swift; sourceTree = "<group>"; };
 		72F3C149225412A900191AB7 /* SuccessModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessModal.swift; sourceTree = "<group>"; };
-		72F3C14B22543DFB00191AB7 /* ChooseWorkPlaceModVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseWorkPlaceModVC.swift; sourceTree = "<group>"; };
 		72F3C14D2254402C00191AB7 /* CustomBtnSmallerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBtnSmallerModel.swift; sourceTree = "<group>"; };
 		72F3C14F2254500A00191AB7 /* CreateWorkplaceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWorkplaceVC.swift; sourceTree = "<group>"; };
 		72F3C151225454CE00191AB7 /* CustomTxtField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTxtField.swift; sourceTree = "<group>"; };
@@ -140,6 +140,8 @@
 				72A8FA622268D00100404460 /* UIViewExtension.swift */,
 				72A8FA6922693A8A00404460 /* DateExt.swift */,
 				72F0FBF4229100550053E2BC /* ViewControllerExt.swift */,
+				723B3F5C2291B39B00EB51DF /* Animations.swift */,
+				723B3F5E2291B9F900EB51DF /* Interactor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -195,10 +197,8 @@
 			children = (
 				72F3C1442253114C00191AB7 /* Home.swift */,
 				72F3C149225412A900191AB7 /* SuccessModal.swift */,
-				72F3C14B22543DFB00191AB7 /* ChooseWorkPlaceModVC.swift */,
 				72F3C14F2254500A00191AB7 /* CreateWorkplaceVC.swift */,
 				7290A8AE2256D4DB001ECE48 /* CreateShiftVC.swift */,
-				7290A8A72256A41C001ECE48 /* ViewShiftsVC.swift */,
 				721CAB34228CE20F00B7A91C /* ManageWorkspace.swift */,
 				728BC77E2265765600A0E50D /* ShiftExpandedVC.swift */,
 				722337D4228FC86600E71642 /* ShiftExpandedMonthViewVC.swift */,
@@ -353,12 +353,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-My Shift Calculator/Pods-My Shift Calculator-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/PullToDismissTransition/PullToDismissTransition.framework",
 				"${BUILT_PRODUCTS_DIR}/iOSDropDown/iOSDropDown.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PullToDismissTransition.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iOSDropDown.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -375,6 +377,7 @@
 			files = (
 				721CAB35228CE20F00B7A91C /* ManageWorkspace.swift in Sources */,
 				7290A8AA2256C313001ECE48 /* ShiftCell.swift in Sources */,
+				723B3F5F2291B9F900EB51DF /* Interactor.swift in Sources */,
 				72F0FBF32290D2A90053E2BC /* CalendarMonths.swift in Sources */,
 				7290A8AF2256D4DB001ECE48 /* CreateShiftVC.swift in Sources */,
 				728BC7812265767200A0E50D /* ShiftExpandedCell.swift in Sources */,
@@ -384,13 +387,12 @@
 				722337D7228FC91100E71642 /* MonthlyViewCell.swift in Sources */,
 				72F3C14A225412A900191AB7 /* SuccessModal.swift in Sources */,
 				72A8FA632268D00100404460 /* UIViewExtension.swift in Sources */,
-				72F3C14C22543DFB00191AB7 /* ChooseWorkPlaceModVC.swift in Sources */,
 				722337D5228FC86600E71642 /* ShiftExpandedMonthViewVC.swift in Sources */,
 				72F3C1352251A0AB00191AB7 /* My_Shift_Calculator.xcdatamodeld in Sources */,
 				72F3C1452253114C00191AB7 /* Home.swift in Sources */,
+				723B3F5D2291B39B00EB51DF /* Animations.swift in Sources */,
 				72F3C152225454CE00191AB7 /* CustomTxtField.swift in Sources */,
 				72F0FBF5229100550053E2BC /* ViewControllerExt.swift in Sources */,
-				7290A8A82256A41C001ECE48 /* ViewShiftsVC.swift in Sources */,
 				72A8FA662268E3B700404460 /* ShiftStatus.swift in Sources */,
 				72F3C14E2254402C00191AB7 /* CustomBtnSmallerModel.swift in Sources */,
 				721CAB33228BAF1100B7A91C /* ManageWorkspaceCell.swift in Sources */,
