@@ -78,14 +78,15 @@ class Home: UIViewController {
     
     //MARK: - Actions
     @IBAction func settings(_ sender: Any) {
-        
+        let destinationVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ManageWorkspace") as! ManageWorkspace
+        destinationVC.transitioningDelegate = self
+        self.present(destinationVC, animated: true, completion: nil)
     }
     
     @IBAction func viewAllPressed(_ sender: Any) {
         //Nav to Shifts StoryBoard
         let destinationVC = UIStoryboard(name: "Shifts", bundle: nil).instantiateViewController(withIdentifier: "ShiftExpandedVC") as! ShiftExpandedVC
         destinationVC.transitioningDelegate = self
-        destinationVC.interactor = interactor
         self.present(destinationVC, animated: true, completion: nil)
     }
     
@@ -93,6 +94,7 @@ class Home: UIViewController {
         
         
     }
+    
     @IBAction func clockButtonPressed(_ sender: Any) {
     }
     

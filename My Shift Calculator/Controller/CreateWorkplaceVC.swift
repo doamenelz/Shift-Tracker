@@ -13,11 +13,12 @@ import CoreData
 class CreateWorkplaceVC: UIViewController {
 
     //Create Context
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let context = CONTEXT
     
     //MARK: - Variables
     var modalDisplay = ""
     var segueTag = 2
+    
    
     //MARK: - Outlets
     @IBOutlet weak var workplaceTxtFld: CustomTxtField!
@@ -33,17 +34,14 @@ class CreateWorkplaceVC: UIViewController {
             let newWorkplace = Workplace(context: self.context)
             newWorkplace.workPlaceName = workplaceTxtFld.text!
             newWorkplace.rates = Double(ratesTxtFld.text!)!
-            //newWorkplace.dateCreated =
             newWorkplace.dateCreated = Date()
             saveWorkplace()
            
             print("Create Btn Pressed")
             
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "SuccessModal") as! SuccessModal
-            vc.modalMessage = self.modalDisplay
-            vc.segueTag = self.segueTag
-            self.present(vc, animated: false, completion: nil)
-            print("Values arent empty")
+            let title = "Workplace Created!"
+            confirmAction(title: title)
+
         } else {
            failedMessage.isHidden = false
         }

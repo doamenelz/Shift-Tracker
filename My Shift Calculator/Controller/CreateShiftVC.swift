@@ -56,14 +56,10 @@ class CreateShiftVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
             newShift.rates = rateToSave
             newShift.status = ShiftStatus(rawValue: "Scheduled").map { $0.rawValue }
             saveShift()
-            
-            //Instantiate & segue VC
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "SuccessModal") as! SuccessModal
-            vc.modalMessage = self.modalDisplay
-            self.present(vc, animated: false, completion: nil)
-            
+            let title = "Shift Created!"
+            confirmAction(title: title)
         } else {
-           // print("Conditions failed")
+            print("Conditions failed")
         }
     }
     
@@ -92,14 +88,14 @@ class CreateShiftVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
     }
     
     @IBAction func selectWorkPlacePressed(_ sender: Any) {
-        var workplacePickerData = ["-- Select a Workplace --"]
-        var wPR : [Double] = [0]
-        
-        //Parse Workplaces to Picker
-        for item in workPlaceArray {
-            workplacePickerData.append(item.workPlaceName ?? "nil")
-        }
-        pickerData = workplacePickerData
+//        var workplacePickerData = [String]()
+            var wPR : [Double] = [0]
+//
+//        //Parse Workplaces to Picker
+//        for item in workPlaceArray {
+//            workplacePickerData.append(item.workPlaceName ?? "nil")
+//        }
+//        pickerData = workplacePickerData
         
         //Pull Rates from Context
         for rates in workPlaceArray {
@@ -128,13 +124,20 @@ class CreateShiftVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
     
      override func viewDidLoad() {
         super.viewDidLoad()
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(CreateShiftVC.handleTap(_:)))
-        backGroundView.addGestureRecognizer(tapGesture)
-
         self.picker.delegate = self
         self.picker.dataSource = self
         setupView()
         loadWorkplace()
+        var workplacePickerData = [String]()
+        
+        //Parse Workplaces to Picker
+        for item in workPlaceArray {
+            workplacePickerData.append(item.workPlaceName ?? "nil")
+        }
+        pickerData = workplacePickerData
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(CreateShiftVC.handleTap(_:)))
+        backGroundView.addGestureRecognizer(tapGesture)
     }
     
     //MARK: - PickerView Methods

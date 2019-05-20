@@ -57,8 +57,6 @@ class ShiftExpandedMonthViewVC: UIViewController, UITableViewDelegate, UITableVi
     
     //Actions
     @IBAction func backPressed(_ sender: Any) {
-//        let destinationVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeVC") as! Home
-//        self.present(destinationVC, animated: false, completion: nil)
         dismiss(animated: false, completion: nil)
     }
     

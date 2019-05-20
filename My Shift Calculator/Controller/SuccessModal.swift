@@ -23,13 +23,13 @@ class SuccessModal: UIViewController {
     
     //Actions
     @IBAction func donePressed(_ sender: Any) {
-        if segueTag == 2 {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ManageWorkspace") as! ManageWorkspace
-        self.present(vc, animated: false, completion: nil)
-    } else {
-        dismiss(animated: true, completion: nil)
-    }
-      //  dismiss(animated: true, completion: nil)
+//        if segueTag == 2 {
+//        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ManageWorkspace") as! ManageWorkspace
+//        self.present(vc, animated: false, completion: nil)
+//    } else {
+//        dismiss(animated: true, completion: nil)
+//    }
+      dismiss(animated: true, completion: nil)
     }
     
     
