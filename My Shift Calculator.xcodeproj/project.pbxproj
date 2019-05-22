@@ -23,13 +23,11 @@
 		728BC77F2265765600A0E50D /* ShiftExpandedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728BC77E2265765600A0E50D /* ShiftExpandedVC.swift */; };
 		728BC7812265767200A0E50D /* ShiftExpandedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728BC7802265767200A0E50D /* ShiftExpandedCell.swift */; };
 		7290A8A622569E07001ECE48 /* Shifts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7290A8A522569E07001ECE48 /* Shifts.storyboard */; };
-		7290A8AA2256C313001ECE48 /* ShiftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7290A8A92256C313001ECE48 /* ShiftCell.swift */; };
 		7290A8AF2256D4DB001ECE48 /* CreateShiftVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7290A8AE2256D4DB001ECE48 /* CreateShiftVC.swift */; };
 		72A8FA632268D00100404460 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A8FA622268D00100404460 /* UIViewExtension.swift */; };
 		72A8FA662268E3B700404460 /* ShiftStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A8FA652268E3B700404460 /* ShiftStatus.swift */; };
 		72A8FA6A22693A8A00404460 /* DateExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A8FA6922693A8A00404460 /* DateExt.swift */; };
 		72F0FBF122908A770053E2BC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F0FBF022908A770053E2BC /* Constants.swift */; };
-		72F0FBF32290D2A90053E2BC /* CalendarMonths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F0FBF22290D2A90053E2BC /* CalendarMonths.swift */; };
 		72F0FBF5229100550053E2BC /* ViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F0FBF4229100550053E2BC /* ViewControllerExt.swift */; };
 		72F3C12D2251A0AB00191AB7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F3C12C2251A0AB00191AB7 /* AppDelegate.swift */; };
 		72F3C1322251A0AB00191AB7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72F3C1302251A0AB00191AB7 /* Main.storyboard */; };
@@ -37,7 +35,7 @@
 		72F3C1372251A0AD00191AB7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72F3C1362251A0AD00191AB7 /* Assets.xcassets */; };
 		72F3C13A2251A0AD00191AB7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72F3C1382251A0AD00191AB7 /* LaunchScreen.storyboard */; };
 		72F3C1452253114C00191AB7 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F3C1442253114C00191AB7 /* Home.swift */; };
-		72F3C14822532D8F00191AB7 /* CustomizeBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F3C14722532D8F00191AB7 /* CustomizeBtn.swift */; };
+		72F3C14822532D8F00191AB7 /* CustomBtnLarge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F3C14722532D8F00191AB7 /* CustomBtnLarge.swift */; };
 		72F3C14A225412A900191AB7 /* SuccessModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F3C149225412A900191AB7 /* SuccessModal.swift */; };
 		72F3C14E2254402C00191AB7 /* CustomBtnSmallerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F3C14D2254402C00191AB7 /* CustomBtnSmallerModel.swift */; };
 		72F3C1502254500A00191AB7 /* CreateWorkplaceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F3C14F2254500A00191AB7 /* CreateWorkplaceVC.swift */; };
@@ -64,13 +62,11 @@
 		728BC77E2265765600A0E50D /* ShiftExpandedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftExpandedVC.swift; sourceTree = "<group>"; };
 		728BC7802265767200A0E50D /* ShiftExpandedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftExpandedCell.swift; sourceTree = "<group>"; };
 		7290A8A522569E07001ECE48 /* Shifts.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Shifts.storyboard; sourceTree = "<group>"; };
-		7290A8A92256C313001ECE48 /* ShiftCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftCell.swift; sourceTree = "<group>"; };
 		7290A8AE2256D4DB001ECE48 /* CreateShiftVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateShiftVC.swift; sourceTree = "<group>"; };
 		72A8FA622268D00100404460 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		72A8FA652268E3B700404460 /* ShiftStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftStatus.swift; sourceTree = "<group>"; };
 		72A8FA6922693A8A00404460 /* DateExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExt.swift; sourceTree = "<group>"; };
 		72F0FBF022908A770053E2BC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		72F0FBF22290D2A90053E2BC /* CalendarMonths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarMonths.swift; sourceTree = "<group>"; };
 		72F0FBF4229100550053E2BC /* ViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExt.swift; sourceTree = "<group>"; };
 		72F3C1292251A0AB00191AB7 /* My Shift Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Shift Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		72F3C12C2251A0AB00191AB7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -80,7 +76,7 @@
 		72F3C1392251A0AD00191AB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		72F3C13B2251A0AD00191AB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		72F3C1442253114C00191AB7 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
-		72F3C14722532D8F00191AB7 /* CustomizeBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizeBtn.swift; sourceTree = "<group>"; };
+		72F3C14722532D8F00191AB7 /* CustomBtnLarge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBtnLarge.swift; sourceTree = "<group>"; };
 		72F3C149225412A900191AB7 /* SuccessModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessModal.swift; sourceTree = "<group>"; };
 		72F3C14D2254402C00191AB7 /* CustomBtnSmallerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBtnSmallerModel.swift; sourceTree = "<group>"; };
 		72F3C14F2254500A00191AB7 /* CreateWorkplaceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWorkplaceVC.swift; sourceTree = "<group>"; };
@@ -140,7 +136,6 @@
 				72A8FA622268D00100404460 /* UIViewExtension.swift */,
 				72A8FA6922693A8A00404460 /* DateExt.swift */,
 				72F0FBF4229100550053E2BC /* ViewControllerExt.swift */,
-				723B3F5C2291B39B00EB51DF /* Animations.swift */,
 				723B3F5E2291B9F900EB51DF /* Interactor.swift */,
 			);
 			path = Extensions;
@@ -150,7 +145,6 @@
 			isa = PBXGroup;
 			children = (
 				72A8FA652268E3B700404460 /* ShiftStatus.swift */,
-				72F0FBF22290D2A90053E2BC /* CalendarMonths.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -209,11 +203,10 @@
 		72F3C1422251A0EB00191AB7 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				72F3C14722532D8F00191AB7 /* CustomizeBtn.swift */,
+				72F3C14722532D8F00191AB7 /* CustomBtnLarge.swift */,
 				72F3C14D2254402C00191AB7 /* CustomBtnSmallerModel.swift */,
 				72F3C151225454CE00191AB7 /* CustomTxtField.swift */,
 				72F3C153225638AB00191AB7 /* BottomModal.swift */,
-				7290A8A92256C313001ECE48 /* ShiftCell.swift */,
 				728BC7802265767200A0E50D /* ShiftExpandedCell.swift */,
 				721CAB32228BAF1100B7A91C /* ManageWorkspaceCell.swift */,
 				722337D6228FC91100E71642 /* MonthlyViewCell.swift */,
@@ -232,6 +225,7 @@
 		72F3C14622532D2500191AB7 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				723B3F5C2291B39B00EB51DF /* Animations.swift */,
 				72F0FBF022908A770053E2BC /* Constants.swift */,
 			);
 			path = Utilities;
@@ -280,6 +274,7 @@
 				TargetAttributes = {
 					72F3C1282251A0AB00191AB7 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -376,13 +371,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				721CAB35228CE20F00B7A91C /* ManageWorkspace.swift in Sources */,
-				7290A8AA2256C313001ECE48 /* ShiftCell.swift in Sources */,
 				723B3F5F2291B9F900EB51DF /* Interactor.swift in Sources */,
-				72F0FBF32290D2A90053E2BC /* CalendarMonths.swift in Sources */,
 				7290A8AF2256D4DB001ECE48 /* CreateShiftVC.swift in Sources */,
 				728BC7812265767200A0E50D /* ShiftExpandedCell.swift in Sources */,
 				72F3C154225638AC00191AB7 /* BottomModal.swift in Sources */,
-				72F3C14822532D8F00191AB7 /* CustomizeBtn.swift in Sources */,
+				72F3C14822532D8F00191AB7 /* CustomBtnLarge.swift in Sources */,
 				72F0FBF122908A770053E2BC /* Constants.swift in Sources */,
 				722337D7228FC91100E71642 /* MonthlyViewCell.swift in Sources */,
 				72F3C14A225412A900191AB7 /* SuccessModal.swift in Sources */,
@@ -555,7 +548,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.doamenelz.My-Shift-Calculator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -574,7 +567,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.doamenelz.My-Shift-Calculator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

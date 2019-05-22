@@ -19,7 +19,6 @@ class CustomTxtField: UITextField {
     }
     
     func customizeTextField () {
-//        backgroundColor = #colorLiteral(red: 0.9646341193, green: 0.9708352551, blue: 1, alpha: 0.2504548373)
         layer.cornerRadius = 2.0
         layer.borderWidth = 0.2
         layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)

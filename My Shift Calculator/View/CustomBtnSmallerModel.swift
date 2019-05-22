@@ -9,8 +9,6 @@
 import UIKit
 
 class CustomBtnSmallerModel: UIButton {
-
-  
     override func prepareForInterfaceBuilder() {
         customizeBtn()
     }

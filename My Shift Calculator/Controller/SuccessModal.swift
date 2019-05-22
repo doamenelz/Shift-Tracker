@@ -11,7 +11,6 @@ import UIKit
 class SuccessModal: UIViewController {
 
     //Variables
-    
     var modalMessage: String?
     var segueTag: Int?
     
@@ -20,27 +19,17 @@ class SuccessModal: UIViewController {
     @IBOutlet weak var doneLbl: UIButton!
     @IBOutlet weak var modalView: UIView!
     
-    
     //Actions
     @IBAction func donePressed(_ sender: Any) {
-//        if segueTag == 2 {
-//        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ManageWorkspace") as! ManageWorkspace
-//        self.present(vc, animated: false, completion: nil)
-//    } else {
-//        dismiss(animated: true, completion: nil)
-//    }
       dismiss(animated: true, completion: nil)
     }
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         modalView.layer.cornerRadius = 13
         doneLbl.layer.cornerRadius = 5
         successMsgLbl.text = modalMessage
-        //print(segueTag)
-        // Do any additional setup after loading the view.
+
     }
 
 

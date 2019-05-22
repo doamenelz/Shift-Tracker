@@ -32,13 +32,10 @@ import UIKit
             switch shiftStatus.status {
             case "Completed":
                 view.backgroundColor = UIColorFromHex(rgbValue: 0x6DB871, alpha: 1)
-                //statusView.backgroundColor = UIColorFromHex(rgbValue: 0x6DB871, alpha: 1)
                 oval.image = UIImage(named: "Active Oval")
-                //print("Status is completed")
             case "Cancelled":
                 view.backgroundColor = UIColorFromHex(rgbValue: 0xC51E2E, alpha: 1)
                 oval.image = UIImage(named: "cancelledOval")
-                //print("Cancelled")
             case "Scheduled":
                 view.backgroundColor = UIColorFromHex(rgbValue: 0x00DEFF, alpha: 1)
                 oval.image = UIImage(named: "scheduledOval")

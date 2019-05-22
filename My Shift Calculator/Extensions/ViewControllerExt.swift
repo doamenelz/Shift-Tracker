@@ -26,7 +26,6 @@ extension UIViewController {
         return shift
     }
     
-    
     func saveContext (context: NSManagedObjectContext) {
         do {
             try context.save()
@@ -36,24 +35,31 @@ extension UIViewController {
         }
     }
     
-    
     func confirmAction (title: String) {
         let alertController = UIAlertController(
             title: title,
             message: "",
             preferredStyle: UIAlertController.Style.alert
-            
         )
         
         let confirmAction = UIAlertAction(
         title: "DONE", style: UIAlertAction.Style.default) { (action) in
-            //print("Shift Saved")
             self.dismiss(animated: true, completion: nil)
         }
         
         alertController.addAction(confirmAction)
         self.present(alertController, animated: true, completion: nil)
     }
+    
 }
 
+extension UIView {
+    func hide(){
+        isHidden = true
+    }
+    
+    func show(){
+        isHidden = false
+    }
+}
 

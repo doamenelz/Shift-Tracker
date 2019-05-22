@@ -13,23 +13,10 @@ import PullToDismissTransition
 
 
 class ShiftExpandedMonthViewVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
-    
-    
+
     let context = CONTEXT
-    
-    //Outlets
-    @IBOutlet weak var dropDown: DropDown!
-    @IBOutlet weak var summaryView: UIView!
-    @IBOutlet weak var monthLabel: UILabel!
-    @IBOutlet weak var earnedAmtMnth: UILabel!
-    @IBOutlet weak var workedAmnt: UILabel!
-    @IBOutlet weak var workPlaceCount: UILabel!
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var switchBtn: CustomizeBtn!
-    @IBOutlet weak var shiftsSectionLbl: UILabel!
-    
-    //Variables
+
+    //MARK: - Variables
     var shiftsLoaded = [Shift]()
     var monthShift = [Shift]()
     var lastDayOfMonth = Date()
@@ -44,7 +31,6 @@ class ShiftExpandedMonthViewVC: UIViewController, UITableViewDelegate, UITableVi
     var actualWorkedHours: Double?
     var workPlaces = [String]()
     
-    
     var alertConfirm: String = ""
     var alertCancel: String = ""
     var alertTitle: String = ""
@@ -52,14 +38,24 @@ class ShiftExpandedMonthViewVC: UIViewController, UITableViewDelegate, UITableVi
     
     var askToDeleteShift: Bool = false
     var statusToSave: Shift?
+
+    //MARK: - Outlets and Actions
     
-    
+    //Outlets
+    @IBOutlet weak var dropDown: DropDown!
+    @IBOutlet weak var summaryView: UIView!
+    @IBOutlet weak var monthLabel: UILabel!
+    @IBOutlet weak var earnedAmtMnth: UILabel!
+    @IBOutlet weak var workedAmnt: UILabel!
+    @IBOutlet weak var workPlaceCount: UILabel!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var switchBtn: CustomBtnLarge!
+    @IBOutlet weak var shiftsSectionLbl: UILabel!
     
     //Actions
     @IBAction func backPressed(_ sender: Any) {
         dismiss(animated: false, completion: nil)
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -104,10 +100,14 @@ class ShiftExpandedMonthViewVC: UIViewController, UITableViewDelegate, UITableVi
 
     }
    
+    //MARK: - TableView Methods
+    
+    //Delegates
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return monthShift.count
     }
-    
+
+    //Datasource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "ShiftCell", for: indexPath) as? MonthlyViewCell {
             cell.configureCell(shift: monthShift[indexPath.row])
@@ -117,6 +117,7 @@ class ShiftExpandedMonthViewVC: UIViewController, UITableViewDelegate, UITableVi
         return UITableViewCell()
     }
     
+    //Manipulation
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .none
     }
@@ -171,7 +172,6 @@ class ShiftExpandedMonthViewVC: UIViewController, UITableViewDelegate, UITableVi
         return configuration
     }
     
-    
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let statusToSave = self.monthShift[indexPath.row]
         
@@ -191,6 +191,7 @@ class ShiftExpandedMonthViewVC: UIViewController, UITableViewDelegate, UITableVi
         return configuration
     }
     
+    //MARK: - Data Manipulation
     func setupView() {
         summaryView.layer.cornerRadius = 10
         summaryView.layer.shadowColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
@@ -309,7 +310,6 @@ class ShiftExpandedMonthViewVC: UIViewController, UITableViewDelegate, UITableVi
         tableView.reloadData()
         
     }
-    
     
     func confirmAction () {
         let alertController = UIAlertController(

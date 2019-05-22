@@ -8,26 +8,22 @@
 
 import UIKit
 import CoreData
-
-
 class CreateWorkplaceVC: UIViewController {
 
-    //Create Context
     let context = CONTEXT
     
     //MARK: - Variables
     var modalDisplay = ""
-    var segueTag = 2
-    
    
-    //MARK: - Outlets
+    //MARK: - Outlets & Actions
+    //Outlets
     @IBOutlet weak var workplaceTxtFld: CustomTxtField!
     @IBOutlet weak var ratesTxtFld: CustomTxtField!
     @IBOutlet weak var createBtn: CustomBtnSmallerModel!
     @IBOutlet weak var failedMessage: UILabel!
     @IBOutlet weak var backGroundView: UIView!
     
-    //MARK: - Actions
+    //Actions
     @IBAction func createWrkPlacePressed(_ sender: Any) {
         
         if (workplaceTxtFld.text != "") && (ratesTxtFld.text != "") {
@@ -41,12 +37,9 @@ class CreateWorkplaceVC: UIViewController {
             
             let title = "Workplace Created!"
             confirmAction(title: title)
-
         } else {
            failedMessage.isHidden = false
         }
-
-        
     }
     
     override func viewDidLoad() {

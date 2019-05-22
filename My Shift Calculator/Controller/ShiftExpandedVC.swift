@@ -12,7 +12,6 @@ import CoreData
 class ShiftExpandedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let context = CONTEXT
-    //var interactor:Interactor? = nil
     
     //MARK: - Variables
     var shiftsLoaded = [Shift]()
@@ -37,7 +36,6 @@ class ShiftExpandedVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     @IBAction func backPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,12 +49,12 @@ class ShiftExpandedVC: UIViewController, UITableViewDelegate, UITableViewDataSou
 }
     
     //MARK: - TableView Methods
-    
     //Delegates
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return parsedShifts.count
     }
     
+    //Datasource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "expandedShiftCell", for: indexPath) as? ShiftExpandedCell {
             cell.configureCell(shift: parsedShifts[indexPath.row])
@@ -66,7 +64,7 @@ class ShiftExpandedVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         return UITableViewCell()
 }
     
-    //Datasource
+    //Manipulation
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedCell = parsedShifts[indexPath.row]
     }
@@ -129,7 +127,6 @@ class ShiftExpandedVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         return configuration
     }
     
-
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let statusToSave = self.parsedShifts[indexPath.row]
         
@@ -150,7 +147,6 @@ class ShiftExpandedVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     //MARK: - Data Manipulation Methods
-    
     func parseShift () {
         let previousMonday = Date().previous(.monday, considerToday: true)
         let nextSunday = Date.today().next(.sunday, considerToday: true)
@@ -162,16 +158,6 @@ class ShiftExpandedVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             }
         }
     }
-    
-//    func saveShift () {
-//        do {
-//            try CONTEXT.save()
-//            print("Context Saved")
-//        } catch {
-//            print("Error saving category \(error)")
-//        }
-//        tableView.reloadData()
-//    }
     
     func confirmAction () {
         let alertController = UIAlertController(

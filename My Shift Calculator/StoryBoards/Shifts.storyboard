@@ -48,7 +48,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wk Start: May 13, 2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GLr-Vt-aP8">
-                                <rect key="frame" x="80.5" y="52.5" width="214" height="25.5"/>
+                                <rect key="frame" x="77" y="53" width="221" height="24.5"/>
                                 <fontDescription key="fontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="21"/>
                                 <color key="textColor" red="0.42745098040000001" green="0.47450980390000003" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -222,7 +222,7 @@
                                     <outlet property="delegate" destination="B2C-Pv-fHc" id="1Cj-xB-hvv"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oco-Ld-NgK" customClass="CustomizeBtn" customModule="My_Shift_Calculator" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oco-Ld-NgK" customClass="CustomBtnLarge" customModule="My_Shift_Calculator" customModuleProvider="target">
                                 <rect key="frame" x="325" y="48" width="30" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="3FG-p0-FKE"/>

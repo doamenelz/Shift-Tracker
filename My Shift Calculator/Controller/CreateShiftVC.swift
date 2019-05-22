@@ -40,15 +40,13 @@ class CreateShiftVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
     var rates: [Double]?
  
     //MARK: - Actions
-    
-    
     @IBAction func addShiftPressed(_ sender: Any) {
         picker.isHidden = true
         datePicker.isHidden = true
         
         if (startShiftDate < endShiftDate) && (selectedWorkplace != "") {
            
-            //Parse  to Context
+            //Parse  to Context - Complete
            let newShift = Shift(context: self.context)
             newShift.startShiftDate = startShiftDate
             newShift.endShiftDate = endShiftDate
@@ -57,17 +55,37 @@ class CreateShiftVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
             newShift.status = ShiftStatus(rawValue: "Scheduled").map { $0.rawValue }
             saveShift()
             let title = "Shift Created!"
-            confirmAction(title: title)
+            
+            let alertController = UIAlertController(
+                title: title,
+                message: "",
+                preferredStyle: UIAlertController.Style.alert
+            )
+            
+            let confirmAction = UIAlertAction(
+            title: "DONE", style: UIAlertAction.Style.default) { (action) in
+                //Launch new VC
+                let destinationVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeVC") as! Home
+                self.present(destinationVC, animated: true, completion: nil)
+            }
+            
+            alertController.addAction(confirmAction)
+            self.present(alertController, animated: true, completion: nil)
+            
+           
+
+            //confirmAction(title: title)
         } else {
             print("Conditions failed")
         }
     }
     
     @IBAction func donePressed(_ sender: Any) {
-        
-        picker.isHidden = true
-        datePicker.isHidden = true
-        doneView.isHidden = true
+
+        //hide Outlets
+        picker.hide()
+        datePicker.hide()
+        doneView.hide()
         
          let tempDate = Date(timeIntervalSinceReferenceDate: (datePicker.date.timeIntervalSinceReferenceDate / 300.0).rounded(.down) * 300.0)
         let formatedDate = dateFormatter.string(from: tempDate)
@@ -103,20 +121,19 @@ class CreateShiftVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
         }
         rates = wPR
        
-        datePicker.isHidden = true
-        doneView.isHidden = false
-        picker.isHidden = false
-
+        datePicker.hide()
+        doneView.show()
+        picker.show()
     }
     
     @IBAction func startDateSelected(_ sender: Any) {
-      doneView.isHidden = false
+        doneView.show()
         selectDatePicker()
         tag = 3
     }
     
     @IBAction func endTimeSelected(_ sender: Any) {
-       doneView.isHidden = false
+       doneView.show()
         datePicker.reloadInputViews()
         selectDatePicker()
         tag = 4
@@ -141,7 +158,6 @@ class CreateShiftVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
     }
     
     //MARK: - PickerView Methods
-    
     //Delegates
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -152,10 +168,8 @@ class CreateShiftVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        
-        
-        pickerRow = pickerData[row] //as? String ?? ""
-       return pickerData[row] // as? String
+        pickerRow = pickerData[row]
+       return pickerData[row]
     }
     
     //Datasource

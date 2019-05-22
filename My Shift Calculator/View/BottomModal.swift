@@ -18,12 +18,10 @@ class BottomModal: UIView {
     override func awakeFromNib() {
         customizeModal()
     }
+    
     func customizeModal () {
-        
         self.layer.cornerRadius = 30
-        //self.layer.cornerRadius = 15
         self.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        
         self.layer.masksToBounds = true
     }
 

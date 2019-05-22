@@ -10,8 +10,6 @@ import UIKit
 @IBDesignable
 class MonthlyViewCell: UITableViewCell {
 
-    
-    
     //Outlets
     @IBOutlet weak var shiftStartLbl: UILabel!
     @IBOutlet weak var shiftEndLbl: UILabel!
@@ -24,13 +22,11 @@ class MonthlyViewCell: UITableViewCell {
     @IBOutlet weak var statusLbl: UILabel!
     @IBOutlet weak var statusView: UIView!
     
-    
     //Variables
     var dateFormatter = DateFormatter()
     var headerFormatter = DateFormatter()
     let dateCmpntsFormatter = DateComponentsFormatter()
     
-
     override func awakeFromNib() {
         super.awakeFromNib()
         statusView.layer.cornerRadius = 10
@@ -40,8 +36,6 @@ class MonthlyViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     func configureCell (shift: Shift) {
