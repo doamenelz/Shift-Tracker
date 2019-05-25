@@ -36,7 +36,6 @@
 		72F3C13A2251A0AD00191AB7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72F3C1382251A0AD00191AB7 /* LaunchScreen.storyboard */; };
 		72F3C1452253114C00191AB7 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F3C1442253114C00191AB7 /* Home.swift */; };
 		72F3C14822532D8F00191AB7 /* CustomBtnLarge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F3C14722532D8F00191AB7 /* CustomBtnLarge.swift */; };
-		72F3C14A225412A900191AB7 /* SuccessModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F3C149225412A900191AB7 /* SuccessModal.swift */; };
 		72F3C14E2254402C00191AB7 /* CustomBtnSmallerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F3C14D2254402C00191AB7 /* CustomBtnSmallerModel.swift */; };
 		72F3C1502254500A00191AB7 /* CreateWorkplaceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F3C14F2254500A00191AB7 /* CreateWorkplaceVC.swift */; };
 		72F3C152225454CE00191AB7 /* CustomTxtField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F3C151225454CE00191AB7 /* CustomTxtField.swift */; };
@@ -77,7 +76,6 @@
 		72F3C13B2251A0AD00191AB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		72F3C1442253114C00191AB7 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		72F3C14722532D8F00191AB7 /* CustomBtnLarge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBtnLarge.swift; sourceTree = "<group>"; };
-		72F3C149225412A900191AB7 /* SuccessModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessModal.swift; sourceTree = "<group>"; };
 		72F3C14D2254402C00191AB7 /* CustomBtnSmallerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBtnSmallerModel.swift; sourceTree = "<group>"; };
 		72F3C14F2254500A00191AB7 /* CreateWorkplaceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWorkplaceVC.swift; sourceTree = "<group>"; };
 		72F3C151225454CE00191AB7 /* CustomTxtField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTxtField.swift; sourceTree = "<group>"; };
@@ -190,7 +188,6 @@
 			isa = PBXGroup;
 			children = (
 				72F3C1442253114C00191AB7 /* Home.swift */,
-				72F3C149225412A900191AB7 /* SuccessModal.swift */,
 				72F3C14F2254500A00191AB7 /* CreateWorkplaceVC.swift */,
 				7290A8AE2256D4DB001ECE48 /* CreateShiftVC.swift */,
 				721CAB34228CE20F00B7A91C /* ManageWorkspace.swift */,
@@ -378,7 +375,6 @@
 				72F3C14822532D8F00191AB7 /* CustomBtnLarge.swift in Sources */,
 				72F0FBF122908A770053E2BC /* Constants.swift in Sources */,
 				722337D7228FC91100E71642 /* MonthlyViewCell.swift in Sources */,
-				72F3C14A225412A900191AB7 /* SuccessModal.swift in Sources */,
 				72A8FA632268D00100404460 /* UIViewExtension.swift in Sources */,
 				722337D5228FC86600E71642 /* ShiftExpandedMonthViewVC.swift in Sources */,
 				72F3C1352251A0AB00191AB7 /* My_Shift_Calculator.xcdatamodeld in Sources */,

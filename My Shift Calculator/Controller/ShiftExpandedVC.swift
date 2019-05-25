@@ -39,12 +39,10 @@ class ShiftExpandedVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //loadShiftsFromContext()
         shiftsLoaded = loadShiftsFromContextGeneric(context: context)
         parseShift()
         tableView.dataSource = self
         tableView.delegate = self
-       // weekStartingLabel.text = weekStarting
         weekStartingLabel.text = "This Week"
 }
     
@@ -91,14 +89,12 @@ class ShiftExpandedVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             let cancelAction = UIAlertAction(
                 title: "CANCEL",
                 style: UIAlertAction.Style.destructive) { (action) in
-                    // ...
             }
+            
             let confirmAction = UIAlertAction(
             title: "YES", style: UIAlertAction.Style.default) { (action) in
                 self.context.delete(self.statusToSave!)
-                //self.context.delete(self.statusToSave!)
                 self.parsedShifts.remove(at: indexPath.row)
-              // self.saveShift()
                 self.saveContext(context: self.context)
                 tableView.reloadData()
             }
@@ -140,7 +136,6 @@ class ShiftExpandedVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         
         markCompleted.backgroundColor = #colorLiteral(red: 0.363037467, green: 0.7854679227, blue: 0.330747813, alpha: 1)
         markCompleted.image = UIImage(named: "icons8-checked-60")
-        //saveShift()
         let configuration = UISwipeActionsConfiguration(actions: [markCompleted])
         
         return configuration
@@ -177,11 +172,8 @@ class ShiftExpandedVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             self.saveContext(context: self.context)
             self.tableView.reloadData()
         }
-           // self.saveShift()
-        
-
+ 
         alertController.addAction(confirmAction)
-        //alertController.addAction(cancelAction)
         present(alertController, animated: true, completion: nil)
     }
 

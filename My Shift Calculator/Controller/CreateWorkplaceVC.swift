@@ -36,6 +36,7 @@ class CreateWorkplaceVC: UIViewController {
             print("Create Btn Pressed")
             
             let title = "Workplace Created!"
+                        
             confirmAction(title: title)
         } else {
            failedMessage.isHidden = false

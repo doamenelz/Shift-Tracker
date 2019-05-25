@@ -90,14 +90,6 @@ class Home: UIViewController {
         self.present(destinationVC, animated: true, completion: nil)
     }
     
-    @IBAction func addShiftPressed(_ sender: Any) {
-        
-        
-    }
-    
-    @IBAction func clockButtonPressed(_ sender: Any) {
-    }
-    
     //MARK: - Default Functions
     override func viewDidLoad() {
         super.viewDidLoad()
