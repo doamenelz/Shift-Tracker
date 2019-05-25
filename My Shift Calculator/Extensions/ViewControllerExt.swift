@@ -19,7 +19,6 @@ extension UIViewController {
         var shift = [Shift]()
         do {
              shift = try context.fetch(request)
-            print("----------------AllLoadedWithContext-----------------")
         } catch {
             print("Error fetching request \(error)")
         }

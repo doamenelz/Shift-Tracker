@@ -64,6 +64,7 @@ class CreateShiftVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
             
             let confirmAction = UIAlertAction(
             title: "DONE", style: UIAlertAction.Style.default) { (action) in
+                
                 //Launch new VC
                 let destinationVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeVC") as! Home
                 self.present(destinationVC, animated: true, completion: nil)
@@ -71,10 +72,6 @@ class CreateShiftVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
             
             alertController.addAction(confirmAction)
             self.present(alertController, animated: true, completion: nil)
-            
-           
-
-            //confirmAction(title: title)
         } else {
             print("Conditions failed")
         }
@@ -195,7 +192,6 @@ class CreateShiftVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
         do {
             //ParseWorkplace to Array
             workPlaceArray =  try context.fetch(request)
-            print("Workplace Array is \(workPlaceArray)")
         } catch  {
             print("Error fetching Workplace from context \(error)")
         }

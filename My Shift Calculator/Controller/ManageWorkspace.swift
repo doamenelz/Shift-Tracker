@@ -35,7 +35,6 @@ class ManageWorkspace: UIViewController, UITableViewDelegate, UITableViewDataSou
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchContext()
-        print("Fetced context")
         loadedShifts = loadShiftsFromContextGeneric(context: CONTEXT)
         setUpView()
     }

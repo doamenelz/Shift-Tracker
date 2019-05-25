@@ -73,7 +73,6 @@ class ShiftExpandedMonthViewVC: UIViewController, UITableViewDelegate, UITableVi
             self.summaryView.isHidden = false
             self.tableView.isHidden = false
             self.shiftsSectionLbl.isHidden = false
-            //self.tableView.reloadData()
         }
         dropDown.didSelect { (selectedText, index, id) in
            
@@ -141,9 +140,7 @@ class ShiftExpandedMonthViewVC: UIViewController, UITableViewDelegate, UITableVi
             let confirmAction = UIAlertAction(
             title: "YES", style: UIAlertAction.Style.default) { (action) in
                 self.context.delete(self.statusToSave!)
-                //self.context.delete(self.statusToSave!)
                 self.monthShift.remove(at: indexPath.row)
-                // self.saveShift()
                 self.saveContext(context: self.context)
                 tableView.reloadData()
             }
@@ -185,7 +182,6 @@ class ShiftExpandedMonthViewVC: UIViewController, UITableViewDelegate, UITableVi
         
         markCompleted.backgroundColor = #colorLiteral(red: 0.363037467, green: 0.7854679227, blue: 0.330747813, alpha: 1)
         markCompleted.image = UIImage(named: "icons8-checked-60")
-        //saveShift()
         let configuration = UISwipeActionsConfiguration(actions: [markCompleted])
         
         return configuration
@@ -249,7 +245,6 @@ class ShiftExpandedMonthViewVC: UIViewController, UITableViewDelegate, UITableVi
         var selectedMonth: Int?
         
         dateComponents.year = calendar.component(.year, from: Date())
-        //dateComponents.month = selectedMonth
         dateComponents.day = 10
         switch month {
         case "January":
@@ -268,12 +263,10 @@ class ShiftExpandedMonthViewVC: UIViewController, UITableViewDelegate, UITableVi
             selectedMonth = 4
             dateComponents.month = selectedMonth
             firstDayOfMonth = calendar.date(from: dateComponents)!
-            print("I can see \(firstDayOfMonth) as the month")
         case "May":
             selectedMonth = 5
             dateComponents.month = selectedMonth
             firstDayOfMonth = calendar.date(from: dateComponents)!
-            print("I can see \(firstDayOfMonth) as the month")
         case "June":
             selectedMonth = 6
             dateComponents.month = selectedMonth
@@ -286,7 +279,6 @@ class ShiftExpandedMonthViewVC: UIViewController, UITableViewDelegate, UITableVi
             selectedMonth = 8
             firstDayOfMonth = calendar.date(from: dateComponents)!
             dateComponents.month = selectedMonth
-            print("I can see \(firstDayOfMonth) as the month")
         case "September":
             selectedMonth = 9
             dateComponents.month = selectedMonth
@@ -327,16 +319,10 @@ class ShiftExpandedMonthViewVC: UIViewController, UITableViewDelegate, UITableVi
         let confirmAction = UIAlertAction(
         title: "OK", style: UIAlertAction.Style.default) { (action) in
             self.saveContext(context: self.context)
-//            self.getMonthShifts(selectedDate: self.firstDayOfMonth)
             self.tableView.reloadData()
-            //self.getMonthsString(monthInText: selectedText)
             
         }
-        // self.saveShift()
-        
-        
         alertController.addAction(confirmAction)
-        //alertController.addAction(cancelAction)
         present(alertController, animated: true, completion: nil)
     }
 
